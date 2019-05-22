@@ -1,0 +1,13 @@
+<div class="container" [style.width]="scope.width ? scope.width+'px' : 'auto'">
+    <img [tow-slave]="id" #image *ngIf="scope.src" [wResizable]="resizable" [src]="scope.src">
+
+    <a mat-button *ngIf="!isSrcBase64 && scope.src" [href]="scope.src" target="_blank" class="original-btn">
+        Show original
+    </a>
+</div>
+
+<w-brick-input-placeholder
+    *ngIf="!scope.src"
+    [text]="'Add an Image'"
+    [icon]="'image'" (selected)="showPanel()">
+</w-brick-input-placeholder>

@@ -1,0 +1,8 @@
+<div #editor
+     attr.placeholder="{{placeholder}}"
+     (input)="onTextChange()"
+     [(ngModel)]="scope.text"
+     (keydown)="onKeyPress($event)"
+     class="editor"
+     contenteditable>
+</div>

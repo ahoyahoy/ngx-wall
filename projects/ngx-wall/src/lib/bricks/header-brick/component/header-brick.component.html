@@ -1,0 +1,9 @@
+<div #editor
+     attr.placeholder="{{placeholder}}"
+     (input)="onTextChange()"
+     [(ngModel)]="scope.text"
+     [ngClass]="'header-brick-tabs-' + scope.tabs"
+     (keydown)="onKeyPress($event)"
+     class="text-brick__editor"
+     contenteditable>
+</div>

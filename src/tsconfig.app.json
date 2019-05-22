@@ -1,0 +1,26 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../out-tsc/app",
+    "module": "es2015",
+    "types": [],
+      "paths": {
+          "ngx-wall": [
+              "projects/ngx-wall/src/public_api.ts"
+          ],
+          "@angular/*": [
+              "./node_modules/@angular/*"
+          ],
+          "rxjs": [
+              "./node_modules/rxjs"
+          ],
+          "rxjs/*": [
+              "./node_modules/rxjs/*"
+          ]
+      }
+  },
+  "exclude": [
+    "src/test.ts",
+    "**/*.spec.ts"
+  ]
+}

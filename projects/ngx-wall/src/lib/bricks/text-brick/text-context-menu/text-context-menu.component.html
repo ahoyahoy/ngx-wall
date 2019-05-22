@@ -1,0 +1,35 @@
+<div class="w-context-panel w-text-context-menu-panel mat-elevation-z4">
+    <div>
+        <button [ngClass]="{'w-text-context-menu__selected-link': config.api.isLinkSelected()}"
+                mat-button
+                (click)="link()">
+            Link
+        </button>
+
+        <button mat-button (click)="bold()">Bold</button>
+        <button mat-button (click)="italic()">Italic</button>
+    </div>
+
+    <div>
+        <form *ngIf="ui.showLinkForm" (submit)="applyLink()">
+            <mat-form-field>
+                <input #linkEl #src matInput placeholder="Paste the url">
+            </mat-form-field>
+
+            <div>
+                <button (click)="applyLink()"
+                        type="button"
+                        mat-button>
+                    Link
+                </button>
+
+                <button *ngIf="config.api.isLinkSelected()"
+                        (click)="unlink()"
+                        type="button"
+                        mat-button>
+                    Unlink
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

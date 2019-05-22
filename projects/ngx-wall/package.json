@@ -1,0 +1,14 @@
+{
+    "name": "ngx-wall",
+    "version": "1.1.19",
+    "peerDependencies": {
+        "@angular/forms": "^7.1.2",
+        "@angular/common": "^7.1.2",
+        "@angular/core": "^7.1.2",
+        "@angular/cdk": "^7.3.6",
+        "@angular/material": "^7.3.6",
+        "codemirror": "5.42.0",
+        "rxjs": "^6.3.3",
+        "ngx-sticky-modal": "^0.0.3"
+    }
+}

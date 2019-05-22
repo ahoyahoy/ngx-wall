@@ -1,0 +1,14 @@
+<div class="container-fluid" [pick-out-area]="{scrollableContainer: container}">
+    <div class="row">
+        <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2 col-xl-8 offset-xl-2">
+            <div #container>
+                <wall [model]="wallModel"
+                      [configuration]="wallConfiguration"></wall>
+                <br>
+                <hr>
+                <br>
+                <pre>{{plan | json}}</pre>
+            </div>
+        </div>
+    </div>
+</div>
