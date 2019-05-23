@@ -1,0 +1,7 @@
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+export { TextBrickModule } from './text-brick.module';
+export { TextBrickComponent } from './component/text-brick.component';
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoidGV4dC1icmljay5qcyIsInNvdXJjZVJvb3QiOiJuZzovL25neC13YWxsLyIsInNvdXJjZXMiOlsibGliL2JyaWNrcy90ZXh0LWJyaWNrL3RleHQtYnJpY2sudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7OztBQUFBLE9BQU8sRUFBQyxlQUFlLEVBQUMsTUFBTSxxQkFBcUIsQ0FBQztBQUNwRCxPQUFPLEVBQUMsa0JBQWtCLEVBQUMsTUFBTSxrQ0FBa0MsQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbImV4cG9ydCB7VGV4dEJyaWNrTW9kdWxlfSBmcm9tICcuL3RleHQtYnJpY2subW9kdWxlJztcbmV4cG9ydCB7VGV4dEJyaWNrQ29tcG9uZW50fSBmcm9tICcuL2NvbXBvbmVudC90ZXh0LWJyaWNrLmNvbXBvbmVudCc7XG4iXX0=

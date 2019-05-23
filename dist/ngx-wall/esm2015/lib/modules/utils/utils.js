@@ -1,0 +1,8 @@
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+export { Guid } from './guid';
+export { Base64ToFile } from './base64-to-file';
+export { ImgEncoder } from './img-encoder.service';
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoidXRpbHMuanMiLCJzb3VyY2VSb290Ijoibmc6Ly9uZ3gtd2FsbC8iLCJzb3VyY2VzIjpbImxpYi9tb2R1bGVzL3V0aWxzL3V0aWxzLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7QUFBQSxPQUFPLEVBQUMsSUFBSSxFQUFDLE1BQU0sUUFBUSxDQUFDO0FBQzVCLE9BQU8sRUFBQyxZQUFZLEVBQUMsTUFBTSxrQkFBa0IsQ0FBQztBQUM5QyxPQUFPLEVBQUUsVUFBVSxFQUFFLE1BQU0sdUJBQXVCLENBQUMiLCJzb3VyY2VzQ29udGVudCI6WyJleHBvcnQge0d1aWR9IGZyb20gJy4vZ3VpZCc7XG5leHBvcnQge0Jhc2U2NFRvRmlsZX0gZnJvbSAnLi9iYXNlNjQtdG8tZmlsZSc7XG5leHBvcnQgeyBJbWdFbmNvZGVyIH0gZnJvbSAnLi9pbWctZW5jb2Rlci5zZXJ2aWNlJztcbiJdfQ==

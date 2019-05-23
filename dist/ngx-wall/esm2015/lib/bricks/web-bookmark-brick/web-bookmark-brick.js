@@ -1,0 +1,6 @@
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+export { WebBookmarkBrickModule } from './web-bookmark-brick.module';
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoid2ViLWJvb2ttYXJrLWJyaWNrLmpzIiwic291cmNlUm9vdCI6Im5nOi8vbmd4LXdhbGwvIiwic291cmNlcyI6WyJsaWIvYnJpY2tzL3dlYi1ib29rbWFyay1icmljay93ZWItYm9va21hcmstYnJpY2sudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7OztBQUFBLE9BQU8sRUFBRSxzQkFBc0IsRUFBRSxNQUFNLDZCQUE2QixDQUFDIiwic291cmNlc0NvbnRlbnQiOlsiZXhwb3J0IHsgV2ViQm9va21hcmtCcmlja01vZHVsZSB9IGZyb20gJy4vd2ViLWJvb2ttYXJrLWJyaWNrLm1vZHVsZSc7XG4iXX0=

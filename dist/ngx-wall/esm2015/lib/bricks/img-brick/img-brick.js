@@ -1,0 +1,7 @@
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+export { ImgBrickModule } from './img-brick.module';
+export { ImgBrickComponent } from './component/img-brick.component';
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW1nLWJyaWNrLmpzIiwic291cmNlUm9vdCI6Im5nOi8vbmd4LXdhbGwvIiwic291cmNlcyI6WyJsaWIvYnJpY2tzL2ltZy1icmljay9pbWctYnJpY2sudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7OztBQUFBLE9BQU8sRUFBQyxjQUFjLEVBQUMsTUFBTSxvQkFBb0IsQ0FBQztBQUNsRCxPQUFPLEVBQUMsaUJBQWlCLEVBQUMsTUFBTSxpQ0FBaUMsQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbImV4cG9ydCB7SW1nQnJpY2tNb2R1bGV9IGZyb20gJy4vaW1nLWJyaWNrLm1vZHVsZSc7XG5leHBvcnQge0ltZ0JyaWNrQ29tcG9uZW50fSBmcm9tICcuL2NvbXBvbmVudC9pbWctYnJpY2suY29tcG9uZW50JztcbiJdfQ==

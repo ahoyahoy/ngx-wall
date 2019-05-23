@@ -1,0 +1,77 @@
+import { ElementRef, EventEmitter, OnDestroy, OnInit } from '@angular/core';
+import { Subject, Subscription } from 'rxjs';
+import { IFocusContext, IOnWallFocus, IOnWallStateChange, IWallComponent, IWallModel, IWallUiApi } from '../../wall/wall';
+import { IBaseTextState } from './base-text-state.interface';
+import { BottomKeyHandler } from './keypress-handlers/bottom-key.handler';
+import { EnterKeyHandler } from './keypress-handlers/enter-key.handler';
+import { LeftKeyHandler } from './keypress-handlers/left-key.handler';
+import { RightKeyHandler } from './keypress-handlers/right-key.handler';
+import { TopKeyHandler } from './keypress-handlers/top-key.handler';
+export interface ICursorPositionInLine {
+    isOnLastLine: boolean;
+    isOnFirstLine: boolean;
+}
+export declare abstract class BaseTextBrickComponent implements OnInit, OnDestroy, IOnWallStateChange, IOnWallFocus, IWallComponent {
+    id: string;
+    state: IBaseTextState;
+    wallModel: IWallModel;
+    stateChanges: EventEmitter<IBaseTextState>;
+    editor: ElementRef;
+    keypressHandlers: {
+        top: TopKeyHandler;
+        enter: EnterKeyHandler;
+        left: LeftKeyHandler;
+        right: RightKeyHandler;
+        bottom: BottomKeyHandler;
+    };
+    wallUiApi: IWallUiApi;
+    scope: IBaseTextState;
+    maxTabNumber: number;
+    textChange: Subject<string>;
+    textChangeSubscription: Subscription;
+    onPasteBound: (e: ClipboardEvent) => any;
+    ngOnInit(): void;
+    onWallStateChange(newState: IBaseTextState): void;
+    ngOnDestroy(): void;
+    onPaste(e: ClipboardEvent): void;
+    onTextChange(): void;
+    onKeyPress(e: KeyboardEvent): void;
+    proxyToKeyHandler(keyHandlerName: string, e: KeyboardEvent): void;
+    topKeyPressed(e: KeyboardEvent): void;
+    bottomKeyPressed(e: KeyboardEvent): void;
+    enterKeyPressed(e: KeyboardEvent): void;
+    leftKeyPressed(e: KeyboardEvent): void;
+    rightKeyPressed(e: any): void;
+    escapeKeyPressed(e: KeyboardEvent): void;
+    onTabPressed(e: KeyboardEvent): void;
+    backSpaceKeyPressed(e: KeyboardEvent): void;
+    isCaretAtFirstLine(): boolean;
+    isCaretAtLastLine(): boolean;
+    getCaretLeftCoordinate(): number;
+    getCursorPositionInLine(): ICursorPositionInLine;
+    concatWithPreviousTextSupportingBrick(e: any): void;
+    concatWithNextTextSupportingBrick(e: Event): void;
+    onDeleteAndFocusToPrevious(e: KeyboardEvent): void;
+    onDeleteAndFocusToNext(e: KeyboardEvent): void;
+    getSplittedText(offset: number, target: Node): {
+        left: string;
+        right: string;
+    };
+    onWallFocus(context?: IFocusContext): void;
+    setTextState(text?: string): void;
+    increaseTab(): void;
+    decreaseTab(): void;
+    saveCurrentState(): void;
+    isTextSelected(): boolean;
+    placeCaretAtStart(): void;
+    placeCaretAtEnd(): void;
+    placeCaretAtNodeStart(el: Node): void;
+    placeCaretAtNodeEnd(el: Node): void;
+    placeCaretAtNodeToPosition(el: Node, position: number): void;
+    placeCaretBaseOnConcatenatedText(concatenationText: string): void;
+    placeCaretAtLeftCoordinate(leftCoordinate: number, line: string): void;
+    isCaretAtStart(): boolean;
+    isCaretAtEnd(): boolean;
+    cleanUpText(text: string): string;
+    private noMetaKeyIsPressed;
+}

@@ -1,0 +1,13 @@
+export declare const FOCUS_INITIATOR = "text-supporting-brick";
+export declare const ENTER_KEY = "Enter";
+export declare const NUMPUB_ENTER_KEY = "NumpadEnter";
+export declare const ENTER_KEY_CODE_ANDROID = 13;
+export declare const DELETE_KEY = "Delete";
+export declare const BACK_SPACE_KEY = "Backspace";
+export declare const BACK_SPACE_KEY_CODE_ANDROID = 8;
+export declare const LEFT_KEY = "ArrowLeft";
+export declare const TOP_KEY = "ArrowUp";
+export declare const RIGHT_KEY = "ArrowRight";
+export declare const BOTTOM_KEY = "ArrowDown";
+export declare const ESCAPE_KEY = 27;
+export declare const TAB_KEY = "Tab";

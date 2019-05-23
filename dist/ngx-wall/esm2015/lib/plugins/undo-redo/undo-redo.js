@@ -1,0 +1,7 @@
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+export { UNDO_REDO_API_NAME } from './undo-redo.constant';
+export { UndoRedoPlugin } from './undo-redo.plugin';
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoidW5kby1yZWRvLmpzIiwic291cmNlUm9vdCI6Im5nOi8vbmd4LXdhbGwvIiwic291cmNlcyI6WyJsaWIvcGx1Z2lucy91bmRvLXJlZG8vdW5kby1yZWRvLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7QUFBQSxPQUFPLEVBQUMsa0JBQWtCLEVBQUMsTUFBTSxzQkFBc0IsQ0FBQztBQUV4RCxPQUFPLEVBQUMsY0FBYyxFQUFDLE1BQU0sb0JBQW9CLENBQUMiLCJzb3VyY2VzQ29udGVudCI6WyJleHBvcnQge1VORE9fUkVET19BUElfTkFNRX0gZnJvbSAnLi91bmRvLXJlZG8uY29uc3RhbnQnO1xuZXhwb3J0IHtJVW5kb1JlZG9BcGl9IGZyb20gJy4vdW5kby1yZWRvLWFwaS5pbnRlcmZhY2UnO1xuZXhwb3J0IHtVbmRvUmVkb1BsdWdpbn0gZnJvbSAnLi91bmRvLXJlZG8ucGx1Z2luJztcbiJdfQ==

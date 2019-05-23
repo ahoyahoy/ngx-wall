@@ -1,0 +1,44 @@
+import { ComponentFactoryResolver, ElementRef, EventEmitter, OnInit, Renderer2 } from '@angular/core';
+import { StickyModalRef, StickyModalService } from 'ngx-sticky-modal';
+import { IWallFileUploader } from '../../../modules/file-uploader/file-uploader.types';
+import { IResizeData } from '../../../modules/resizable/resizable.directive';
+import { ImgBrickState, ImgBrickStateMetadata } from '../img-brick-state.interface';
+import { IOnWallFocus } from '../../../wall/components/wall/interfaces/wall-component/on-wall-focus.interface';
+export declare class ImgBrickComponent implements OnInit, IOnWallFocus {
+    private renderer;
+    private componentFactoryResolver;
+    private ngxStickyModalService;
+    private wallFileUploader;
+    private el;
+    id: string;
+    state: ImgBrickState;
+    stateChanges: EventEmitter<ImgBrickState>;
+    image: ElementRef;
+    scope: ImgBrickState;
+    isSrcBase64: boolean;
+    lastWidth: number;
+    imageSrcPlaceholderRef: StickyModalRef;
+    resizable: {
+        resize: any;
+        resizeStart: any;
+        resizeEnd: any;
+    };
+    constructor(renderer: Renderer2, componentFactoryResolver: ComponentFactoryResolver, ngxStickyModalService: StickyModalService, wallFileUploader: IWallFileUploader, el: ElementRef);
+    ngOnInit(): void;
+    onWallStateChange(newState: ImgBrickState): void;
+    processNewState(): void;
+    onWallFocus(): void;
+    onResize(resizeData: IResizeData): void;
+    onResizeStart(): void;
+    onResizeEnd(): void;
+    applyImageSrc(imageSrc: string, metadata?: ImgBrickStateMetadata): Promise<any>;
+    applyImageFile(imgFile: File): Promise<void>;
+    processBase64ImgSrc(): Promise<void>;
+    showPanel(): void;
+    isBase64(str: string): boolean;
+    private uploadImage;
+    private setUpImageWidth;
+    private save;
+    private loadImage;
+    private isImage;
+}

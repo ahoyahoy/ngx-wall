@@ -1,0 +1,7 @@
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+export { DIVIDER_BRICK_TAG } from './divider-brick.constant';
+export { DividerBrickModule } from './divider-brick.module';
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZGl2aWRlci1icmljay5qcyIsInNvdXJjZVJvb3QiOiJuZzovL25neC13YWxsLyIsInNvdXJjZXMiOlsibGliL2JyaWNrcy9kaXZpZGVyLWJyaWNrL2RpdmlkZXItYnJpY2sudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7OztBQUFBLE9BQU8sRUFBQyxpQkFBaUIsRUFBQyxNQUFNLDBCQUEwQixDQUFDO0FBQzNELE9BQU8sRUFBQyxrQkFBa0IsRUFBQyxNQUFNLHdCQUF3QixDQUFDIiwic291cmNlc0NvbnRlbnQiOlsiZXhwb3J0IHtESVZJREVSX0JSSUNLX1RBR30gZnJvbSAnLi9kaXZpZGVyLWJyaWNrLmNvbnN0YW50JztcbmV4cG9ydCB7RGl2aWRlckJyaWNrTW9kdWxlfSBmcm9tICcuL2RpdmlkZXItYnJpY2subW9kdWxlJztcbiJdfQ==
