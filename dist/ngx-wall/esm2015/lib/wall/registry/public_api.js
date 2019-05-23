@@ -1,6 +1,6 @@
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 export { BrickRegistry } from './brick-registry.service';
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicHVibGljX2FwaS5qcyIsInNvdXJjZVJvb3QiOiJuZzovL25neC13YWxsLyIsInNvdXJjZXMiOlsibGliL3dhbGwvcmVnaXN0cnkvcHVibGljX2FwaS50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7O0FBQUEsT0FBTyxFQUFDLGFBQWEsRUFBQyxNQUFNLDBCQUEwQixDQUFDIiwic291cmNlc0NvbnRlbnQiOlsiZXhwb3J0IHtCcmlja1JlZ2lzdHJ5fSBmcm9tICcuL2JyaWNrLXJlZ2lzdHJ5LnNlcnZpY2UnO1xuZXhwb3J0IHtJQnJpY2tTcGVjaWZpY2F0aW9ufSBmcm9tICcuL2ludGVyZmFjZXMvYnJpY2stc3BlY2lmaWNhdGlvbi5pbnRlcmZhY2UnO1xuIl19

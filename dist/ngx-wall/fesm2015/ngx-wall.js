@@ -12,7 +12,7 @@ import 'codemirror/mode/xml/xml';
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class Guid {
     /**
@@ -34,7 +34,7 @@ class Guid {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class Base64ToFile {
     /**
@@ -68,7 +68,7 @@ class Base64ToFile {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class ImgEncoder {
     /**
@@ -81,28 +81,41 @@ class ImgEncoder {
      * @return {?}
      */
     getBase64Representation() {
-        return new Promise((resolve, reject) => {
+        return new Promise((/**
+         * @param {?} resolve
+         * @param {?} reject
+         * @return {?}
+         */
+        (resolve, reject) => {
             /** @type {?} */
             const reader = new FileReader();
-            reader.onload = (event) => {
+            reader.onload = (/**
+             * @param {?} event
+             * @return {?}
+             */
+            (event) => {
                 resolve(event.target.result);
-            };
-            reader.onerror = (event) => {
+            });
+            reader.onerror = (/**
+             * @param {?} event
+             * @return {?}
+             */
+            (event) => {
                 reject(event);
-            };
+            });
             reader.readAsDataURL(this.image);
-        });
+        }));
     }
 }
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class WallBrick {
     /**
@@ -163,7 +176,7 @@ class WallBrick {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class AddBrickEvent {
     /**
@@ -176,7 +189,7 @@ class AddBrickEvent {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class BeforeChangeEvent {
     /**
@@ -189,7 +202,7 @@ class BeforeChangeEvent {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class MoveBrickEvent {
     /**
@@ -203,7 +216,7 @@ class MoveBrickEvent {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class RemoveBrickEvent {
     /**
@@ -220,7 +233,7 @@ class RemoveBrickEvent {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class RemoveBricksEvent {
     /**
@@ -237,14 +250,14 @@ class RemoveBricksEvent {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class SetPlanEvent {
 }
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TurnBrickIntoEvent {
     /**
@@ -261,7 +274,7 @@ class TurnBrickIntoEvent {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class UpdateBrickStateEvent {
     /**
@@ -278,7 +291,7 @@ class UpdateBrickStateEvent {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /*
 * Execute queries commands over rows
@@ -305,7 +318,14 @@ class LayoutWalker {
      */
     isBrickAheadOf(firstBrickId, secondBrickId) {
         /** @type {?} */
-        const brickIdsSequence = this.getBrickSequence(() => true).map((brick) => brick.id);
+        const brickIdsSequence = this.getBrickSequence((/**
+         * @return {?}
+         */
+        () => true)).map((/**
+         * @param {?} brick
+         * @return {?}
+         */
+        (brick) => brick.id));
         return brickIdsSequence.indexOf(firstBrickId) < brickIdsSequence.indexOf(secondBrickId);
     }
     /**
@@ -320,24 +340,39 @@ class LayoutWalker {
      * @return {?}
      */
     getBrickById(brickId) {
-        return this.getBrickSequence((brick) => {
+        return this.getBrickSequence((/**
+         * @param {?} brick
+         * @return {?}
+         */
+        (brick) => {
             return brick.id === brickId;
-        })[0];
+        }))[0];
     }
     /**
      * @return {?}
      */
     getBrickIds() {
-        return this.getBrickSequence(() => true).map((brick) => brick.id);
+        return this.getBrickSequence((/**
+         * @return {?}
+         */
+        () => true)).map((/**
+         * @param {?} brick
+         * @return {?}
+         */
+        (brick) => brick.id));
     }
     /**
      * @param {?} predictor
      * @return {?}
      */
     filterBricks(predictor) {
-        return this.getBrickSequence((wallBrick) => {
+        return this.getBrickSequence((/**
+         * @param {?} wallBrick
+         * @return {?}
+         */
+        (wallBrick) => {
             return predictor(wallBrick.getSnapshot());
-        });
+        }));
     }
     /**
      * @param {?} brickId
@@ -353,20 +388,30 @@ class LayoutWalker {
         /** @type {?} */
         let i = 0;
         while (brickPosition.rowIndex === null && i < this.rows.length) {
-            this.rows[i].columns.forEach((column, columnIndex) => {
+            this.rows[i].columns.forEach((/**
+             * @param {?} column
+             * @param {?} columnIndex
+             * @return {?}
+             */
+            (column, columnIndex) => {
                 /** @type {?} */
                 let brickIndex = null;
-                column.bricks.forEach((brick, index) => {
+                column.bricks.forEach((/**
+                 * @param {?} brick
+                 * @param {?} index
+                 * @return {?}
+                 */
+                (brick, index) => {
                     if (brick.id === brickId) {
                         brickIndex = index;
                     }
-                });
+                }));
                 if (brickIndex || brickIndex === 0) {
                     brickPosition.rowIndex = i;
                     brickPosition.columnIndex = columnIndex;
                     brickPosition.brickIndex = brickIndex;
                 }
-            });
+            }));
             i++;
         }
         return brickPosition;
@@ -382,7 +427,10 @@ class LayoutWalker {
      * @return {?}
      */
     getBricksCount() {
-        return this.getBrickSequence(() => true).length;
+        return this.getBrickSequence((/**
+         * @return {?}
+         */
+        () => true)).length;
     }
     /**
      * @param {?} brickId
@@ -390,11 +438,18 @@ class LayoutWalker {
      */
     getNextBrick(brickId) {
         /** @type {?} */
-        const bricksSequence = this.getBrickSequence(() => true);
+        const bricksSequence = this.getBrickSequence((/**
+         * @return {?}
+         */
+        () => true));
         /** @type {?} */
-        const brickIndex = bricksSequence.findIndex((brick) => {
+        const brickIndex = bricksSequence.findIndex((/**
+         * @param {?} brick
+         * @return {?}
+         */
+        (brick) => {
             return brick.id === brickId;
-        });
+        }));
         return bricksSequence[brickIndex + 1];
     }
     /**
@@ -412,11 +467,18 @@ class LayoutWalker {
      */
     getPreviousBrick(brickId) {
         /** @type {?} */
-        const bricksSequence = this.getBrickSequence(() => true);
+        const bricksSequence = this.getBrickSequence((/**
+         * @return {?}
+         */
+        () => true));
         /** @type {?} */
-        const brickIndex = bricksSequence.findIndex((brick) => {
+        const brickIndex = bricksSequence.findIndex((/**
+         * @param {?} brick
+         * @return {?}
+         */
+        (brick) => {
             return brick.id === brickId;
-        });
+        }));
         return bricksSequence[brickIndex - 1];
     }
     /**
@@ -435,15 +497,27 @@ class LayoutWalker {
     getBrickSequence(predicate) {
         /** @type {?} */
         const brickSequence = [];
-        this.traverse((row) => {
-            row.columns.forEach((column) => {
-                column.bricks.forEach((brick) => {
+        this.traverse((/**
+         * @param {?} row
+         * @return {?}
+         */
+        (row) => {
+            row.columns.forEach((/**
+             * @param {?} column
+             * @return {?}
+             */
+            (column) => {
+                column.bricks.forEach((/**
+                 * @param {?} brick
+                 * @return {?}
+                 */
+                (brick) => {
                     if (predicate(brick)) {
                         brickSequence.push(brick);
                     }
-                });
-            });
-        });
+                }));
+            }));
+        }));
         return brickSequence;
     }
     /**
@@ -471,9 +545,13 @@ class LayoutWalker {
      */
     getNextTextBrick(brickId) {
         /** @type {?} */
-        const nextTextBricks = this.findBricksAfter(brickId, (currentBrick) => {
+        const nextTextBricks = this.findBricksAfter(brickId, (/**
+         * @param {?} currentBrick
+         * @return {?}
+         */
+        (currentBrick) => {
             return this.brickRegistry.get(currentBrick.tag).supportText;
-        });
+        }));
         return nextTextBricks[0];
     }
     /**
@@ -482,9 +560,13 @@ class LayoutWalker {
      */
     getPreviousTextBrick(brickId) {
         /** @type {?} */
-        const previousTextBricks = this.findBrickBefore(brickId, (currentBrick) => {
+        const previousTextBricks = this.findBrickBefore(brickId, (/**
+         * @param {?} currentBrick
+         * @return {?}
+         */
+        (currentBrick) => {
             return this.brickRegistry.get(currentBrick.tag).supportText;
-        });
+        }));
         return previousTextBricks[previousTextBricks.length - 1];
     }
     /**
@@ -496,23 +578,38 @@ class LayoutWalker {
         /** @type {?} */
         const bricks = [];
         /** @type {?} */
-        const bricksSequence = this.getBrickSequence(() => true);
+        const bricksSequence = this.getBrickSequence((/**
+         * @return {?}
+         */
+        () => true));
         /** @type {?} */
-        const brickIdsSequence = bricksSequence.map((brick) => brick.id);
+        const brickIdsSequence = bricksSequence.map((/**
+         * @param {?} brick
+         * @return {?}
+         */
+        (brick) => brick.id));
         /** @type {?} */
         const currentBrickIdIndex = brickIdsSequence.indexOf(brickId);
         if (currentBrickIdIndex !== -1) {
             /** @type {?} */
             const brickIdsAfter = brickIdsSequence.splice(currentBrickIdIndex + 1);
-            brickIdsAfter.forEach((brickIdAfter) => {
+            brickIdsAfter.forEach((/**
+             * @param {?} brickIdAfter
+             * @return {?}
+             */
+            (brickIdAfter) => {
                 /** @type {?} */
-                const currentBrick = bricksSequence.find((brick) => {
+                const currentBrick = bricksSequence.find((/**
+                 * @param {?} brick
+                 * @return {?}
+                 */
+                (brick) => {
                     return brick.id === brickIdAfter;
-                });
+                }));
                 if (predicate(currentBrick)) {
                     bricks.push(currentBrick);
                 }
-            });
+            }));
         }
         return bricks;
     }
@@ -525,21 +622,36 @@ class LayoutWalker {
         /** @type {?} */
         const bricks = [];
         /** @type {?} */
-        const bricksSequence = this.getBrickSequence(() => true);
+        const bricksSequence = this.getBrickSequence((/**
+         * @return {?}
+         */
+        () => true));
         /** @type {?} */
-        const brickIdsSequence = bricksSequence.map((brick) => brick.id);
+        const brickIdsSequence = bricksSequence.map((/**
+         * @param {?} brick
+         * @return {?}
+         */
+        (brick) => brick.id));
         /** @type {?} */
         const currentBrickIdIndex = brickIdsSequence.indexOf(brickId);
         if (currentBrickIdIndex !== -1) {
             /** @type {?} */
             const brickIdsBefore = brickIdsSequence.splice(0, currentBrickIdIndex);
-            brickIdsBefore.forEach((brickIdBefore) => {
+            brickIdsBefore.forEach((/**
+             * @param {?} brickIdBefore
+             * @return {?}
+             */
+            (brickIdBefore) => {
                 /** @type {?} */
-                const currentBrick = bricksSequence.find((brick) => brick.id === brickIdBefore);
+                const currentBrick = bricksSequence.find((/**
+                 * @param {?} brick
+                 * @return {?}
+                 */
+                (brick) => brick.id === brickIdBefore));
                 if (predicate(currentBrick)) {
                     bricks.push(currentBrick);
                 }
-            });
+            }));
         }
         return bricks;
     }
@@ -555,15 +667,19 @@ class LayoutWalker {
      * @return {?}
      */
     traverse(fn) {
-        this.rows.forEach((row) => {
+        this.rows.forEach((/**
+         * @param {?} row
+         * @return {?}
+         */
+        (row) => {
             fn(row);
-        });
+        }));
     }
 }
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /*
 * Modify layout wall rows
@@ -649,7 +765,11 @@ class WallLayout {
      */
     moveBrickAfterInNewRow(afterBrickId, movedBrickIds) {
         movedBrickIds.reverse();
-        movedBrickIds.forEach((movedBrickId) => {
+        movedBrickIds.forEach((/**
+         * @param {?} movedBrickId
+         * @return {?}
+         */
+        (movedBrickId) => {
             /** @type {?} */
             const currentMovedBrick = this.layoutWalker.getBrickById(movedBrickId);
             this.removeBrick(movedBrickId);
@@ -658,7 +778,7 @@ class WallLayout {
             /** @type {?} */
             const newRowIndex = afterBrickPosition.rowIndex + 1;
             this.addBrickToNewRow(newRowIndex, currentMovedBrick);
-        });
+        }));
     }
     /**
      * @param {?} afterBrickId
@@ -666,14 +786,19 @@ class WallLayout {
      * @return {?}
      */
     moveBrickAfterInSameColumn(afterBrickId, movedBrickIds) {
-        movedBrickIds.forEach((movedBrickId, index) => {
+        movedBrickIds.forEach((/**
+         * @param {?} movedBrickId
+         * @param {?} index
+         * @return {?}
+         */
+        (movedBrickId, index) => {
             /** @type {?} */
             const currentMovedBrick = this.layoutWalker.getBrickById(movedBrickId);
             this.removeBrick(movedBrickId);
             /** @type {?} */
             const afterBrickPosition = this.layoutWalker.getBrickPosition(afterBrickId);
             this.addBrickToExistingColumn(afterBrickPosition.rowIndex, afterBrickPosition.columnIndex, afterBrickPosition.brickIndex + index + 1, currentMovedBrick);
-        });
+        }));
     }
     /**
      * @param {?} beforeBrickId
@@ -682,7 +807,12 @@ class WallLayout {
      */
     moveBrickBeforeInNewRow(beforeBrickId, movedBrickIds) {
         movedBrickIds.reverse();
-        movedBrickIds.forEach((movedBrickId, index) => {
+        movedBrickIds.forEach((/**
+         * @param {?} movedBrickId
+         * @param {?} index
+         * @return {?}
+         */
+        (movedBrickId, index) => {
             /** @type {?} */
             const currentMovedBrick = this.layoutWalker.getBrickById(movedBrickId);
             this.removeBrick(movedBrickId);
@@ -695,7 +825,7 @@ class WallLayout {
                 beforeBrickPosition = this.layoutWalker.getBrickPosition(movedBrickIds[index - 1]);
             }
             this.addBrickToNewRow(beforeBrickPosition.rowIndex, currentMovedBrick);
-        });
+        }));
     }
     /**
      * @param {?} beforeBrickId
@@ -703,14 +833,18 @@ class WallLayout {
      * @return {?}
      */
     moveBrickBeforeInSameColumn(beforeBrickId, movedBrickIds) {
-        movedBrickIds.forEach((movedBrickId) => {
+        movedBrickIds.forEach((/**
+         * @param {?} movedBrickId
+         * @return {?}
+         */
+        (movedBrickId) => {
             /** @type {?} */
             const currentMovedBrick = this.layoutWalker.getBrickById(movedBrickId);
             this.removeBrick(movedBrickId);
             /** @type {?} */
             const beforeBrickPosition = this.layoutWalker.getBrickPosition(beforeBrickId);
             this.addBrickToExistingColumn(beforeBrickPosition.rowIndex, beforeBrickPosition.columnIndex, beforeBrickPosition.brickIndex, currentMovedBrick);
-        });
+        }));
     }
     /**
      * @param {?} movedBrickIds
@@ -720,12 +854,16 @@ class WallLayout {
      */
     moveBrickToNewColumn(movedBrickIds, beforeBrickId, side) {
         /** @type {?} */
-        const movedBricks = movedBrickIds.map((movedBrickId) => {
+        const movedBricks = movedBrickIds.map((/**
+         * @param {?} movedBrickId
+         * @return {?}
+         */
+        (movedBrickId) => {
             /** @type {?} */
             const currentMovedBrick = this.layoutWalker.getBrickById(movedBrickId);
             this.removeBrick(movedBrickId);
             return currentMovedBrick;
-        });
+        }));
         /** @type {?} */
         const beforeBrickPosition = this.layoutWalker.getBrickPosition(beforeBrickId);
         /** @type {?} */
@@ -738,14 +876,19 @@ class WallLayout {
         else if (side === 'right') {
             columnIndex = beforeBrickPosition.columnIndex + 1;
         }
-        movedBricks.forEach((movedBrick, index) => {
+        movedBricks.forEach((/**
+         * @param {?} movedBrick
+         * @param {?} index
+         * @return {?}
+         */
+        (movedBrick, index) => {
             if (index === 0) {
                 this.addBrickToNewColumn(beforeBrickPosition.rowIndex, columnIndex, movedBrick);
             }
             else {
                 this.addBrickToExistingColumn(beforeBrickPosition.rowIndex, columnIndex, index, movedBrick);
             }
-        });
+        }));
     }
     /**
      * @param {?} brickId
@@ -852,7 +995,7 @@ class WallLayout {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /*
 * Contains Wall data structure and registers API for data manipulation.
@@ -889,9 +1032,13 @@ class WallCorePlugin {
             'getPreviousTextBrickId',
             'filterBricks',
             'isBrickAheadOf'
-        ].forEach((methodName) => {
+        ].forEach((/**
+         * @param {?} methodName
+         * @return {?}
+         */
+        (methodName) => {
             this[methodName] = this.layoutWalker[methodName].bind(this.layoutWalker);
-        });
+        }));
         this.wallModel.registerApi(this.name, this);
     }
     // old
@@ -905,13 +1052,32 @@ class WallCorePlugin {
         this.layout = new WallLayout(this.brickRegistry, this.layoutWalker);
         this.layoutWalker.setLayout(this.layout.rows);
         // build tree
-        plan.layout.bricks.forEach((row, rowIndex) => {
-            row.columns.forEach((column, columnIndex) => {
-                column.bricks.forEach((brick, brickIndex) => {
+        plan.layout.bricks.forEach((/**
+         * @param {?} row
+         * @param {?} rowIndex
+         * @return {?}
+         */
+        (row, rowIndex) => {
+            row.columns.forEach((/**
+             * @param {?} column
+             * @param {?} columnIndex
+             * @return {?}
+             */
+            (column, columnIndex) => {
+                column.bricks.forEach((/**
+                 * @param {?} brick
+                 * @param {?} brickIndex
+                 * @return {?}
+                 */
+                (brick, brickIndex) => {
                     /** @type {?} */
-                    const planBrick = plan.bricks.find((currentPlanBrick) => {
+                    const planBrick = plan.bricks.find((/**
+                     * @param {?} currentPlanBrick
+                     * @return {?}
+                     */
+                    (currentPlanBrick) => {
                         return brick.id === currentPlanBrick.id;
-                    });
+                    }));
                     /** @type {?} */
                     const wallBrick = this.restoreBrick(planBrick);
                     // first column in new row
@@ -931,9 +1097,9 @@ class WallCorePlugin {
                             this.layout.addBrickToExistingColumn(rowIndex, columnIndex, brickIndex, wallBrick);
                         }
                     }
-                });
-            });
-        });
+                }));
+            }));
+        }));
         this.dispatch(new SetPlanEvent());
     }
     /**
@@ -1035,8 +1201,11 @@ class WallCorePlugin {
         const nextTextBrick = this.layoutWalker.getNextTextBrick(brickId);
         /** @type {?} */
         const previousTextBrick = this.layoutWalker.getPreviousTextBrick(brickId);
-        this.clearBrickResources(brickId).then(() => {
-        });
+        this.clearBrickResources(brickId).then((/**
+         * @return {?}
+         */
+        () => {
+        }));
         /** @type {?} */
         const removedBrick = this.layoutWalker.getBrickById(brickId);
         this.layout.removeBrick(brickId);
@@ -1054,11 +1223,22 @@ class WallCorePlugin {
         /** @type {?} */
         const previousBrick = this.layoutWalker.getPreviousBrick(brickIds[0]);
         /** @type {?} */
-        const clearPromises = brickIds.map((brickId) => this.clearBrickResources(brickId));
-        Promise.all(clearPromises).then(() => {
-        });
+        const clearPromises = brickIds.map((/**
+         * @param {?} brickId
+         * @return {?}
+         */
+        (brickId) => this.clearBrickResources(brickId)));
+        Promise.all(clearPromises).then((/**
+         * @return {?}
+         */
+        () => {
+        }));
         /** @type {?} */
-        const removedBricks = brickIds.map((brickId) => {
+        const removedBricks = brickIds.map((/**
+         * @param {?} brickId
+         * @return {?}
+         */
+        (brickId) => {
             /** @type {?} */
             const removedBrick = this.layoutWalker.getBrickById(brickId);
             this.layout.removeBrick(brickId);
@@ -1067,7 +1247,7 @@ class WallCorePlugin {
                 tag: removedBrick.tag,
                 state: removedBrick.state
             };
-        });
+        }));
         this.dispatch(new RemoveBricksEvent(removedBricks, previousBrick && previousBrick.id, nextTextBrick && nextTextBrick.id));
     }
     /**
@@ -1080,12 +1260,23 @@ class WallCorePlugin {
         const brickIds = this.layoutWalker.getBrickIds();
         // todo: replace it after removeBricks will be async
         /** @type {?} */
-        const clearPromises = brickIds.map((brickId) => this.clearBrickResources(brickId));
-        return Promise.all(clearPromises).then(() => {
-            brickIds.forEach((brickId) => {
+        const clearPromises = brickIds.map((/**
+         * @param {?} brickId
+         * @return {?}
+         */
+        (brickId) => this.clearBrickResources(brickId)));
+        return Promise.all(clearPromises).then((/**
+         * @return {?}
+         */
+        () => {
+            brickIds.forEach((/**
+             * @param {?} brickId
+             * @return {?}
+             */
+            (brickId) => {
                 this.layout.removeBrick(brickId);
-            });
-        });
+            }));
+        }));
     }
     /**
      * @param {?} brickId
@@ -1171,15 +1362,27 @@ class WallCorePlugin {
                 bricks: []
             }
         };
-        this.layoutWalker.traverse((row) => {
+        this.layoutWalker.traverse((/**
+         * @param {?} row
+         * @return {?}
+         */
+        (row) => {
             /** @type {?} */
             const columns = [];
-            row.columns.forEach((column) => {
+            row.columns.forEach((/**
+             * @param {?} column
+             * @return {?}
+             */
+            (column) => {
                 /** @type {?} */
                 const planColumn = {
                     bricks: []
                 };
-                column.bricks.forEach((brick) => {
+                column.bricks.forEach((/**
+                 * @param {?} brick
+                 * @return {?}
+                 */
+                (brick) => {
                     plan.bricks.push({
                         id: brick.id,
                         tag: brick.tag,
@@ -1189,14 +1392,14 @@ class WallCorePlugin {
                     planColumn.bricks.push({
                         id: brick.id
                     });
-                });
+                }));
                 columns.push(planColumn);
-            });
+            }));
             plan.layout.bricks.push({
                 columns,
                 id: row.id
             });
-        });
+        }));
         return JSON.parse(JSON.stringify(plan));
     }
     /**
@@ -1205,28 +1408,51 @@ class WallCorePlugin {
      */
     sortBrickIdsByLayoutOrder(brickIds) {
         /** @type {?} */
-        const bricksSequence = this.layoutWalker.getBrickSequence(() => true);
+        const bricksSequence = this.layoutWalker.getBrickSequence((/**
+         * @return {?}
+         */
+        () => true));
         return bricksSequence
-            .filter((brick) => brickIds.indexOf(brick.id) !== -1)
-            .map((brick) => brick.id);
+            .filter((/**
+         * @param {?} brick
+         * @return {?}
+         */
+        (brick) => brickIds.indexOf(brick.id) !== -1))
+            .map((/**
+         * @param {?} brick
+         * @return {?}
+         */
+        (brick) => brick.id));
     }
     /**
      * @param {?} fn
      * @return {?}
      */
     traverse(fn) {
-        return this.layoutWalker.traverse((row) => {
+        return this.layoutWalker.traverse((/**
+         * @param {?} row
+         * @return {?}
+         */
+        (row) => {
             /** @type {?} */
             const preparedRow = {
                 id: row.id,
-                columns: row.columns.map((column) => {
+                columns: row.columns.map((/**
+                 * @param {?} column
+                 * @return {?}
+                 */
+                (column) => {
                     return {
-                        bricks: column.bricks.map((brick) => brick.getSnapshot())
+                        bricks: column.bricks.map((/**
+                         * @param {?} brick
+                         * @return {?}
+                         */
+                        (brick) => brick.getSnapshot()))
                     };
-                })
+                }))
             };
             fn(preparedRow);
-        });
+        }));
     }
     /**
      * @param {?} brickId
@@ -1348,7 +1574,7 @@ class WallCorePlugin {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class WallPluginInitializedEvent {
     /**
@@ -1361,7 +1587,7 @@ class WallPluginInitializedEvent {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class WallModel {
     /**
@@ -1377,7 +1603,11 @@ class WallModel {
         this.events$ = new Subject();
         this.plugins = new Map();
         // initialize 3rd party plugins
-        config.plugins.forEach((plugin) => this.initializePlugin(plugin));
+        config.plugins.forEach((/**
+         * @param {?} plugin
+         * @return {?}
+         */
+        (plugin) => this.initializePlugin(plugin)));
     }
     // register external API
     /**
@@ -1392,7 +1622,11 @@ class WallModel {
      * @return {?}
      */
     destroy() {
-        this.plugins.forEach((plugin) => this.destroyPlugin(plugin));
+        this.plugins.forEach((/**
+         * @param {?} plugin
+         * @return {?}
+         */
+        (plugin) => this.destroyPlugin(plugin)));
     }
     // proxy events from all plugins
     /**
@@ -1434,7 +1668,7 @@ class WallModel {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class BrickRegistry {
     constructor() {
@@ -1453,7 +1687,11 @@ class BrickRegistry {
      * @return {?}
      */
     get(tag) {
-        return this.bricks.find((brickConfiguration) => brickConfiguration.tag === tag);
+        return this.bricks.find((/**
+         * @param {?} brickConfiguration
+         * @return {?}
+         */
+        (brickConfiguration) => brickConfiguration.tag === tag));
     }
     /**
      * @return {?}
@@ -1468,7 +1706,7 @@ BrickRegistry.decorators = [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class WallModelFactory {
     /**
@@ -1512,7 +1750,7 @@ WallModelFactory.ctorParameters = () => [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class PlaceholderComponent {
     /**
@@ -1538,7 +1776,7 @@ PlaceholderComponent.decorators = [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class PlaceholderRenderer {
     /**
@@ -1623,7 +1861,7 @@ PlaceholderRenderer.ctorParameters = () => [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class PlaceholderRendererModule {
 }
@@ -1646,7 +1884,7 @@ PlaceholderRendererModule.decorators = [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class WallCanvasComponent {
     /**
@@ -1729,7 +1967,7 @@ WallCanvasComponent.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class LocationUpdatedEvent {
     /**
@@ -1742,7 +1980,7 @@ class LocationUpdatedEvent {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class SpotModel {
     /**
@@ -1862,7 +2100,7 @@ class SpotModel {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class RadarCoordinator {
     /**
@@ -1877,14 +2115,21 @@ class RadarCoordinator {
         /** @type {?} */
         const throttleMouseTime = 30;
         // run outside Angular Zone in order to decrease performance hit
-        this.zone.runOutsideAngular(() => {
+        this.zone.runOutsideAngular((/**
+         * @return {?}
+         */
+        () => {
             this.mouseMove$
                 .pipe(throttleTime(throttleMouseTime))
-                .subscribe((event) => {
+                .subscribe((/**
+             * @param {?} event
+             * @return {?}
+             */
+            (event) => {
                 this.updateSpotsInfo();
                 this.updateLocationPosition(event.clientX, event.clientY);
-            });
-        });
+            }));
+        }));
     }
     /**
      * @param {?} spotId
@@ -1905,7 +2150,11 @@ class RadarCoordinator {
      * @return {?}
      */
     updateSpotsInfo() {
-        this.spots.forEach((spot) => spot.updateInfo());
+        this.spots.forEach((/**
+         * @param {?} spot
+         * @return {?}
+         */
+        (spot) => spot.updateInfo()));
     }
     /**
      * @param {?} predicate
@@ -1913,8 +2162,16 @@ class RadarCoordinator {
      */
     filterSpots(predicate) {
         return Array.from(this.spots)
-            .map(([id, spot]) => spot)
-            .filter((spot) => predicate(spot));
+            .map((/**
+         * @param {?} __0
+         * @return {?}
+         */
+        ([id, spot]) => spot))
+            .filter((/**
+         * @param {?} spot
+         * @return {?}
+         */
+        (spot) => predicate(spot)));
     }
     /**
      * @param {?} fn
@@ -1932,7 +2189,11 @@ class RadarCoordinator {
     updateLocationPosition(x, y) {
         /** @type {?} */
         const sortedSpots = [];
-        this.spots.forEach((spot) => {
+        this.spots.forEach((/**
+         * @param {?} spot
+         * @return {?}
+         */
+        (spot) => {
             /** @type {?} */
             const minimalDistance = spot.getMinimalDistanceToPoint(x, y);
             /** @type {?} */
@@ -1951,7 +2212,7 @@ class RadarCoordinator {
                 isCross13Line,
                 data: spot.data
             });
-        });
+        }));
         this.events.next(new LocationUpdatedEvent(sortedSpots));
     }
 }
@@ -1966,7 +2227,7 @@ RadarCoordinator.ctorParameters = () => [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class Radar {
     /**
@@ -1975,9 +2236,13 @@ class Radar {
     constructor(radarCoordinator) {
         this.radarCoordinator = radarCoordinator;
         this.events = new Subject();
-        this.radarCoordinator.subscribe((event) => {
+        this.radarCoordinator.subscribe((/**
+         * @param {?} event
+         * @return {?}
+         */
+        (event) => {
             this.events.next(event);
-        });
+        }));
     }
     /**
      * @param {?} fn
@@ -2004,7 +2269,7 @@ Radar.ctorParameters = () => [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class WallCanvasBrickComponent {
     /**
@@ -2035,10 +2300,18 @@ class WallCanvasBrickComponent {
             isBeacon: true
         };
         this.componentReference = this.renderBrick();
-        this.radarSubscription = this.radar.subscribe((e) => {
+        this.radarSubscription = this.radar.subscribe((/**
+         * @param {?} e
+         * @return {?}
+         */
+        (e) => {
             if (e instanceof LocationUpdatedEvent) {
                 /** @type {?} */
-                const currentSpot = e.spots.find((spot) => spot.data.brickId === this.brick.id);
+                const currentSpot = e.spots.find((/**
+                 * @param {?} spot
+                 * @return {?}
+                 */
+                (spot) => spot.data.brickId === this.brick.id));
                 if (currentSpot.isCross13Line) {
                     this.isMouseNear = currentSpot.topLeftPointDistance < this.minimalDistanceToMouse;
                 }
@@ -2047,17 +2320,29 @@ class WallCanvasBrickComponent {
                 }
                 this.cdRef.detectChanges();
             }
-        });
-        this.focusedBrickSubscription = this.wallCanvasComponent.focusedBrick$.subscribe((focusedBrick) => {
+        }));
+        this.focusedBrickSubscription = this.wallCanvasComponent.focusedBrick$.subscribe((/**
+         * @param {?} focusedBrick
+         * @return {?}
+         */
+        (focusedBrick) => {
             if (focusedBrick.id === this.brick.id) {
                 this.callInstanceApi('onWallFocus', focusedBrick.context);
             }
-        });
-        this.selectedBricksSubscription = this.wallCanvasComponent.selectedBricks$.subscribe((selectedBricks) => {
+        }));
+        this.selectedBricksSubscription = this.wallCanvasComponent.selectedBricks$.subscribe((/**
+         * @param {?} selectedBricks
+         * @return {?}
+         */
+        (selectedBricks) => {
             this.selected = !Boolean(selectedBricks.indexOf(this.brick.id) === -1);
-        });
+        }));
         this.isMediaInteractionEnabledSubscription = this.wallCanvasComponent.isMediaInteractionEnabled$
-            .subscribe((isMediaInteractionEnabled) => this.isMediaInteractionEnabled = isMediaInteractionEnabled);
+            .subscribe((/**
+         * @param {?} isMediaInteractionEnabled
+         * @return {?}
+         */
+        (isMediaInteractionEnabled) => this.isMediaInteractionEnabled = isMediaInteractionEnabled));
     }
     /**
      * @param {?} changes
@@ -2107,9 +2392,13 @@ class WallCanvasBrickComponent {
         componentInstance.state = this.brick.state;
         componentInstance.wallModel = this.wallCanvasComponent.wallModel;
         if (componentInstance.stateChanges) {
-            this.stateChangesSubscription = componentInstance.stateChanges.subscribe((newState) => {
+            this.stateChangesSubscription = componentInstance.stateChanges.subscribe((/**
+             * @param {?} newState
+             * @return {?}
+             */
+            (newState) => {
                 this.wallCanvasComponent.brickStateChanged(this.brick.id, newState);
-            });
+            }));
         }
         return componentReference;
     }
@@ -2118,7 +2407,7 @@ WallCanvasBrickComponent.decorators = [
     { type: Component, args: [{
                 selector: 'wall-canvas-brick',
                 template: "<div [spot]=\"spot\"\n     data-id=\"{{brick.id}}\"\n     class=\"wall-canvas-brick__wrapper wall-canvas-brick__draggable\"\n     [ngClass]=\"{'wall-canvas-brick__selected': selected,\n     \t\t'wall-canvas-brick__draggable': isMouseNear}\">\n\n    <div class=\"wall-canvas-brick__draggable-handler\" [tow-slave]=\"brick.id\">\n        <div class=\"wall-canvas-brick__draggable-box\">\n            <mat-icon>drag_handle</mat-icon>\n        </div>\n    </div>\n\n    <div [ngClass]=\"{'wall-canvas-brick__disabled-interaction': !isMediaInteractionEnabled}\">\n        <ng-container #brickContainer></ng-container>\n    </div>\n</div>\n",
-                styles: [":host{display:block;margin:0 0 2px}:host .wall-canvas-brick__draggable .wall-canvas-brick__draggable-handler{display:block}:host .wall-canvas-brick__wrapper{position:relative}:host .wall-canvas-brick__wrapper:after{content:\"\";position:absolute;top:0;bottom:0;left:0;right:0;pointer-events:none;opacity:.2;transition:background-color .1s}:host .wall-canvas-brick__draggable-box{padding:1px;border-radius:3px;line-height:0}:host .wall-canvas-brick__draggable-handler{display:none;position:absolute;left:-35px;top:-4px;padding:5px;margin:0;cursor:pointer;border-radius:3px}:host .wall-canvas-brick__selected{position:relative}:host .wall-canvas-brick__disabled-interaction{pointer-events:none}"]
+                styles: [":host{display:block;margin:0 0 2px}:host .wall-canvas-brick__draggable .wall-canvas-brick__draggable-handler{display:block}:host .wall-canvas-brick__wrapper{position:relative}:host .wall-canvas-brick__wrapper:after{content:'';position:absolute;top:0;bottom:0;left:0;right:0;pointer-events:none;opacity:.2;transition:background-color .1s}:host .wall-canvas-brick__draggable-box{padding:1px;border-radius:3px;line-height:0}:host .wall-canvas-brick__draggable-handler{display:none;position:absolute;left:-35px;top:-4px;padding:5px;margin:0;cursor:pointer;border-radius:3px}:host .wall-canvas-brick__selected{position:relative}:host .wall-canvas-brick__disabled-interaction{pointer-events:none}"]
             }] }
 ];
 /** @nocollapse */
@@ -2136,7 +2425,7 @@ WallCanvasBrickComponent.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class WallCanvasRowComponent {
     // todo add type
@@ -2169,7 +2458,7 @@ WallCanvasRowComponent.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class SelectedBrickEvent {
     /**
@@ -2182,7 +2471,7 @@ class SelectedBrickEvent {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class WallViewModel {
     /**
@@ -2204,12 +2493,24 @@ class WallViewModel {
     getCanvasLayout() {
         /** @type {?} */
         const rows = [];
-        this.wallModel.api.core.traverse((row) => {
+        this.wallModel.api.core.traverse((/**
+         * @param {?} row
+         * @return {?}
+         */
+        (row) => {
             rows.push({
                 id: row.id,
-                columns: row.columns.map((column) => {
+                columns: row.columns.map((/**
+                 * @param {?} column
+                 * @return {?}
+                 */
+                (column) => {
                     return {
-                        bricks: column.bricks.map((brickConfig) => {
+                        bricks: column.bricks.map((/**
+                         * @param {?} brickConfig
+                         * @return {?}
+                         */
+                        (brickConfig) => {
                             /** @type {?} */
                             const component = this.brickRegistry.get(brickConfig.tag).component;
                             return {
@@ -2218,11 +2519,11 @@ class WallViewModel {
                                 state: brickConfig.state,
                                 component
                             };
-                        })
+                        }))
                     };
-                })
+                }))
             });
-        });
+        }));
         return rows;
     }
     /**
@@ -2254,7 +2555,12 @@ class WallViewModel {
             'disableMediaInteraction',
             // CLIENT
             'subscribe'
-        ].reduce((result, methodName) => {
+        ].reduce((/**
+         * @param {?} result
+         * @param {?} methodName
+         * @return {?}
+         */
+        (result, methodName) => {
             if (this[methodName].bind) {
                 result[methodName] = this[methodName].bind(this);
             }
@@ -2262,12 +2568,16 @@ class WallViewModel {
                 result[methodName] = this[methodName];
             }
             return result;
-        }, {});
+        }), {});
         // protect API from extending
         Object.seal(coreApi);
         // register methods on model itself
         this.wallModel.registerApi('ui', coreApi);
-        this.wallModelSubscription = this.wallModel.api.core.subscribe((event) => {
+        this.wallModelSubscription = this.wallModel.api.core.subscribe((/**
+         * @param {?} event
+         * @return {?}
+         */
+        (event) => {
             if (event instanceof TurnBrickIntoEvent) {
                 this.focusOnBrickId(event.brickId);
             }
@@ -2282,7 +2592,7 @@ class WallViewModel {
             if (!(event instanceof BeforeChangeEvent)) {
                 this.canvasLayout = this.getCanvasLayout();
             }
-        });
+        }));
         this.canvasLayout = this.getCanvasLayout();
     }
     /**
@@ -2518,7 +2828,7 @@ WallViewModel.ctorParameters = () => [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class WallComponent {
     /**
@@ -2598,7 +2908,7 @@ WallComponent.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class StartWorkingEvent {
     /**
@@ -2611,7 +2921,7 @@ class StartWorkingEvent {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class StopWorkingEvent {
     /**
@@ -2624,7 +2934,7 @@ class StopWorkingEvent {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class WorkInProgressEvent {
     /**
@@ -2637,20 +2947,24 @@ class WorkInProgressEvent {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TowCoordinator {
     constructor() {
         this.events = new Subject();
         // start track when slave start working
         this.isSlaveWorking = false;
-        document.addEventListener('dragover', (event) => {
+        document.addEventListener('dragover', (/**
+         * @param {?} event
+         * @return {?}
+         */
+        (event) => {
             if (this.isSlaveWorking) {
                 event.preventDefault();
                 event.dataTransfer.dropEffect = 'move';
                 this.slaveWorkProgress(event.clientX, event.clientY);
             }
-        });
+        }));
     }
     /**
      * @param {?} id
@@ -2688,7 +3002,7 @@ TowCoordinator.ctorParameters = () => [];
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 // Notify Tow Coordinator about drag operation
 class TowSlaveDirective {
@@ -2752,7 +3066,7 @@ TowSlaveDirective.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TowService {
     /**
@@ -2761,9 +3075,13 @@ class TowService {
     constructor(towCoordinator) {
         this.towCoordinator = towCoordinator;
         this.events = new Subject();
-        this.towCoordinator.events.subscribe((e) => {
+        this.towCoordinator.events.subscribe((/**
+         * @param {?} e
+         * @return {?}
+         */
+        (e) => {
             this.events.next(e);
-        });
+        }));
     }
     /**
      * @param {?} fn
@@ -2783,7 +3101,7 @@ TowService.ctorParameters = () => [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class SpotDirective {
     /**
@@ -2861,7 +3179,7 @@ SpotDirective.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class RadarModule {
 }
@@ -2878,7 +3196,7 @@ RadarModule.decorators = [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TowModule {
 }
@@ -2903,7 +3221,7 @@ TowModule.decorators = [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class PickOutAreaComponent {
     constructor() {
@@ -2926,14 +3244,14 @@ PickOutAreaComponent.decorators = [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class EndPickOut {
 }
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class PickOutItems {
     /**
@@ -2946,21 +3264,21 @@ class PickOutItems {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class StartPickOut {
 }
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class StopPickOut {
 }
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class PickOutCoordinator {
     /**
@@ -3001,10 +3319,18 @@ class PickOutCoordinator {
      */
     pickOutChanged(range) {
         /** @type {?} */
-        const pickOutSpotModels = this.radar.filterSpots((spot) => spot.data.isPickOutItem);
-        pickOutSpotModels.forEach((spotModel) => {
+        const pickOutSpotModels = this.radar.filterSpots((/**
+         * @param {?} spot
+         * @return {?}
+         */
+        (spot) => spot.data.isPickOutItem));
+        pickOutSpotModels.forEach((/**
+         * @param {?} spotModel
+         * @return {?}
+         */
+        (spotModel) => {
             spotModel.updateInfo();
-        });
+        }));
         this.changes.next(new PickOutItems(this.getSelectedItemIds(range, pickOutSpotModels)));
     }
     /**
@@ -3021,13 +3347,21 @@ class PickOutCoordinator {
      */
     getSelectedItemIds(range, pickOutsItem) {
         return pickOutsItem
-            .filter((pickOutItem) => {
+            .filter((/**
+         * @param {?} pickOutItem
+         * @return {?}
+         */
+        (pickOutItem) => {
             return (range.x < (pickOutItem.position.x + pickOutItem.size.width) &&
                 (range.x + range.width) > pickOutItem.position.x &&
                 (range.y + range.height) > pickOutItem.position.y &&
                 range.y < (pickOutItem.position.y + pickOutItem.size.height));
-        })
-            .map((pickOutItem) => pickOutItem.data.brickId);
+        }))
+            .map((/**
+         * @param {?} pickOutItem
+         * @return {?}
+         */
+        (pickOutItem) => pickOutItem.data.brickId));
     }
 }
 PickOutCoordinator.decorators = [
@@ -3040,14 +3374,14 @@ PickOutCoordinator.ctorParameters = () => [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @type {?} */
 const MOUSE_LEFT_KEY_CODE = 0;
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class PickOutAreaModel {
     /**
@@ -3149,7 +3483,7 @@ class PickOutAreaModel {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class PickOutAreaDirective {
     /**
@@ -3380,7 +3714,7 @@ PickOutAreaDirective.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class PickOutService {
     /**
@@ -3389,9 +3723,13 @@ class PickOutService {
     constructor(pickOutHandlerService) {
         this.pickOutHandlerService = pickOutHandlerService;
         this.events = new Subject();
-        this.pickOutHandlerService.changes.subscribe((e) => {
+        this.pickOutHandlerService.changes.subscribe((/**
+         * @param {?} e
+         * @return {?}
+         */
+        (e) => {
             this.events.next(e);
-        });
+        }));
     }
     /**
      * @return {?}
@@ -3429,7 +3767,7 @@ PickOutService.ctorParameters = () => [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class PickOutModule {
 }
@@ -3458,7 +3796,7 @@ PickOutModule.decorators = [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class WallModule {
     /**
@@ -3498,7 +3836,7 @@ WallModule.decorators = [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class BrickInputPlaceholderComponent {
     constructor() {
@@ -3536,7 +3874,7 @@ BrickInputPlaceholderComponent.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class LoadingWrapperComponent {
     /**
@@ -3559,7 +3897,7 @@ LoadingWrapperComponent.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class HelperComponentsModule {
 }
@@ -3583,7 +3921,7 @@ HelperComponentsModule.decorators = [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @type {?} */
 const WALL = {
@@ -3595,32 +3933,32 @@ const WALL = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class CopyPlugin {
     /**
@@ -3675,27 +4013,35 @@ class CopyPlugin {
         /** @type {?} */
         const selectedBrickIds = this.wallModel.api.ui.getSelectedBrickIds();
         return selectedBrickIds
-            .map((selectedBrickId) => this.wallModel.api.core.getBrickTextRepresentation(selectedBrickId))
-            .map((textRepresentation) => textRepresentation.trim())
+            .map((/**
+         * @param {?} selectedBrickId
+         * @return {?}
+         */
+        (selectedBrickId) => this.wallModel.api.core.getBrickTextRepresentation(selectedBrickId)))
+            .map((/**
+         * @param {?} textRepresentation
+         * @return {?}
+         */
+        (textRepresentation) => textRepresentation.trim()))
             .join('\n');
     }
 }
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @type {?} */
 const UNDO_REDO_API_NAME = 'undo';
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class UndoRedoPlugin {
     /**
@@ -3721,9 +4067,13 @@ class UndoRedoPlugin {
             redoSize: this.redoSize.bind(this),
             clear: this.clear.bind(this)
         })));
-        this.apiSubscription = this.wallModel.api.core.subscribe((e) => {
+        this.apiSubscription = this.wallModel.api.core.subscribe((/**
+         * @param {?} e
+         * @return {?}
+         */
+        (e) => {
             this.wallModelEventHandler(e);
-        });
+        }));
         this.onUndoKeyHandlerBound = this.onUndoKeyHandler.bind(this);
         this.doc.addEventListener('keydown', this.onUndoKeyHandlerBound);
     }
@@ -3820,12 +4170,12 @@ class UndoRedoPlugin {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @type {?} */
 const TOW = {
@@ -3843,7 +4193,7 @@ const TOW = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class SelectionPlugin {
     /**
@@ -3856,7 +4206,10 @@ class SelectionPlugin {
         this.placeholderHeight = 2;
         this.isEnableDropZoneHighlight = false;
         // extension point for client to prevent brick un-selections
-        this.options = Object.assign({ shouldUnselectBrick: () => true }, options);
+        this.options = Object.assign({ shouldUnselectBrick: (/**
+             * @return {?}
+             */
+            () => true) }, options);
     }
     /**
      * @param {?} wallModel
@@ -3874,7 +4227,11 @@ class SelectionPlugin {
         this.doc.addEventListener('mousedown', this.onMouseDownBound);
         this.doc.addEventListener('keydown', this.onKeyDownHandlerBound);
         // listen to picked out items and select appropriate bricks
-        this.pickOutServiceSubscription = this.pickOutService.subscribe((e) => {
+        this.pickOutServiceSubscription = this.pickOutService.subscribe((/**
+         * @param {?} e
+         * @return {?}
+         */
+        (e) => {
             if (e instanceof StartPickOut) {
                 this.isMouseSelection = true;
                 this.wallModel.api.ui.disableMediaInteraction();
@@ -3885,9 +4242,13 @@ class SelectionPlugin {
             if (e instanceof EndPickOut) {
                 this.wallModel.api.ui.enableMediaInteraction();
             }
-        });
+        }));
         // listen for draggable operation and move bricks accordingly
-        this.towServiceSubscription = this.towService.subscribe((e) => {
+        this.towServiceSubscription = this.towService.subscribe((/**
+         * @param {?} e
+         * @return {?}
+         */
+        (e) => {
             if (e instanceof StartWorkingEvent) {
                 if (this.wallModel.api.core.getBrickSnapshot(e.slaveId)) {
                     this.isEnableDropZoneHighlight = true;
@@ -3933,10 +4294,18 @@ class SelectionPlugin {
             if (e instanceof WorkInProgressEvent) {
                 if (this.isEnableDropZoneHighlight) {
                     /** @type {?} */
-                    const spots = this.radar.filterSpots((spot) => spot.data.isBeacon);
+                    const spots = this.radar.filterSpots((/**
+                     * @param {?} spot
+                     * @return {?}
+                     */
+                    (spot) => spot.data.isBeacon));
                     /** @type {?} */
                     let nearestSpot;
-                    spots.forEach((spot) => {
+                    spots.forEach((/**
+                     * @param {?} spot
+                     * @return {?}
+                     */
+                    (spot) => {
                         spot.updateInfo();
                         if (!nearestSpot) {
                             nearestSpot = spot;
@@ -3950,7 +4319,7 @@ class SelectionPlugin {
                                 nearestSpot = spot;
                             }
                         }
-                    });
+                    }));
                     if (nearestSpot) {
                         /** @type {?} */
                         const nearestSpotMinimalDistance = nearestSpot.getMinimalDistanceToPoint(e.mousePosition.clientX, e.mousePosition.clientY);
@@ -3989,7 +4358,7 @@ class SelectionPlugin {
                     }
                 }
             }
-        });
+        }));
     }
     /**
      * @param {?} e
@@ -4150,19 +4519,19 @@ class SelectionPlugin {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @type {?} */
 const DIVIDER_BRICK_TAG = 'divider';
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class DividerBrickComponent {
 }
@@ -4176,7 +4545,7 @@ DividerBrickComponent.decorators = [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class DividerBrickModule {
     /**
@@ -4206,12 +4575,12 @@ DividerBrickModule.ctorParameters = () => [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TextRepresentation {
     /**
@@ -4230,7 +4599,7 @@ class TextRepresentation {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class DeepLeftNodeChild {
     /**
@@ -4248,7 +4617,7 @@ class DeepLeftNodeChild {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class DeepRightNodeChild {
     /**
@@ -4266,7 +4635,7 @@ class DeepRightNodeChild {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class FirstSubStringNode {
     /**
@@ -4323,7 +4692,7 @@ class FirstSubStringNode {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class CaretStartEndPosition {
     /**
@@ -4374,7 +4743,7 @@ class CaretStartEndPosition {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class CursorLeftCoordinate {
     /**
@@ -4420,16 +4789,20 @@ class CursorLeftCoordinate {
         const div = document.createElement('DIV');
         /** @type {?} */
         const style = getComputedStyle(node);
-        [].forEach.call(style, (prop) => {
+        [].forEach.call(style, (/**
+         * @param {?} prop
+         * @return {?}
+         */
+        (prop) => {
             div.style[prop] = style[prop];
-        });
+        }));
         return div;
     }
 }
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class CursorPositionInLine {
     /**
@@ -4477,16 +4850,20 @@ class CursorPositionInLine {
         const div = document.createElement('DIV');
         /** @type {?} */
         const style = getComputedStyle(node);
-        [].forEach.call(style, (prop) => {
+        [].forEach.call(style, (/**
+         * @param {?} prop
+         * @return {?}
+         */
+        (prop) => {
             div.style[prop] = style[prop];
-        });
+        }));
         return div;
     }
 }
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class PlaceCaretToPosition {
     /**
@@ -4513,7 +4890,7 @@ class PlaceCaretToPosition {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
  * Returns string which does not contains empty nodes inside
@@ -4544,7 +4921,7 @@ class StringWithoutEmptyNodes {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @type {?} */
 const FOCUS_INITIATOR = 'text-supporting-brick';
@@ -4575,7 +4952,7 @@ const TAB_KEY = 'Tab';
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class BottomKeyHandler {
     /**
@@ -4608,7 +4985,7 @@ class BottomKeyHandler {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class EnterKeyHandler {
     /**
@@ -4703,15 +5080,18 @@ class EnterKeyHandler {
         const addedBrick = this.baseTextBrickComponent.wallModel.api.core
             .addBrickAfterBrickId(this.baseTextBrickComponent.id, 'text', newTextState);
         // wait one tick for component rendering
-        setTimeout(() => {
+        setTimeout((/**
+         * @return {?}
+         */
+        () => {
             this.baseTextBrickComponent.wallUiApi.focusOnBrickId(addedBrick.id);
-        });
+        }));
     }
 }
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class LeftKeyHandler {
     /**
@@ -4740,7 +5120,7 @@ class LeftKeyHandler {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class RightKeyHandler {
     /**
@@ -4768,7 +5148,7 @@ class RightKeyHandler {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TopKeyHandler {
     /**
@@ -4802,7 +5182,7 @@ class TopKeyHandler {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @enum {string} */
 const LineType = {
@@ -4839,10 +5219,13 @@ class BaseTextBrickComponent {
         this.scope.tabs = this.state.tabs || 0;
         this.onPasteBound = this.onPaste.bind(this);
         this.editor.nativeElement.addEventListener('paste', this.onPasteBound);
-        this.textChangeSubscription = this.textChange.subscribe(() => {
+        this.textChangeSubscription = this.textChange.subscribe((/**
+         * @return {?}
+         */
+        () => {
             this.setTextState(this.scope.text);
             this.saveCurrentState();
-        });
+        }));
         this.wallUiApi = this.wallModel.api.ui;
     }
     /**
@@ -4871,14 +5254,26 @@ class BaseTextBrickComponent {
         /** @type {?} */
         const textArr = e.clipboardData.getData('text/plain')
             .split('\n')
-            .map((str) => str.trim())
-            .filter((str) => str.length);
+            .map((/**
+         * @param {?} str
+         * @return {?}
+         */
+        (str) => str.trim()))
+            .filter((/**
+         * @param {?} str
+         * @return {?}
+         */
+        (str) => str.length));
         if (textArr.length === 1) {
             document.execCommand('insertHTML', false, textArr[0]);
         }
         else if (textArr.length > 1) {
             // todo: add interface for UI api
-            textArr.reverse().forEach((text) => this.wallModel.api.core.addBrickAfterBrickId(this.id, 'text', { text }));
+            textArr.reverse().forEach((/**
+             * @param {?} text
+             * @return {?}
+             */
+            (text) => this.wallModel.api.core.addBrickAfterBrickId(this.id, 'text', { text })));
         }
     }
     /**
@@ -5054,7 +5449,10 @@ class BaseTextBrickComponent {
                 text: this.cleanUpText(previousBrickSnapshot.state.text) + this.scope.text
             });
             // wait for component re-rendering
-            setTimeout(() => {
+            setTimeout((/**
+             * @return {?}
+             */
+            () => {
                 /** @type {?} */
                 const focusContext = {
                     initiator: FOCUS_INITIATOR,
@@ -5067,7 +5465,7 @@ class BaseTextBrickComponent {
                 // remove only after focus will be established
                 // that prevents flickering on mobile
                 this.wallUiApi.removeBrick(this.id);
-            });
+            }));
         }
     }
     /**
@@ -5086,9 +5484,12 @@ class BaseTextBrickComponent {
             this.setTextState(this.scope.text + concatenationText);
             this.saveCurrentState();
             this.wallModel.api.core.removeBrick(nextTextBrickId);
-            setTimeout(() => {
+            setTimeout((/**
+             * @return {?}
+             */
+            () => {
                 this.placeCaretBaseOnConcatenatedText(concatenationText);
-            }, 10);
+            }), 10);
         }
     }
     /**
@@ -5338,7 +5739,7 @@ BaseTextBrickComponent.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class HeaderBrickComponent extends BaseTextBrickComponent {
     constructor() {
@@ -5356,7 +5757,7 @@ HeaderBrickComponent.decorators = [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class ContenteditableDirective {
     /**
@@ -5469,7 +5870,7 @@ ContenteditableDirective.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class ContenteditableModule {
 }
@@ -5483,7 +5884,7 @@ ContenteditableModule.decorators = [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class HeaderBrickModule {
     /**
@@ -5520,19 +5921,19 @@ HeaderBrickModule.ctorParameters = () => [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @type {?} */
 const WALL_FILE_UPLOADER = new InjectionToken('IWallFileUploader');
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class InputContextComponent {
     /**
@@ -5545,9 +5946,12 @@ class InputContextComponent {
      * @return {?}
      */
     ngOnInit() {
-        setTimeout(() => {
+        setTimeout((/**
+         * @return {?}
+         */
+        () => {
             this.srcInput.nativeElement.focus();
-        }, 10);
+        }), 10);
     }
     /**
      * @return {?}
@@ -5598,7 +6002,7 @@ InputContextComponent.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class ImgBrickComponent {
     /**
@@ -5663,9 +6067,12 @@ class ImgBrickComponent {
      */
     onWallFocus() {
         if (!this.scope.src) {
-            setTimeout(() => {
+            setTimeout((/**
+             * @return {?}
+             */
+            () => {
                 this.showPanel();
-            }, 0);
+            }), 0);
         }
     }
     // resize callbacks
@@ -5695,7 +6102,10 @@ class ImgBrickComponent {
      */
     applyImageSrc(imageSrc, metadata) {
         return this.isImage(imageSrc)
-            .then(() => {
+            .then((/**
+         * @return {?}
+         */
+        () => {
             this.scope.src = imageSrc;
             this.isSrcBase64 = false;
             if (metadata) {
@@ -5703,32 +6113,49 @@ class ImgBrickComponent {
             }
             this.save();
             return this.setUpImageWidth();
-        })
-            .catch(() => {
+        }))
+            .catch((/**
+         * @return {?}
+         */
+        () => {
             alert('Please enter valid url');
-        });
+        }));
     }
     /**
      * @param {?} imgFile
      * @return {?}
      */
     applyImageFile(imgFile) {
-        return (new ImgEncoder(imgFile)).getBase64Representation().then((imgBase64) => {
-            return this.applyImageSrc(imgBase64).then(() => {
+        return (new ImgEncoder(imgFile)).getBase64Representation().then((/**
+         * @param {?} imgBase64
+         * @return {?}
+         */
+        (imgBase64) => {
+            return this.applyImageSrc(imgBase64).then((/**
+             * @return {?}
+             */
+            () => {
                 return this.processBase64ImgSrc();
-            });
-        });
+            }));
+        }));
     }
     /**
      * @return {?}
      */
     processBase64ImgSrc() {
-        return this.uploadImage().then((uploadInfo) => {
+        return this.uploadImage().then((/**
+         * @param {?} uploadInfo
+         * @return {?}
+         */
+        (uploadInfo) => {
             return this.applyImageSrc(uploadInfo.downloadURL, {
                 path: uploadInfo.path
             });
-        }, () => {
-        });
+        }), (/**
+         * @return {?}
+         */
+        () => {
+        }));
     }
     /**
      * @return {?}
@@ -5751,7 +6178,11 @@ class ImgBrickComponent {
                 },
                 componentFactoryResolver: this.componentFactoryResolver
             });
-            this.imageSrcPlaceholderRef.result.then((result) => {
+            this.imageSrcPlaceholderRef.result.then((/**
+             * @param {?} result
+             * @return {?}
+             */
+            (result) => {
                 this.imageSrcPlaceholderRef = null;
                 if (result.src) {
                     this.applyImageSrc(result.src);
@@ -5759,9 +6190,12 @@ class ImgBrickComponent {
                 else {
                     this.applyImageFile(result.file);
                 }
-            }, () => {
+            }), (/**
+             * @return {?}
+             */
+            () => {
                 this.imageSrcPlaceholderRef = null;
-            });
+            }));
         }
     }
     /**
@@ -5796,10 +6230,13 @@ class ImgBrickComponent {
      * @return {?}
      */
     setUpImageWidth() {
-        return this.loadImage(this.scope.src).then(() => {
+        return this.loadImage(this.scope.src).then((/**
+         * @return {?}
+         */
+        () => {
             this.scope.width = this.image.nativeElement.width;
             this.save();
-        });
+        }));
     }
     /**
      * @private
@@ -5822,17 +6259,28 @@ class ImgBrickComponent {
      * @return {?}
      */
     isImage(src) {
-        return new Promise((resolve, reject) => {
+        return new Promise((/**
+         * @param {?} resolve
+         * @param {?} reject
+         * @return {?}
+         */
+        (resolve, reject) => {
             /** @type {?} */
             const img = new Image();
-            img.onload = () => {
+            img.onload = (/**
+             * @return {?}
+             */
+            () => {
                 resolve();
-            };
-            img.onerror = () => {
+            });
+            img.onerror = (/**
+             * @return {?}
+             */
+            () => {
                 reject();
-            };
+            });
             img.src = src;
-        });
+        }));
     }
 }
 ImgBrickComponent.decorators = [
@@ -5859,12 +6307,12 @@ ImgBrickComponent.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class ImgModel {
     /**
@@ -5896,7 +6344,7 @@ ImgModel.ctorParameters = () => [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class ImgBrickTextRepresentation {
     /**
@@ -5915,7 +6363,7 @@ class ImgBrickTextRepresentation {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class ResizableHandlerComponent {
     constructor() {
@@ -5942,7 +6390,7 @@ ResizableHandlerComponent.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @type {?} */
 const LEFT_HANDLER_CLASS = 'left-handler';
@@ -5951,7 +6399,7 @@ const RIGHT_HANDLER_CLASS = 'right-handler';
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
  * \@description
@@ -5983,13 +6431,25 @@ class ResizableDirective {
         const leftHandler = this.createHandler(LEFT_HANDLER_CLASS);
         /** @type {?} */
         const rightHandler = this.createHandler(RIGHT_HANDLER_CLASS);
-        leftHandler.instance.mouseDownEvent.subscribe((e) => {
+        leftHandler.instance.mouseDownEvent.subscribe((/**
+         * @param {?} e
+         * @return {?}
+         */
+        (e) => {
             this.mouseDownHandler(e, true);
-        });
-        rightHandler.instance.mouseDownEvent.subscribe((e) => {
+        }));
+        rightHandler.instance.mouseDownEvent.subscribe((/**
+         * @param {?} e
+         * @return {?}
+         */
+        (e) => {
             this.mouseDownHandler(e, false);
-        });
-        this.doc.addEventListener('mousemove', (event) => {
+        }));
+        this.doc.addEventListener('mousemove', (/**
+         * @param {?} event
+         * @return {?}
+         */
+        (event) => {
             if (this.resizeData) {
                 this.resizeData.xCurrent = event.clientX;
                 if (this.resizeData.isLeftDirection) {
@@ -6002,13 +6462,16 @@ class ResizableDirective {
                     this.wResizable.resize(this.resizeData);
                 }
             }
-        });
-        this.doc.addEventListener('mouseup', () => {
+        }));
+        this.doc.addEventListener('mouseup', (/**
+         * @return {?}
+         */
+        () => {
             if (this.wResizable.resizeEnd) {
                 this.wResizable.resizeEnd(this.resizeData);
             }
             this.resizeData = null;
-        });
+        }));
     }
     /**
      * @private
@@ -6060,7 +6523,7 @@ ResizableDirective.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class ResizableModule {
 }
@@ -6075,7 +6538,7 @@ ResizableModule.decorators = [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class ImgBrickModule {
     /**
@@ -6089,17 +6552,25 @@ class ImgBrickModule {
             tag: 'image',
             component: ImgBrickComponent,
             textRepresentation: ImgBrickTextRepresentation,
-            destructor: (brickSnapshot) => {
+            destructor: (/**
+             * @param {?} brickSnapshot
+             * @return {?}
+             */
+            (brickSnapshot) => {
                 return this.imgModel.remove(brickSnapshot);
-            },
-            getBrickResourcePaths: (brickSnapshot) => {
+            }),
+            getBrickResourcePaths: (/**
+             * @param {?} brickSnapshot
+             * @return {?}
+             */
+            (brickSnapshot) => {
                 /** @type {?} */
                 const imageState = brickSnapshot.state;
                 if (imageState.metadata && imageState.metadata.path) {
                     return [imageState.metadata.path];
                 }
                 return [];
-            },
+            }),
             name: 'Image',
             description: 'Embed with a link'
         });
@@ -6133,12 +6604,12 @@ ImgBrickModule.ctorParameters = () => [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class QuoteBrickComponent extends BaseTextBrickComponent {
     constructor() {
@@ -6156,7 +6627,7 @@ QuoteBrickComponent.decorators = [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class QuoteBrickModule {
     /**
@@ -6192,12 +6663,12 @@ QuoteBrickModule.ctorParameters = () => [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class InputContextComponent$1 {
     /**
@@ -6210,9 +6681,12 @@ class InputContextComponent$1 {
      * @return {?}
      */
     ngOnInit() {
-        setTimeout(() => {
+        setTimeout((/**
+         * @return {?}
+         */
+        () => {
             this.srcInput.nativeElement.focus();
-        }, 10);
+        }), 10);
     }
     /**
      * @return {?}
@@ -6247,7 +6721,7 @@ InputContextComponent$1.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class VideoBrickComponent {
     /**
@@ -6280,9 +6754,12 @@ class VideoBrickComponent {
             this.scope.src = this.state.src;
             if (this.scope.src) {
                 this.uiState = this.uiStates.video;
-                setTimeout(() => {
+                setTimeout((/**
+                 * @return {?}
+                 */
+                () => {
                     this.renderer2.setAttribute(this.iframe.nativeElement, 'src', this.scope.src);
-                }, 10);
+                }), 10);
             }
         }
     }
@@ -6295,9 +6772,12 @@ class VideoBrickComponent {
             this.scope.src = newState.src;
             if (this.scope.src) {
                 this.uiState = this.uiStates.video;
-                setTimeout(() => {
+                setTimeout((/**
+                 * @return {?}
+                 */
+                () => {
                     this.renderer2.setAttribute(this.iframe.nativeElement, 'src', this.scope.src);
-                }, 10);
+                }), 10);
             }
         }
     }
@@ -6306,9 +6786,12 @@ class VideoBrickComponent {
      */
     onWallFocus() {
         if (this.uiState === this.uiStates.initial && !this.videoSrcPlaceholderRef) {
-            setTimeout(() => {
+            setTimeout((/**
+             * @return {?}
+             */
+            () => {
                 this.showVideoPanel();
-            }, 0);
+            }), 0);
         }
     }
     /**
@@ -6350,12 +6833,19 @@ class VideoBrickComponent {
             },
             componentFactoryResolver: this.componentFactoryResolver
         });
-        this.videoSrcPlaceholderRef.result.then((result) => {
+        this.videoSrcPlaceholderRef.result.then((/**
+         * @param {?} result
+         * @return {?}
+         */
+        (result) => {
             this.videoSrcPlaceholderRef = null;
             this.applySrc(result.src);
-        }, () => {
+        }), (/**
+         * @return {?}
+         */
+        () => {
             this.videoSrcPlaceholderRef = null;
-        });
+        }));
     }
     /**
      * @private
@@ -6388,7 +6878,7 @@ VideoBrickComponent.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class VideoBrickTextRepresentationClass {
     /**
@@ -6407,7 +6897,7 @@ class VideoBrickTextRepresentationClass {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class VideoBrickModule {
     /**
@@ -6446,12 +6936,12 @@ VideoBrickModule.ctorParameters = () => [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class InputContextComponent$2 {
     /**
@@ -6464,9 +6954,12 @@ class InputContextComponent$2 {
      * @return {?}
      */
     ngOnInit() {
-        setTimeout(() => {
+        setTimeout((/**
+         * @return {?}
+         */
+        () => {
             this.srcInput.nativeElement.focus();
-        }, 10);
+        }), 10);
     }
     /**
      * @return {?}
@@ -6501,7 +6994,7 @@ InputContextComponent$2.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class WebBookmarkBrickComponent {
     /**
@@ -6555,14 +7048,21 @@ class WebBookmarkBrickComponent {
         if (src.length) {
             if (this.isValidUrl(src)) {
                 this.loading = true;
-                this.getWebPageMetaInfo(src).then((webPageMetaInfo) => {
+                this.getWebPageMetaInfo(src).then((/**
+                 * @param {?} webPageMetaInfo
+                 * @return {?}
+                 */
+                (webPageMetaInfo) => {
                     Object.assign(this.scope, webPageMetaInfo);
                     this.scope.src = src;
                     this.save();
                     this.loading = false;
-                }, () => {
+                }), (/**
+                 * @return {?}
+                 */
+                () => {
                     this.loading = false;
-                });
+                }));
             }
             else {
                 alert('Url is invalid');
@@ -6589,10 +7089,17 @@ class WebBookmarkBrickComponent {
                     overlayY: 'top'
                 },
                 componentFactoryResolver: this.componentFactoryResolver
-            }).result.then((result) => {
+            }).result.then((/**
+             * @param {?} result
+             * @return {?}
+             */
+            (result) => {
                 this.applySrc(result.src);
-            }, () => {
-            });
+            }), (/**
+             * @return {?}
+             */
+            () => {
+            }));
         }
     }
     /**
@@ -6600,9 +7107,12 @@ class WebBookmarkBrickComponent {
      */
     onWallFocus() {
         if (!this.scope.src) {
-            setTimeout(() => {
+            setTimeout((/**
+             * @return {?}
+             */
+            () => {
                 this.showPanel();
-            }, 0);
+            }), 0);
         }
     }
     /**
@@ -6618,8 +7128,16 @@ class WebBookmarkBrickComponent {
      * @return {?}
      */
     getWebPageMetaInfo(url) {
-        return fetch(`https://api.microlink.io/?url=${url}`).then((page) => {
-            return page.json().then((pageMetadata) => {
+        return fetch(`https://api.microlink.io/?url=${url}`).then((/**
+         * @param {?} page
+         * @return {?}
+         */
+        (page) => {
+            return page.json().then((/**
+             * @param {?} pageMetadata
+             * @return {?}
+             */
+            (pageMetadata) => {
                 const { image, description, logo, title, author } = pageMetadata.data;
                 return {
                     image,
@@ -6628,8 +7146,8 @@ class WebBookmarkBrickComponent {
                     title,
                     author
                 };
-            });
-        });
+            }));
+        }));
     }
     /**
      * @private
@@ -6668,7 +7186,7 @@ WebBookmarkBrickComponent.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class WebBookmarkBrickModule {
     /**
@@ -6717,12 +7235,12 @@ WebBookmarkBrickModule.ctorParameters = () => [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @type {?} */
 const SUPPORTED_MODES = [
@@ -6744,7 +7262,7 @@ const DEFAULT_THEME = 'neo';
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class ModeListComponent {
     /**
@@ -6777,7 +7295,7 @@ ModeListComponent.ctorParameters = () => [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class CodeBrickComponent {
     /**
@@ -6808,10 +7326,13 @@ class CodeBrickComponent {
             dragDrop: false,
             scrollbarStyle: null
         });
-        this.codeMirrorInstance.on('change', () => {
+        this.codeMirrorInstance.on('change', (/**
+         * @return {?}
+         */
+        () => {
             this.scope.code = this.codeMirrorInstance.getValue();
             this.saveState();
-        });
+        }));
         this.processNewState();
     }
     /**
@@ -6832,7 +7353,11 @@ class CodeBrickComponent {
         if (this.scope.mode !== this.codeMirrorInstance.getMode().name) {
             this.codeMirrorInstance.setOption('mode', this.scope.mode);
         }
-        this.ui.displayModeName = SUPPORTED_MODES.find((mode) => mode.value === this.scope.mode).name;
+        this.ui.displayModeName = SUPPORTED_MODES.find((/**
+         * @param {?} mode
+         * @return {?}
+         */
+        (mode) => mode.value === this.scope.mode)).name;
     }
     /**
      * @return {?}
@@ -6847,9 +7372,13 @@ class CodeBrickComponent {
         /** @type {?} */
         const elementBoundingRect = this.mode.nativeElement.getBoundingClientRect();
         /** @type {?} */
-        const modes = SUPPORTED_MODES.map((mode) => {
+        const modes = SUPPORTED_MODES.map((/**
+         * @param {?} mode
+         * @return {?}
+         */
+        (mode) => {
             return Object.assign({}, mode, { selected: mode.value === this.scope.mode });
-        });
+        }));
         this.ngxStickyModalService.open({
             component: ModeListComponent,
             data: { modes },
@@ -6861,12 +7390,19 @@ class CodeBrickComponent {
                 }
             },
             componentFactoryResolver: this.componentFactoryResolver
-        }).result.then((mode) => {
+        }).result.then((/**
+         * @param {?} mode
+         * @return {?}
+         */
+        (mode) => {
             Object.assign(this.scope, Object.assign({}, this.state, { mode: mode.value }));
             this.processNewState();
-        }, () => {
+        }), (/**
+         * @return {?}
+         */
+        () => {
             // nothing
-        });
+        }));
     }
 }
 CodeBrickComponent.decorators = [
@@ -6891,7 +7427,7 @@ CodeBrickComponent.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class CodeBrickModule {
     /**
@@ -6934,19 +7470,19 @@ CodeBrickModule.ctorParameters = () => [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @type {?} */
 const TEXT_BRICK_TAG = 'text';
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class BricksListComponent {
     /**
@@ -6965,18 +7501,31 @@ class BricksListComponent {
      * @return {?}
      */
     ngOnInit() {
-        this.subscriptions.push(this.config.text$.subscribe((filterText) => {
+        this.subscriptions.push(this.config.text$.subscribe((/**
+         * @param {?} filterText
+         * @return {?}
+         */
+        (filterText) => {
             this.updateBricksList(filterText.slice(1));
-        }));
-        this.subscriptions.push(this.config.up$.subscribe(() => {
+        })));
+        this.subscriptions.push(this.config.up$.subscribe((/**
+         * @return {?}
+         */
+        () => {
             this.onNavigationUpDownHandler(true);
-        }));
-        this.subscriptions.push(this.config.down$.subscribe(() => {
+        })));
+        this.subscriptions.push(this.config.down$.subscribe((/**
+         * @return {?}
+         */
+        () => {
             this.onNavigationUpDownHandler(false);
-        }));
-        this.subscriptions.push(this.config.enter$.subscribe(() => {
+        })));
+        this.subscriptions.push(this.config.enter$.subscribe((/**
+         * @return {?}
+         */
+        () => {
             this.notifySelectedTag();
-        }));
+        })));
     }
     /**
      * @param {?} brickDescription
@@ -6998,9 +7547,13 @@ class BricksListComponent {
      * @return {?}
      */
     ngOnDestroy() {
-        this.subscriptions.forEach((subscription) => {
+        this.subscriptions.forEach((/**
+         * @param {?} subscription
+         * @return {?}
+         */
+        (subscription) => {
             subscription.unsubscribe();
-        });
+        }));
     }
     /**
      * @private
@@ -7017,14 +7570,23 @@ class BricksListComponent {
     updateBricksList(filterText) {
         /** @type {?} */
         const brickDescriptors = this.brickRegistry.getAll()
-            .filter((brickDescriptor) => {
+            .filter((/**
+         * @param {?} brickDescriptor
+         * @return {?}
+         */
+        (brickDescriptor) => {
             if (brickDescriptor.tag === TEXT_BRICK_TAG) {
                 return false;
             }
             else {
                 return brickDescriptor.tag.includes(filterText);
             }
-        }).sort((a, b) => {
+        })).sort((/**
+         * @param {?} a
+         * @param {?} b
+         * @return {?}
+         */
+        (a, b) => {
             if (a.tag.startsWith(filterText)) {
                 return -1;
             }
@@ -7034,7 +7596,7 @@ class BricksListComponent {
             else {
                 return 0;
             }
-        });
+        }));
         if (brickDescriptors.length) {
             this.selectedTag$.next(brickDescriptors[0].tag);
         }
@@ -7055,9 +7617,13 @@ class BricksListComponent {
         const currentBrickList = this.bricksList$.getValue();
         if (currentSelectedTag && currentBrickList.length > 1) {
             /** @type {?} */
-            const currentSelectedBrickIndex = currentBrickList.findIndex((brickDescriptor) => {
+            const currentSelectedBrickIndex = currentBrickList.findIndex((/**
+             * @param {?} brickDescriptor
+             * @return {?}
+             */
+            (brickDescriptor) => {
                 return brickDescriptor.tag === currentSelectedTag;
-            });
+            }));
             /** @type {?} */
             let nextSelectedBrick;
             if (isUp) {
@@ -7077,9 +7643,12 @@ class BricksListComponent {
             }
             this.selectedTag$.next(nextSelectedBrick.tag);
             // wait until component re-renders
-            setTimeout(() => {
+            setTimeout((/**
+             * @return {?}
+             */
+            () => {
                 document.getElementsByClassName('w-bricks-list__selected')[0].scrollIntoView();
-            });
+            }));
         }
     }
 }
@@ -7098,7 +7667,7 @@ BricksListComponent.ctorParameters = () => [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class NodeTreeSplit {
     /**
@@ -7202,7 +7771,7 @@ class NodeTreeSplit {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TreeNodeTraverse {
     /**
@@ -7238,9 +7807,13 @@ class TreeNodeTraverse {
     getPreOrderNodes() {
         /** @type {?} */
         const nodes = [];
-        this.traversePreOrder((node) => {
+        this.traversePreOrder((/**
+         * @param {?} node
+         * @return {?}
+         */
+        (node) => {
             nodes.push(node);
-        });
+        }));
         return nodes;
     }
     /**
@@ -7249,9 +7822,13 @@ class TreeNodeTraverse {
     getPostOrderNodes() {
         /** @type {?} */
         const nodes = [];
-        this.traversePostOrder((node) => {
+        this.traversePostOrder((/**
+         * @param {?} node
+         * @return {?}
+         */
+        (node) => {
             nodes.push(node);
-        });
+        }));
         return nodes;
     }
     /**
@@ -7260,9 +7837,13 @@ class TreeNodeTraverse {
     getPostPreOrderNodes() {
         /** @type {?} */
         const nodes = [];
-        this.traversePostPreOrder((node) => {
+        this.traversePostPreOrder((/**
+         * @param {?} node
+         * @return {?}
+         */
+        (node) => {
             nodes.push(node);
-        });
+        }));
         return nodes;
     }
     /**
@@ -7272,12 +7853,16 @@ class TreeNodeTraverse {
      * @return {?}
      */
     _traversePostOrder(node, fn) {
-        Array.from(node.childNodes).forEach((childNode) => {
+        Array.from(node.childNodes).forEach((/**
+         * @param {?} childNode
+         * @return {?}
+         */
+        (childNode) => {
             if (childNode.childNodes && childNode.childNodes.length) {
                 this._traversePostOrder(childNode, fn);
             }
             fn(childNode);
-        });
+        }));
     }
     /**
      * @private
@@ -7286,12 +7871,16 @@ class TreeNodeTraverse {
      * @return {?}
      */
     _traversePreOrder(node, fn) {
-        Array.from(node.childNodes).forEach((childNode) => {
+        Array.from(node.childNodes).forEach((/**
+         * @param {?} childNode
+         * @return {?}
+         */
+        (childNode) => {
             fn(childNode);
             if (childNode.childNodes && childNode.childNodes.length) {
                 this._traversePreOrder(childNode, fn);
             }
-        });
+        }));
     }
     /**
      * @private
@@ -7300,19 +7889,23 @@ class TreeNodeTraverse {
      * @return {?}
      */
     _traversePostPreOrder(node, fn) {
-        Array.from(node.childNodes).forEach((childNode) => {
+        Array.from(node.childNodes).forEach((/**
+         * @param {?} childNode
+         * @return {?}
+         */
+        (childNode) => {
             fn(childNode);
             if (childNode.childNodes && childNode.childNodes.length) {
                 this._traversePostPreOrder(childNode, fn);
             }
             fn(childNode);
-        });
+        }));
     }
 }
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TextContextMenuComponent {
     /**
@@ -7349,12 +7942,15 @@ class TextContextMenuComponent {
         this.switchLinkFormVisibility();
         if (this.ui.showLinkForm) {
             this.config.api.saveSelection();
-            setTimeout(() => {
+            setTimeout((/**
+             * @return {?}
+             */
+            () => {
                 if (this.config.api.isLinkSelected()) {
                     this.linkEl.nativeElement.value = this.config.api.getSelectedLinkHref();
                 }
                 this.linkEl.nativeElement.focus();
-            });
+            }));
         }
         else {
             this.config.api.restoreSelection();
@@ -7404,7 +8000,7 @@ TextContextMenuComponent.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TextBrickComponent extends BaseTextBrickComponent {
     /**
@@ -7438,7 +8034,11 @@ class TextBrickComponent extends BaseTextBrickComponent {
             restoreSelection: this.restoreSelection.bind(this),
             unlink: this.unlink.bind(this)
         };
-        this.selectedTag$.subscribe((newTag) => {
+        this.selectedTag$.subscribe((/**
+         * @param {?} newTag
+         * @return {?}
+         */
+        (newTag) => {
             if (newTag) {
                 this.hideBricksList();
                 this.wallModel.api.core.turnBrickInto(this.id, newTag);
@@ -7446,14 +8046,24 @@ class TextBrickComponent extends BaseTextBrickComponent {
                     this.wallModel.api.core.addBrickAfterBrickId(this.id, 'text');
                 }
             }
-        });
+        }));
         this.subscriptions.push(
         // show sub-menu for selected text
         fromEvent(this.el.nativeElement, 'mouseup')
-            .pipe(filter(() => Boolean(this.scope.text.length)), debounceTime(500), filter(() => this.el.nativeElement.contains(window.getSelection().anchorNode)))
-            .subscribe((e) => {
+            .pipe(filter((/**
+         * @return {?}
+         */
+        () => Boolean(this.scope.text.length))), debounceTime(500), filter((/**
+         * @return {?}
+         */
+        () => this.el.nativeElement.contains(window.getSelection().anchorNode))))
+            .subscribe((/**
+         * @param {?} e
+         * @return {?}
+         */
+        (e) => {
             this.onTextSelection();
-        }));
+        })));
     }
     /**
      * @return {?}
@@ -7466,9 +8076,13 @@ class TextBrickComponent extends BaseTextBrickComponent {
      */
     ngOnDestroy() {
         super.ngOnDestroy();
-        this.subscriptions.forEach((subscription) => {
+        this.subscriptions.forEach((/**
+         * @param {?} subscription
+         * @return {?}
+         */
+        (subscription) => {
             subscription.unsubscribe();
-        });
+        }));
     }
     /**
      * @return {?}
@@ -7539,9 +8153,12 @@ class TextBrickComponent extends BaseTextBrickComponent {
     enterKeyPressed(e) {
         if (this.brickSelectionModalRef) {
             this.enter$.next();
-            setTimeout(() => {
+            setTimeout((/**
+             * @return {?}
+             */
+            () => {
                 this.hideBricksList();
-            }, 10);
+            }), 10);
         }
         else {
             if (this.isTag()) {
@@ -7614,9 +8231,12 @@ class TextBrickComponent extends BaseTextBrickComponent {
                 },
                 componentFactoryResolver: this.componentFactoryResolver
             });
-            setTimeout(() => {
+            setTimeout((/**
+             * @return {?}
+             */
+            () => {
                 this.editor.nativeElement.focus();
-            });
+            }));
         }
     }
     /**
@@ -7628,11 +8248,15 @@ class TextBrickComponent extends BaseTextBrickComponent {
         const imageDataTransferItem = this.extractImageDataTransferItem(e.clipboardData.items);
         if (imageDataTransferItem) {
             e.preventDefault();
-            (new ImgEncoder(imageDataTransferItem.getAsFile())).getBase64Representation().then((imgBase64) => {
+            (new ImgEncoder(imageDataTransferItem.getAsFile())).getBase64Representation().then((/**
+             * @param {?} imgBase64
+             * @return {?}
+             */
+            (imgBase64) => {
                 this.wallModel.api.core.turnBrickInto(this.id, 'image', {
                     src: imgBase64
                 });
-            });
+            }));
         }
         else {
             super.onPaste(e);
@@ -7787,14 +8411,23 @@ class TextBrickComponent extends BaseTextBrickComponent {
             },
             componentFactoryResolver: this.componentFactoryResolver
         });
-        this.contextMenuModalRef.result.then(() => {
+        this.contextMenuModalRef.result.then((/**
+         * @return {?}
+         */
+        () => {
             this.hideContextMenuModal();
-        }, () => {
+        }), (/**
+         * @return {?}
+         */
+        () => {
             this.hideContextMenuModal();
-        });
-        setTimeout(() => {
+        }));
+        setTimeout((/**
+         * @return {?}
+         */
+        () => {
             this.editor.nativeElement.focus();
-        });
+        }));
     }
     // todo: might be as util method
     /**
@@ -7899,11 +8532,15 @@ class TextBrickComponent extends BaseTextBrickComponent {
         /** @type {?} */
         const orderedNodesBetweenNodes = orderedNodes.slice(nodeAIndex, nodeBIndex);
         /** @type {?} */
-        const linkNodes = orderedNodesBetweenNodes.filter((node) => {
+        const linkNodes = orderedNodesBetweenNodes.filter((/**
+         * @param {?} node
+         * @return {?}
+         */
+        (node) => {
             if (this.isHTMLElement(node)) {
                 return node.tagName === 'A';
             }
-        });
+        }));
         return (/** @type {?} */ (linkNodes[0]));
     }
     /**
@@ -7936,7 +8573,7 @@ TextBrickComponent.propDecorators = {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class TextBrickModule {
     /**
@@ -7993,22 +8630,22 @@ TextBrickModule.ctorParameters = () => [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class LocationToTopLeftPointEvent {
     /**
@@ -8021,7 +8658,7 @@ class LocationToTopLeftPointEvent {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class LocationToLeftCenterPointEvent {
     /**
@@ -8034,17 +8671,17 @@ class LocationToLeftCenterPointEvent {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 
 export { AddBrickEvent, BeforeChangeEvent, BrickRegistry, CodeBrickModule, CopyPlugin, DIVIDER_BRICK_TAG, DividerBrickModule, EndPickOut, HeaderBrickComponent, HeaderBrickModule, HelperComponentsModule, ImgBrickComponent, ImgBrickModule, LocationToLeftCenterPointEvent, LocationToTopLeftPointEvent, LocationUpdatedEvent, MoveBrickEvent, PickOutAreaComponent, PickOutAreaDirective, PickOutItems, PickOutModule, PickOutService, QuoteBrickModule, Radar, RadarModule, RemoveBrickEvent, RemoveBricksEvent, SelectedBrickEvent, SelectionPlugin, SetPlanEvent, SpotDirective, SpotModel, StartPickOut, StartWorkingEvent, StopPickOut, StopWorkingEvent, TOW, TextBrickComponent, TextBrickModule, TowModule, TowService, TurnBrickIntoEvent, UNDO_REDO_API_NAME, UndoRedoPlugin, UpdateBrickStateEvent, VideoBrickModule, WALL, WALL_FILE_UPLOADER, WallModelFactory, WallModule, WallPluginInitializedEvent, WebBookmarkBrickModule, WorkInProgressEvent, RadarCoordinator as ɵa, PickOutCoordinator as ɵb, WebBookmarkBrickComponent as ɵba, InputContextComponent$2 as ɵbb, CodeBrickComponent as ɵbc, ModeListComponent as ɵbd, BricksListComponent as ɵbe, TextContextMenuComponent as ɵbf, TowSlaveDirective as ɵc, TowCoordinator as ɵd, PlaceholderRendererModule as ɵe, PlaceholderComponent as ɵf, PlaceholderRenderer as ɵg, WallComponent as ɵh, WallViewModel as ɵi, WallCanvasComponent as ɵj, WallCanvasRowComponent as ɵk, WallCanvasBrickComponent as ɵl, BrickInputPlaceholderComponent as ɵm, LoadingWrapperComponent as ɵn, DividerBrickComponent as ɵo, ContenteditableModule as ɵp, ContenteditableDirective as ɵq, BaseTextBrickComponent as ɵr, ResizableModule as ɵs, ResizableDirective as ɵt, ResizableHandlerComponent as ɵu, InputContextComponent as ɵv, ImgModel as ɵw, QuoteBrickComponent as ɵx, VideoBrickComponent as ɵy, InputContextComponent$1 as ɵz };

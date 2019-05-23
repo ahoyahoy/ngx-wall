@@ -22,9 +22,12 @@
     ***************************************************************************** */
     /* global Reflect, Promise */
 
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function(d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
 
     function __extends(d, b) {
         extendStatics(d, b);
@@ -32,12 +35,15 @@
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     }
 
-    var __assign = Object.assign || function __assign(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
-        }
-        return t;
+    var __assign = function() {
+        __assign = Object.assign || function __assign(t) {
+            for (var s, i = 1, n = arguments.length; i < n; i++) {
+                s = arguments[i];
+                for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+            }
+            return t;
+        };
+        return __assign.apply(this, arguments);
     };
 
     function __read(o, n) {
@@ -59,7 +65,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var Guid = /** @class */ (function () {
         function Guid() {
@@ -87,7 +93,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var Base64ToFile = /** @class */ (function () {
         function Base64ToFile(base64, fileName) {
@@ -121,7 +127,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var ImgEncoder = /** @class */ (function () {
         function ImgEncoder(image) {
@@ -135,29 +141,42 @@
          */
         function () {
             var _this = this;
-            return new Promise(function (resolve, reject) {
+            return new Promise((/**
+             * @param {?} resolve
+             * @param {?} reject
+             * @return {?}
+             */
+            function (resolve, reject) {
                 /** @type {?} */
                 var reader = new FileReader();
-                reader.onload = function (event) {
+                reader.onload = (/**
+                 * @param {?} event
+                 * @return {?}
+                 */
+                function (event) {
                     resolve(event.target.result);
-                };
-                reader.onerror = function (event) {
+                });
+                reader.onerror = (/**
+                 * @param {?} event
+                 * @return {?}
+                 */
+                function (event) {
                     reject(event);
-                };
+                });
                 reader.readAsDataURL(_this.image);
-            });
+            }));
         };
         return ImgEncoder;
     }());
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var WallBrick = /** @class */ (function () {
         function WallBrick(id, tag, meta) {
@@ -232,7 +251,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var AddBrickEvent = /** @class */ (function () {
         function AddBrickEvent(brickId) {
@@ -243,7 +262,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var BeforeChangeEvent = /** @class */ (function () {
         function BeforeChangeEvent(beforeEventType) {
@@ -254,7 +273,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var MoveBrickEvent = /** @class */ (function () {
         function MoveBrickEvent(movedBrickIds, beforeBrickId) {
@@ -265,7 +284,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var RemoveBrickEvent = /** @class */ (function () {
         function RemoveBrickEvent(brick, previousBrickId, nextBrickId) {
@@ -278,7 +297,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var RemoveBricksEvent = /** @class */ (function () {
         function RemoveBricksEvent(bricks, previousBrickId, nextBrickId) {
@@ -291,7 +310,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var SetPlanEvent = /** @class */ (function () {
         function SetPlanEvent() {
@@ -301,7 +320,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var TurnBrickIntoEvent = /** @class */ (function () {
         function TurnBrickIntoEvent(brickId, newTag, oldTag) {
@@ -314,7 +333,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var UpdateBrickStateEvent = /** @class */ (function () {
         function UpdateBrickStateEvent(brickId, brickState, oldBrickState) {
@@ -327,7 +346,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /*
     * Execute queries commands over rows
@@ -365,7 +384,14 @@
          */
         function (firstBrickId, secondBrickId) {
             /** @type {?} */
-            var brickIdsSequence = this.getBrickSequence(function () { return true; }).map(function (brick) { return brick.id; });
+            var brickIdsSequence = this.getBrickSequence((/**
+             * @return {?}
+             */
+            function () { return true; })).map((/**
+             * @param {?} brick
+             * @return {?}
+             */
+            function (brick) { return brick.id; }));
             return brickIdsSequence.indexOf(firstBrickId) < brickIdsSequence.indexOf(secondBrickId);
         };
         /**
@@ -388,9 +414,13 @@
          * @return {?}
          */
         function (brickId) {
-            return this.getBrickSequence(function (brick) {
+            return this.getBrickSequence((/**
+             * @param {?} brick
+             * @return {?}
+             */
+            function (brick) {
                 return brick.id === brickId;
-            })[0];
+            }))[0];
         };
         /**
          * @return {?}
@@ -399,7 +429,14 @@
          * @return {?}
          */
         function () {
-            return this.getBrickSequence(function () { return true; }).map(function (brick) { return brick.id; });
+            return this.getBrickSequence((/**
+             * @return {?}
+             */
+            function () { return true; })).map((/**
+             * @param {?} brick
+             * @return {?}
+             */
+            function (brick) { return brick.id; }));
         };
         /**
          * @param {?} predictor
@@ -410,9 +447,13 @@
          * @return {?}
          */
         function (predictor) {
-            return this.getBrickSequence(function (wallBrick) {
+            return this.getBrickSequence((/**
+             * @param {?} wallBrick
+             * @return {?}
+             */
+            function (wallBrick) {
                 return predictor(wallBrick.getSnapshot());
-            });
+            }));
         };
         /**
          * @param {?} brickId
@@ -432,20 +473,30 @@
             /** @type {?} */
             var i = 0;
             while (brickPosition.rowIndex === null && i < this.rows.length) {
-                this.rows[i].columns.forEach(function (column, columnIndex) {
+                this.rows[i].columns.forEach((/**
+                 * @param {?} column
+                 * @param {?} columnIndex
+                 * @return {?}
+                 */
+                function (column, columnIndex) {
                     /** @type {?} */
                     var brickIndex = null;
-                    column.bricks.forEach(function (brick, index) {
+                    column.bricks.forEach((/**
+                     * @param {?} brick
+                     * @param {?} index
+                     * @return {?}
+                     */
+                    function (brick, index) {
                         if (brick.id === brickId) {
                             brickIndex = index;
                         }
-                    });
+                    }));
                     if (brickIndex || brickIndex === 0) {
                         brickPosition.rowIndex = i;
                         brickPosition.columnIndex = columnIndex;
                         brickPosition.brickIndex = brickIndex;
                     }
-                });
+                }));
                 i++;
             }
             return brickPosition;
@@ -468,7 +519,10 @@
          * @return {?}
          */
         function () {
-            return this.getBrickSequence(function () { return true; }).length;
+            return this.getBrickSequence((/**
+             * @return {?}
+             */
+            function () { return true; })).length;
         };
         /**
          * @param {?} brickId
@@ -480,11 +534,18 @@
          */
         function (brickId) {
             /** @type {?} */
-            var bricksSequence = this.getBrickSequence(function () { return true; });
+            var bricksSequence = this.getBrickSequence((/**
+             * @return {?}
+             */
+            function () { return true; }));
             /** @type {?} */
-            var brickIndex = bricksSequence.findIndex(function (brick) {
+            var brickIndex = bricksSequence.findIndex((/**
+             * @param {?} brick
+             * @return {?}
+             */
+            function (brick) {
                 return brick.id === brickId;
-            });
+            }));
             return bricksSequence[brickIndex + 1];
         };
         /**
@@ -510,11 +571,18 @@
          */
         function (brickId) {
             /** @type {?} */
-            var bricksSequence = this.getBrickSequence(function () { return true; });
+            var bricksSequence = this.getBrickSequence((/**
+             * @return {?}
+             */
+            function () { return true; }));
             /** @type {?} */
-            var brickIndex = bricksSequence.findIndex(function (brick) {
+            var brickIndex = bricksSequence.findIndex((/**
+             * @param {?} brick
+             * @return {?}
+             */
+            function (brick) {
                 return brick.id === brickId;
-            });
+            }));
             return bricksSequence[brickIndex - 1];
         };
         /**
@@ -541,15 +609,27 @@
         function (predicate) {
             /** @type {?} */
             var brickSequence = [];
-            this.traverse(function (row) {
-                row.columns.forEach(function (column) {
-                    column.bricks.forEach(function (brick) {
+            this.traverse((/**
+             * @param {?} row
+             * @return {?}
+             */
+            function (row) {
+                row.columns.forEach((/**
+                 * @param {?} column
+                 * @return {?}
+                 */
+                function (column) {
+                    column.bricks.forEach((/**
+                     * @param {?} brick
+                     * @return {?}
+                     */
+                    function (brick) {
                         if (predicate(brick)) {
                             brickSequence.push(brick);
                         }
-                    });
-                });
-            });
+                    }));
+                }));
+            }));
             return brickSequence;
         };
         /**
@@ -593,9 +673,13 @@
         function (brickId) {
             var _this = this;
             /** @type {?} */
-            var nextTextBricks = this.findBricksAfter(brickId, function (currentBrick) {
+            var nextTextBricks = this.findBricksAfter(brickId, (/**
+             * @param {?} currentBrick
+             * @return {?}
+             */
+            function (currentBrick) {
                 return _this.brickRegistry.get(currentBrick.tag).supportText;
-            });
+            }));
             return nextTextBricks[0];
         };
         /**
@@ -609,9 +693,13 @@
         function (brickId) {
             var _this = this;
             /** @type {?} */
-            var previousTextBricks = this.findBrickBefore(brickId, function (currentBrick) {
+            var previousTextBricks = this.findBrickBefore(brickId, (/**
+             * @param {?} currentBrick
+             * @return {?}
+             */
+            function (currentBrick) {
                 return _this.brickRegistry.get(currentBrick.tag).supportText;
-            });
+            }));
             return previousTextBricks[previousTextBricks.length - 1];
         };
         /**
@@ -628,23 +716,38 @@
             /** @type {?} */
             var bricks = [];
             /** @type {?} */
-            var bricksSequence = this.getBrickSequence(function () { return true; });
+            var bricksSequence = this.getBrickSequence((/**
+             * @return {?}
+             */
+            function () { return true; }));
             /** @type {?} */
-            var brickIdsSequence = bricksSequence.map(function (brick) { return brick.id; });
+            var brickIdsSequence = bricksSequence.map((/**
+             * @param {?} brick
+             * @return {?}
+             */
+            function (brick) { return brick.id; }));
             /** @type {?} */
             var currentBrickIdIndex = brickIdsSequence.indexOf(brickId);
             if (currentBrickIdIndex !== -1) {
                 /** @type {?} */
                 var brickIdsAfter = brickIdsSequence.splice(currentBrickIdIndex + 1);
-                brickIdsAfter.forEach(function (brickIdAfter) {
+                brickIdsAfter.forEach((/**
+                 * @param {?} brickIdAfter
+                 * @return {?}
+                 */
+                function (brickIdAfter) {
                     /** @type {?} */
-                    var currentBrick = bricksSequence.find(function (brick) {
+                    var currentBrick = bricksSequence.find((/**
+                     * @param {?} brick
+                     * @return {?}
+                     */
+                    function (brick) {
                         return brick.id === brickIdAfter;
-                    });
+                    }));
                     if (predicate(currentBrick)) {
                         bricks.push(currentBrick);
                     }
-                });
+                }));
             }
             return bricks;
         };
@@ -662,21 +765,36 @@
             /** @type {?} */
             var bricks = [];
             /** @type {?} */
-            var bricksSequence = this.getBrickSequence(function () { return true; });
+            var bricksSequence = this.getBrickSequence((/**
+             * @return {?}
+             */
+            function () { return true; }));
             /** @type {?} */
-            var brickIdsSequence = bricksSequence.map(function (brick) { return brick.id; });
+            var brickIdsSequence = bricksSequence.map((/**
+             * @param {?} brick
+             * @return {?}
+             */
+            function (brick) { return brick.id; }));
             /** @type {?} */
             var currentBrickIdIndex = brickIdsSequence.indexOf(brickId);
             if (currentBrickIdIndex !== -1) {
                 /** @type {?} */
                 var brickIdsBefore = brickIdsSequence.splice(0, currentBrickIdIndex);
-                brickIdsBefore.forEach(function (brickIdBefore) {
+                brickIdsBefore.forEach((/**
+                 * @param {?} brickIdBefore
+                 * @return {?}
+                 */
+                function (brickIdBefore) {
                     /** @type {?} */
-                    var currentBrick = bricksSequence.find(function (brick) { return brick.id === brickIdBefore; });
+                    var currentBrick = bricksSequence.find((/**
+                     * @param {?} brick
+                     * @return {?}
+                     */
+                    function (brick) { return brick.id === brickIdBefore; }));
                     if (predicate(currentBrick)) {
                         bricks.push(currentBrick);
                     }
-                });
+                }));
             }
             return bricks;
         };
@@ -700,16 +818,20 @@
          * @return {?}
          */
         function (fn) {
-            this.rows.forEach(function (row) {
+            this.rows.forEach((/**
+             * @param {?} row
+             * @return {?}
+             */
+            function (row) {
                 fn(row);
-            });
+            }));
         };
         return LayoutWalker;
     }());
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /*
     * Modify layout wall rows
@@ -828,7 +950,11 @@
         function (afterBrickId, movedBrickIds) {
             var _this = this;
             movedBrickIds.reverse();
-            movedBrickIds.forEach(function (movedBrickId) {
+            movedBrickIds.forEach((/**
+             * @param {?} movedBrickId
+             * @return {?}
+             */
+            function (movedBrickId) {
                 /** @type {?} */
                 var currentMovedBrick = _this.layoutWalker.getBrickById(movedBrickId);
                 _this.removeBrick(movedBrickId);
@@ -837,7 +963,7 @@
                 /** @type {?} */
                 var newRowIndex = afterBrickPosition.rowIndex + 1;
                 _this.addBrickToNewRow(newRowIndex, currentMovedBrick);
-            });
+            }));
         };
         /**
          * @param {?} afterBrickId
@@ -851,14 +977,19 @@
          */
         function (afterBrickId, movedBrickIds) {
             var _this = this;
-            movedBrickIds.forEach(function (movedBrickId, index) {
+            movedBrickIds.forEach((/**
+             * @param {?} movedBrickId
+             * @param {?} index
+             * @return {?}
+             */
+            function (movedBrickId, index) {
                 /** @type {?} */
                 var currentMovedBrick = _this.layoutWalker.getBrickById(movedBrickId);
                 _this.removeBrick(movedBrickId);
                 /** @type {?} */
                 var afterBrickPosition = _this.layoutWalker.getBrickPosition(afterBrickId);
                 _this.addBrickToExistingColumn(afterBrickPosition.rowIndex, afterBrickPosition.columnIndex, afterBrickPosition.brickIndex + index + 1, currentMovedBrick);
-            });
+            }));
         };
         /**
          * @param {?} beforeBrickId
@@ -873,7 +1004,12 @@
         function (beforeBrickId, movedBrickIds) {
             var _this = this;
             movedBrickIds.reverse();
-            movedBrickIds.forEach(function (movedBrickId, index) {
+            movedBrickIds.forEach((/**
+             * @param {?} movedBrickId
+             * @param {?} index
+             * @return {?}
+             */
+            function (movedBrickId, index) {
                 /** @type {?} */
                 var currentMovedBrick = _this.layoutWalker.getBrickById(movedBrickId);
                 _this.removeBrick(movedBrickId);
@@ -886,7 +1022,7 @@
                     beforeBrickPosition = _this.layoutWalker.getBrickPosition(movedBrickIds[index - 1]);
                 }
                 _this.addBrickToNewRow(beforeBrickPosition.rowIndex, currentMovedBrick);
-            });
+            }));
         };
         /**
          * @param {?} beforeBrickId
@@ -900,14 +1036,18 @@
          */
         function (beforeBrickId, movedBrickIds) {
             var _this = this;
-            movedBrickIds.forEach(function (movedBrickId) {
+            movedBrickIds.forEach((/**
+             * @param {?} movedBrickId
+             * @return {?}
+             */
+            function (movedBrickId) {
                 /** @type {?} */
                 var currentMovedBrick = _this.layoutWalker.getBrickById(movedBrickId);
                 _this.removeBrick(movedBrickId);
                 /** @type {?} */
                 var beforeBrickPosition = _this.layoutWalker.getBrickPosition(beforeBrickId);
                 _this.addBrickToExistingColumn(beforeBrickPosition.rowIndex, beforeBrickPosition.columnIndex, beforeBrickPosition.brickIndex, currentMovedBrick);
-            });
+            }));
         };
         /**
          * @param {?} movedBrickIds
@@ -924,12 +1064,16 @@
         function (movedBrickIds, beforeBrickId, side) {
             var _this = this;
             /** @type {?} */
-            var movedBricks = movedBrickIds.map(function (movedBrickId) {
+            var movedBricks = movedBrickIds.map((/**
+             * @param {?} movedBrickId
+             * @return {?}
+             */
+            function (movedBrickId) {
                 /** @type {?} */
                 var currentMovedBrick = _this.layoutWalker.getBrickById(movedBrickId);
                 _this.removeBrick(movedBrickId);
                 return currentMovedBrick;
-            });
+            }));
             /** @type {?} */
             var beforeBrickPosition = this.layoutWalker.getBrickPosition(beforeBrickId);
             /** @type {?} */
@@ -942,14 +1086,19 @@
             else if (side === 'right') {
                 columnIndex = beforeBrickPosition.columnIndex + 1;
             }
-            movedBricks.forEach(function (movedBrick, index) {
+            movedBricks.forEach((/**
+             * @param {?} movedBrick
+             * @param {?} index
+             * @return {?}
+             */
+            function (movedBrick, index) {
                 if (index === 0) {
                     _this.addBrickToNewColumn(beforeBrickPosition.rowIndex, columnIndex, movedBrick);
                 }
                 else {
                     _this.addBrickToExistingColumn(beforeBrickPosition.rowIndex, columnIndex, index, movedBrick);
                 }
-            });
+            }));
         };
         /**
          * @param {?} brickId
@@ -1103,7 +1252,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /*
     * Contains Wall data structure and registers API for data manipulation.
@@ -1149,9 +1298,13 @@
                 'getPreviousTextBrickId',
                 'filterBricks',
                 'isBrickAheadOf'
-            ].forEach(function (methodName) {
+            ].forEach((/**
+             * @param {?} methodName
+             * @return {?}
+             */
+            function (methodName) {
                 _this[methodName] = _this.layoutWalker[methodName].bind(_this.layoutWalker);
-            });
+            }));
             this.wallModel.registerApi(this.name, this);
         };
         // old
@@ -1175,13 +1328,32 @@
             this.layout = new WallLayout(this.brickRegistry, this.layoutWalker);
             this.layoutWalker.setLayout(this.layout.rows);
             // build tree
-            plan.layout.bricks.forEach(function (row, rowIndex) {
-                row.columns.forEach(function (column, columnIndex) {
-                    column.bricks.forEach(function (brick, brickIndex) {
+            plan.layout.bricks.forEach((/**
+             * @param {?} row
+             * @param {?} rowIndex
+             * @return {?}
+             */
+            function (row, rowIndex) {
+                row.columns.forEach((/**
+                 * @param {?} column
+                 * @param {?} columnIndex
+                 * @return {?}
+                 */
+                function (column, columnIndex) {
+                    column.bricks.forEach((/**
+                     * @param {?} brick
+                     * @param {?} brickIndex
+                     * @return {?}
+                     */
+                    function (brick, brickIndex) {
                         /** @type {?} */
-                        var planBrick = plan.bricks.find(function (currentPlanBrick) {
+                        var planBrick = plan.bricks.find((/**
+                         * @param {?} currentPlanBrick
+                         * @return {?}
+                         */
+                        function (currentPlanBrick) {
                             return brick.id === currentPlanBrick.id;
-                        });
+                        }));
                         /** @type {?} */
                         var wallBrick = _this.restoreBrick(planBrick);
                         // first column in new row
@@ -1201,9 +1373,9 @@
                                 _this.layout.addBrickToExistingColumn(rowIndex, columnIndex, brickIndex, wallBrick);
                             }
                         }
-                    });
-                });
-            });
+                    }));
+                }));
+            }));
             this.dispatch(new SetPlanEvent());
         };
         /**
@@ -1340,8 +1512,11 @@
             var nextTextBrick = this.layoutWalker.getNextTextBrick(brickId);
             /** @type {?} */
             var previousTextBrick = this.layoutWalker.getPreviousTextBrick(brickId);
-            this.clearBrickResources(brickId).then(function () {
-            });
+            this.clearBrickResources(brickId).then((/**
+             * @return {?}
+             */
+            function () {
+            }));
             /** @type {?} */
             var removedBrick = this.layoutWalker.getBrickById(brickId);
             this.layout.removeBrick(brickId);
@@ -1367,11 +1542,22 @@
             /** @type {?} */
             var previousBrick = this.layoutWalker.getPreviousBrick(brickIds[0]);
             /** @type {?} */
-            var clearPromises = brickIds.map(function (brickId) { return _this.clearBrickResources(brickId); });
-            Promise.all(clearPromises).then(function () {
-            });
+            var clearPromises = brickIds.map((/**
+             * @param {?} brickId
+             * @return {?}
+             */
+            function (brickId) { return _this.clearBrickResources(brickId); }));
+            Promise.all(clearPromises).then((/**
+             * @return {?}
+             */
+            function () {
+            }));
             /** @type {?} */
-            var removedBricks = brickIds.map(function (brickId) {
+            var removedBricks = brickIds.map((/**
+             * @param {?} brickId
+             * @return {?}
+             */
+            function (brickId) {
                 /** @type {?} */
                 var removedBrick = _this.layoutWalker.getBrickById(brickId);
                 _this.layout.removeBrick(brickId);
@@ -1380,7 +1566,7 @@
                     tag: removedBrick.tag,
                     state: removedBrick.state
                 };
-            });
+            }));
             this.dispatch(new RemoveBricksEvent(removedBricks, previousBrick && previousBrick.id, nextTextBrick && nextTextBrick.id));
         };
         /**
@@ -1403,12 +1589,23 @@
             var brickIds = this.layoutWalker.getBrickIds();
             // todo: replace it after removeBricks will be async
             /** @type {?} */
-            var clearPromises = brickIds.map(function (brickId) { return _this.clearBrickResources(brickId); });
-            return Promise.all(clearPromises).then(function () {
-                brickIds.forEach(function (brickId) {
+            var clearPromises = brickIds.map((/**
+             * @param {?} brickId
+             * @return {?}
+             */
+            function (brickId) { return _this.clearBrickResources(brickId); }));
+            return Promise.all(clearPromises).then((/**
+             * @return {?}
+             */
+            function () {
+                brickIds.forEach((/**
+                 * @param {?} brickId
+                 * @return {?}
+                 */
+                function (brickId) {
                     _this.layout.removeBrick(brickId);
-                });
-            });
+                }));
+            }));
         };
         /**
          * @param {?} brickId
@@ -1523,15 +1720,27 @@
                     bricks: []
                 }
             };
-            this.layoutWalker.traverse(function (row) {
+            this.layoutWalker.traverse((/**
+             * @param {?} row
+             * @return {?}
+             */
+            function (row) {
                 /** @type {?} */
                 var columns = [];
-                row.columns.forEach(function (column) {
+                row.columns.forEach((/**
+                 * @param {?} column
+                 * @return {?}
+                 */
+                function (column) {
                     /** @type {?} */
                     var planColumn = {
                         bricks: []
                     };
-                    column.bricks.forEach(function (brick) {
+                    column.bricks.forEach((/**
+                     * @param {?} brick
+                     * @return {?}
+                     */
+                    function (brick) {
                         plan.bricks.push({
                             id: brick.id,
                             tag: brick.tag,
@@ -1541,14 +1750,14 @@
                         planColumn.bricks.push({
                             id: brick.id
                         });
-                    });
+                    }));
                     columns.push(planColumn);
-                });
+                }));
                 plan.layout.bricks.push({
                     columns: columns,
                     id: row.id
                 });
-            });
+            }));
             return JSON.parse(JSON.stringify(plan));
         };
         /**
@@ -1561,10 +1770,21 @@
          */
         function (brickIds) {
             /** @type {?} */
-            var bricksSequence = this.layoutWalker.getBrickSequence(function () { return true; });
+            var bricksSequence = this.layoutWalker.getBrickSequence((/**
+             * @return {?}
+             */
+            function () { return true; }));
             return bricksSequence
-                .filter(function (brick) { return brickIds.indexOf(brick.id) !== -1; })
-                .map(function (brick) { return brick.id; });
+                .filter((/**
+             * @param {?} brick
+             * @return {?}
+             */
+            function (brick) { return brickIds.indexOf(brick.id) !== -1; }))
+                .map((/**
+             * @param {?} brick
+             * @return {?}
+             */
+            function (brick) { return brick.id; }));
         };
         /**
          * @param {?} fn
@@ -1575,18 +1795,30 @@
          * @return {?}
          */
         function (fn) {
-            return this.layoutWalker.traverse(function (row) {
+            return this.layoutWalker.traverse((/**
+             * @param {?} row
+             * @return {?}
+             */
+            function (row) {
                 /** @type {?} */
                 var preparedRow = {
                     id: row.id,
-                    columns: row.columns.map(function (column) {
+                    columns: row.columns.map((/**
+                     * @param {?} column
+                     * @return {?}
+                     */
+                    function (column) {
                         return {
-                            bricks: column.bricks.map(function (brick) { return brick.getSnapshot(); })
+                            bricks: column.bricks.map((/**
+                             * @param {?} brick
+                             * @return {?}
+                             */
+                            function (brick) { return brick.getSnapshot(); }))
                         };
-                    })
+                    }))
                 };
                 fn(preparedRow);
-            });
+            }));
         };
         /**
          * @param {?} brickId
@@ -1754,7 +1986,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var WallPluginInitializedEvent = /** @class */ (function () {
         function WallPluginInitializedEvent(pluginName) {
@@ -1765,7 +1997,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var WallModel = /** @class */ (function () {
         function WallModel(brickRegistry, config) {
@@ -1778,7 +2010,11 @@
             this.events$ = new rxjs.Subject();
             this.plugins = new Map();
             // initialize 3rd party plugins
-            config.plugins.forEach(function (plugin) { return _this.initializePlugin(plugin); });
+            config.plugins.forEach((/**
+             * @param {?} plugin
+             * @return {?}
+             */
+            function (plugin) { return _this.initializePlugin(plugin); }));
         }
         // register external API
         // register external API
@@ -1805,7 +2041,11 @@
          */
         function () {
             var _this = this;
-            this.plugins.forEach(function (plugin) { return _this.destroyPlugin(plugin); });
+            this.plugins.forEach((/**
+             * @param {?} plugin
+             * @return {?}
+             */
+            function (plugin) { return _this.destroyPlugin(plugin); }));
         };
         // proxy events from all plugins
         // proxy events from all plugins
@@ -1870,7 +2110,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var BrickRegistry = /** @class */ (function () {
         function BrickRegistry() {
@@ -1900,7 +2140,11 @@
          * @return {?}
          */
         function (tag) {
-            return this.bricks.find(function (brickConfiguration) { return brickConfiguration.tag === tag; });
+            return this.bricks.find((/**
+             * @param {?} brickConfiguration
+             * @return {?}
+             */
+            function (brickConfiguration) { return brickConfiguration.tag === tag; }));
         };
         /**
          * @return {?}
@@ -1919,7 +2163,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var WallModelFactory = /** @class */ (function () {
         function WallModelFactory(brickRegistry) {
@@ -1965,7 +2209,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var PlaceholderComponent = /** @class */ (function () {
         function PlaceholderComponent() {
@@ -2001,7 +2245,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var PlaceholderRenderer = /** @class */ (function () {
         function PlaceholderRenderer(componentFactoryResolver, appRef, injector) {
@@ -2109,7 +2353,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var PlaceholderRendererModule = /** @class */ (function () {
         function PlaceholderRendererModule() {
@@ -2135,7 +2379,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var WallCanvasComponent = /** @class */ (function () {
         function WallCanvasComponent(doc) {
@@ -2234,7 +2478,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var LocationUpdatedEvent = /** @class */ (function () {
         function LocationUpdatedEvent(spots) {
@@ -2245,7 +2489,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var SpotModel = /** @class */ (function () {
         function SpotModel(instance) {
@@ -2395,7 +2639,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var RadarCoordinator = /** @class */ (function () {
         function RadarCoordinator(doc, zone) {
@@ -2407,14 +2651,21 @@
             /** @type {?} */
             var throttleMouseTime = 30;
             // run outside Angular Zone in order to decrease performance hit
-            this.zone.runOutsideAngular(function () {
+            this.zone.runOutsideAngular((/**
+             * @return {?}
+             */
+            function () {
                 _this.mouseMove$
                     .pipe(operators.throttleTime(throttleMouseTime))
-                    .subscribe(function (event) {
+                    .subscribe((/**
+                 * @param {?} event
+                 * @return {?}
+                 */
+                function (event) {
                     _this.updateSpotsInfo();
                     _this.updateLocationPosition(event.clientX, event.clientY);
-                });
-            });
+                }));
+            }));
         }
         /**
          * @param {?} spotId
@@ -2447,7 +2698,11 @@
          * @return {?}
          */
         function () {
-            this.spots.forEach(function (spot) { return spot.updateInfo(); });
+            this.spots.forEach((/**
+             * @param {?} spot
+             * @return {?}
+             */
+            function (spot) { return spot.updateInfo(); }));
         };
         /**
          * @param {?} predicate
@@ -2459,11 +2714,19 @@
          */
         function (predicate) {
             return Array.from(this.spots)
-                .map(function (_a) {
+                .map((/**
+             * @param {?} __0
+             * @return {?}
+             */
+            function (_a) {
                 var _b = __read(_a, 2), id = _b[0], spot = _b[1];
                 return spot;
-            })
-                .filter(function (spot) { return predicate(spot); });
+            }))
+                .filter((/**
+             * @param {?} spot
+             * @return {?}
+             */
+            function (spot) { return predicate(spot); }));
         };
         /**
          * @param {?} fn
@@ -2491,7 +2754,11 @@
         function (x, y) {
             /** @type {?} */
             var sortedSpots = [];
-            this.spots.forEach(function (spot) {
+            this.spots.forEach((/**
+             * @param {?} spot
+             * @return {?}
+             */
+            function (spot) {
                 /** @type {?} */
                 var minimalDistance = spot.getMinimalDistanceToPoint(x, y);
                 /** @type {?} */
@@ -2510,7 +2777,7 @@
                     isCross13Line: isCross13Line,
                     data: spot.data
                 });
-            });
+            }));
             this.events.next(new LocationUpdatedEvent(sortedSpots));
         };
         RadarCoordinator.decorators = [
@@ -2526,16 +2793,20 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var Radar = /** @class */ (function () {
         function Radar(radarCoordinator) {
             var _this = this;
             this.radarCoordinator = radarCoordinator;
             this.events = new rxjs.Subject();
-            this.radarCoordinator.subscribe(function (event) {
+            this.radarCoordinator.subscribe((/**
+             * @param {?} event
+             * @return {?}
+             */
+            function (event) {
                 _this.events.next(event);
-            });
+            }));
         }
         /**
          * @param {?} fn
@@ -2571,7 +2842,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var WallCanvasBrickComponent = /** @class */ (function () {
         function WallCanvasBrickComponent(injector, resolver, radar, cdRef, wallCanvasComponent) {
@@ -2599,10 +2870,18 @@
                 isBeacon: true
             };
             this.componentReference = this.renderBrick();
-            this.radarSubscription = this.radar.subscribe(function (e) {
+            this.radarSubscription = this.radar.subscribe((/**
+             * @param {?} e
+             * @return {?}
+             */
+            function (e) {
                 if (e instanceof LocationUpdatedEvent) {
                     /** @type {?} */
-                    var currentSpot = e.spots.find(function (spot) { return spot.data.brickId === _this.brick.id; });
+                    var currentSpot = e.spots.find((/**
+                     * @param {?} spot
+                     * @return {?}
+                     */
+                    function (spot) { return spot.data.brickId === _this.brick.id; }));
                     if (currentSpot.isCross13Line) {
                         _this.isMouseNear = currentSpot.topLeftPointDistance < _this.minimalDistanceToMouse;
                     }
@@ -2611,17 +2890,29 @@
                     }
                     _this.cdRef.detectChanges();
                 }
-            });
-            this.focusedBrickSubscription = this.wallCanvasComponent.focusedBrick$.subscribe(function (focusedBrick) {
+            }));
+            this.focusedBrickSubscription = this.wallCanvasComponent.focusedBrick$.subscribe((/**
+             * @param {?} focusedBrick
+             * @return {?}
+             */
+            function (focusedBrick) {
                 if (focusedBrick.id === _this.brick.id) {
                     _this.callInstanceApi('onWallFocus', focusedBrick.context);
                 }
-            });
-            this.selectedBricksSubscription = this.wallCanvasComponent.selectedBricks$.subscribe(function (selectedBricks) {
+            }));
+            this.selectedBricksSubscription = this.wallCanvasComponent.selectedBricks$.subscribe((/**
+             * @param {?} selectedBricks
+             * @return {?}
+             */
+            function (selectedBricks) {
                 _this.selected = !Boolean(selectedBricks.indexOf(_this.brick.id) === -1);
-            });
+            }));
             this.isMediaInteractionEnabledSubscription = this.wallCanvasComponent.isMediaInteractionEnabled$
-                .subscribe(function (isMediaInteractionEnabled) { return _this.isMediaInteractionEnabled = isMediaInteractionEnabled; });
+                .subscribe((/**
+             * @param {?} isMediaInteractionEnabled
+             * @return {?}
+             */
+            function (isMediaInteractionEnabled) { return _this.isMediaInteractionEnabled = isMediaInteractionEnabled; }));
         };
         /**
          * @param {?} changes
@@ -2689,9 +2980,13 @@
             componentInstance.state = this.brick.state;
             componentInstance.wallModel = this.wallCanvasComponent.wallModel;
             if (componentInstance.stateChanges) {
-                this.stateChangesSubscription = componentInstance.stateChanges.subscribe(function (newState) {
+                this.stateChangesSubscription = componentInstance.stateChanges.subscribe((/**
+                 * @param {?} newState
+                 * @return {?}
+                 */
+                function (newState) {
                     _this.wallCanvasComponent.brickStateChanged(_this.brick.id, newState);
-                });
+                }));
             }
             return componentReference;
         };
@@ -2699,7 +2994,7 @@
             { type: core.Component, args: [{
                         selector: 'wall-canvas-brick',
                         template: "<div [spot]=\"spot\"\n     data-id=\"{{brick.id}}\"\n     class=\"wall-canvas-brick__wrapper wall-canvas-brick__draggable\"\n     [ngClass]=\"{'wall-canvas-brick__selected': selected,\n     \t\t'wall-canvas-brick__draggable': isMouseNear}\">\n\n    <div class=\"wall-canvas-brick__draggable-handler\" [tow-slave]=\"brick.id\">\n        <div class=\"wall-canvas-brick__draggable-box\">\n            <mat-icon>drag_handle</mat-icon>\n        </div>\n    </div>\n\n    <div [ngClass]=\"{'wall-canvas-brick__disabled-interaction': !isMediaInteractionEnabled}\">\n        <ng-container #brickContainer></ng-container>\n    </div>\n</div>\n",
-                        styles: [":host{display:block;margin:0 0 2px}:host .wall-canvas-brick__draggable .wall-canvas-brick__draggable-handler{display:block}:host .wall-canvas-brick__wrapper{position:relative}:host .wall-canvas-brick__wrapper:after{content:\"\";position:absolute;top:0;bottom:0;left:0;right:0;pointer-events:none;opacity:.2;transition:background-color .1s}:host .wall-canvas-brick__draggable-box{padding:1px;border-radius:3px;line-height:0}:host .wall-canvas-brick__draggable-handler{display:none;position:absolute;left:-35px;top:-4px;padding:5px;margin:0;cursor:pointer;border-radius:3px}:host .wall-canvas-brick__selected{position:relative}:host .wall-canvas-brick__disabled-interaction{pointer-events:none}"]
+                        styles: [":host{display:block;margin:0 0 2px}:host .wall-canvas-brick__draggable .wall-canvas-brick__draggable-handler{display:block}:host .wall-canvas-brick__wrapper{position:relative}:host .wall-canvas-brick__wrapper:after{content:'';position:absolute;top:0;bottom:0;left:0;right:0;pointer-events:none;opacity:.2;transition:background-color .1s}:host .wall-canvas-brick__draggable-box{padding:1px;border-radius:3px;line-height:0}:host .wall-canvas-brick__draggable-handler{display:none;position:absolute;left:-35px;top:-4px;padding:5px;margin:0;cursor:pointer;border-radius:3px}:host .wall-canvas-brick__selected{position:relative}:host .wall-canvas-brick__disabled-interaction{pointer-events:none}"]
                     }] }
         ];
         /** @nocollapse */
@@ -2719,7 +3014,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var WallCanvasRowComponent = /** @class */ (function () {
         function WallCanvasRowComponent() {
@@ -2766,7 +3061,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var SelectedBrickEvent = /** @class */ (function () {
         function SelectedBrickEvent(selectedBrickIds) {
@@ -2777,7 +3072,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var WallViewModel = /** @class */ (function () {
         function WallViewModel(brickRegistry) {
@@ -2800,12 +3095,24 @@
             var _this = this;
             /** @type {?} */
             var rows = [];
-            this.wallModel.api.core.traverse(function (row) {
+            this.wallModel.api.core.traverse((/**
+             * @param {?} row
+             * @return {?}
+             */
+            function (row) {
                 rows.push({
                     id: row.id,
-                    columns: row.columns.map(function (column) {
+                    columns: row.columns.map((/**
+                     * @param {?} column
+                     * @return {?}
+                     */
+                    function (column) {
                         return {
-                            bricks: column.bricks.map(function (brickConfig) {
+                            bricks: column.bricks.map((/**
+                             * @param {?} brickConfig
+                             * @return {?}
+                             */
+                            function (brickConfig) {
                                 /** @type {?} */
                                 var component = _this.brickRegistry.get(brickConfig.tag).component;
                                 return {
@@ -2814,11 +3121,11 @@
                                     state: brickConfig.state,
                                     component: component
                                 };
-                            })
+                            }))
                         };
-                    })
+                    }))
                 });
-            });
+            }));
             return rows;
         };
         /**
@@ -2855,7 +3162,12 @@
                 'disableMediaInteraction',
                 // CLIENT
                 'subscribe'
-            ].reduce(function (result, methodName) {
+            ].reduce((/**
+             * @param {?} result
+             * @param {?} methodName
+             * @return {?}
+             */
+            function (result, methodName) {
                 if (_this[methodName].bind) {
                     result[methodName] = _this[methodName].bind(_this);
                 }
@@ -2863,12 +3175,16 @@
                     result[methodName] = _this[methodName];
                 }
                 return result;
-            }, {});
+            }), {});
             // protect API from extending
             Object.seal(coreApi);
             // register methods on model itself
             this.wallModel.registerApi('ui', coreApi);
-            this.wallModelSubscription = this.wallModel.api.core.subscribe(function (event) {
+            this.wallModelSubscription = this.wallModel.api.core.subscribe((/**
+             * @param {?} event
+             * @return {?}
+             */
+            function (event) {
                 if (event instanceof TurnBrickIntoEvent) {
                     _this.focusOnBrickId(event.brickId);
                 }
@@ -2883,7 +3199,7 @@
                 if (!(event instanceof BeforeChangeEvent)) {
                     _this.canvasLayout = _this.getCanvasLayout();
                 }
-            });
+            }));
             this.canvasLayout = this.getCanvasLayout();
         };
         /**
@@ -3264,7 +3580,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var WallComponent = /** @class */ (function () {
         function WallComponent(wallViewModel) {
@@ -3367,7 +3683,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var StartWorkingEvent = /** @class */ (function () {
         function StartWorkingEvent(slaveId) {
@@ -3378,7 +3694,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var StopWorkingEvent = /** @class */ (function () {
         function StopWorkingEvent(slaveId) {
@@ -3389,7 +3705,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var WorkInProgressEvent = /** @class */ (function () {
         function WorkInProgressEvent(mousePosition) {
@@ -3400,7 +3716,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var TowCoordinator = /** @class */ (function () {
         function TowCoordinator() {
@@ -3408,13 +3724,17 @@
             this.events = new rxjs.Subject();
             // start track when slave start working
             this.isSlaveWorking = false;
-            document.addEventListener('dragover', function (event) {
+            document.addEventListener('dragover', (/**
+             * @param {?} event
+             * @return {?}
+             */
+            function (event) {
                 if (_this.isSlaveWorking) {
                     event.preventDefault();
                     event.dataTransfer.dropEffect = 'move';
                     _this.slaveWorkProgress(event.clientX, event.clientY);
                 }
-            });
+            }));
         }
         /**
          * @param {?} id
@@ -3466,7 +3786,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     // Notify Tow Coordinator about drag operation
     var TowSlaveDirective = /** @class */ (function () {
@@ -3541,16 +3861,20 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var TowService = /** @class */ (function () {
         function TowService(towCoordinator) {
             var _this = this;
             this.towCoordinator = towCoordinator;
             this.events = new rxjs.Subject();
-            this.towCoordinator.events.subscribe(function (e) {
+            this.towCoordinator.events.subscribe((/**
+             * @param {?} e
+             * @return {?}
+             */
+            function (e) {
                 _this.events.next(e);
-            });
+            }));
         }
         /**
          * @param {?} fn
@@ -3575,7 +3899,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var SpotDirective = /** @class */ (function () {
         function SpotDirective(radarCoordinator, el) {
@@ -3668,7 +3992,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var RadarModule = /** @class */ (function () {
         function RadarModule() {
@@ -3688,7 +4012,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var TowModule = /** @class */ (function () {
         function TowModule() {
@@ -3716,7 +4040,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var PickOutAreaComponent = /** @class */ (function () {
         function PickOutAreaComponent() {
@@ -3744,7 +4068,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var EndPickOut = /** @class */ (function () {
         function EndPickOut() {
@@ -3754,7 +4078,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var PickOutItems = /** @class */ (function () {
         function PickOutItems(ids) {
@@ -3765,7 +4089,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var StartPickOut = /** @class */ (function () {
         function StartPickOut() {
@@ -3775,7 +4099,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var StopPickOut = /** @class */ (function () {
         function StopPickOut() {
@@ -3785,7 +4109,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var PickOutCoordinator = /** @class */ (function () {
         function PickOutCoordinator(radar) {
@@ -3839,10 +4163,18 @@
          */
         function (range) {
             /** @type {?} */
-            var pickOutSpotModels = this.radar.filterSpots(function (spot) { return spot.data.isPickOutItem; });
-            pickOutSpotModels.forEach(function (spotModel) {
+            var pickOutSpotModels = this.radar.filterSpots((/**
+             * @param {?} spot
+             * @return {?}
+             */
+            function (spot) { return spot.data.isPickOutItem; }));
+            pickOutSpotModels.forEach((/**
+             * @param {?} spotModel
+             * @return {?}
+             */
+            function (spotModel) {
                 spotModel.updateInfo();
-            });
+            }));
             this.changes.next(new PickOutItems(this.getSelectedItemIds(range, pickOutSpotModels)));
         };
         /**
@@ -3868,13 +4200,21 @@
          */
         function (range, pickOutsItem) {
             return pickOutsItem
-                .filter(function (pickOutItem) {
+                .filter((/**
+             * @param {?} pickOutItem
+             * @return {?}
+             */
+            function (pickOutItem) {
                 return (range.x < (pickOutItem.position.x + pickOutItem.size.width) &&
                     (range.x + range.width) > pickOutItem.position.x &&
                     (range.y + range.height) > pickOutItem.position.y &&
                     range.y < (pickOutItem.position.y + pickOutItem.size.height));
-            })
-                .map(function (pickOutItem) { return pickOutItem.data.brickId; });
+            }))
+                .map((/**
+             * @param {?} pickOutItem
+             * @return {?}
+             */
+            function (pickOutItem) { return pickOutItem.data.brickId; }));
         };
         PickOutCoordinator.decorators = [
             { type: core.Injectable }
@@ -3888,14 +4228,14 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /** @type {?} */
     var MOUSE_LEFT_KEY_CODE = 0;
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var PickOutAreaModel = /** @class */ (function () {
         function PickOutAreaModel(scrollableContainer, x, y, overBrickId) {
@@ -4020,7 +4360,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var PickOutAreaDirective = /** @class */ (function () {
         function PickOutAreaDirective(doc, pickOutCoordinator, componentFactoryResolver, appRef, zone, el, injector) {
@@ -4298,16 +4638,20 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var PickOutService = /** @class */ (function () {
         function PickOutService(pickOutHandlerService) {
             var _this = this;
             this.pickOutHandlerService = pickOutHandlerService;
             this.events = new rxjs.Subject();
-            this.pickOutHandlerService.changes.subscribe(function (e) {
+            this.pickOutHandlerService.changes.subscribe((/**
+             * @param {?} e
+             * @return {?}
+             */
+            function (e) {
                 _this.events.next(e);
-            });
+            }));
         }
         /**
          * @return {?}
@@ -4359,7 +4703,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var PickOutModule = /** @class */ (function () {
         function PickOutModule() {
@@ -4391,7 +4735,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var WallModule = /** @class */ (function () {
         function WallModule() {
@@ -4437,7 +4781,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var BrickInputPlaceholderComponent = /** @class */ (function () {
         function BrickInputPlaceholderComponent() {
@@ -4483,7 +4827,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var LoadingWrapperComponent = /** @class */ (function () {
         function LoadingWrapperComponent() {
@@ -4512,7 +4856,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var HelperComponentsModule = /** @class */ (function () {
         function HelperComponentsModule() {
@@ -4539,7 +4883,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /** @type {?} */
     var WALL = {
@@ -4551,32 +4895,32 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var CopyPlugin = /** @class */ (function () {
         function CopyPlugin(injector) {
@@ -4650,8 +4994,16 @@
             /** @type {?} */
             var selectedBrickIds = this.wallModel.api.ui.getSelectedBrickIds();
             return selectedBrickIds
-                .map(function (selectedBrickId) { return _this.wallModel.api.core.getBrickTextRepresentation(selectedBrickId); })
-                .map(function (textRepresentation) { return textRepresentation.trim(); })
+                .map((/**
+             * @param {?} selectedBrickId
+             * @return {?}
+             */
+            function (selectedBrickId) { return _this.wallModel.api.core.getBrickTextRepresentation(selectedBrickId); }))
+                .map((/**
+             * @param {?} textRepresentation
+             * @return {?}
+             */
+            function (textRepresentation) { return textRepresentation.trim(); }))
                 .join('\n');
         };
         return CopyPlugin;
@@ -4659,19 +5011,19 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /** @type {?} */
     var UNDO_REDO_API_NAME = 'undo';
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var UndoRedoPlugin = /** @class */ (function () {
         function UndoRedoPlugin(injector) {
@@ -4699,9 +5051,13 @@
                 redoSize: this.redoSize.bind(this),
                 clear: this.clear.bind(this)
             })));
-            this.apiSubscription = this.wallModel.api.core.subscribe(function (e) {
+            this.apiSubscription = this.wallModel.api.core.subscribe((/**
+             * @param {?} e
+             * @return {?}
+             */
+            function (e) {
                 _this.wallModelEventHandler(e);
-            });
+            }));
             this.onUndoKeyHandlerBound = this.onUndoKeyHandler.bind(this);
             this.doc.addEventListener('keydown', this.onUndoKeyHandlerBound);
         };
@@ -4832,12 +5188,12 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /** @type {?} */
     var TOW = {
@@ -4855,7 +5211,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var SelectionPlugin = /** @class */ (function () {
         function SelectionPlugin(injector, options) {
@@ -4864,7 +5220,10 @@
             this.placeholderHeight = 2;
             this.isEnableDropZoneHighlight = false;
             // extension point for client to prevent brick un-selections
-            this.options = __assign({ shouldUnselectBrick: function () { return true; } }, options);
+            this.options = __assign({ shouldUnselectBrick: (/**
+                 * @return {?}
+                 */
+                function () { return true; }) }, options);
         }
         /**
          * @param {?} wallModel
@@ -4887,7 +5246,11 @@
             this.doc.addEventListener('mousedown', this.onMouseDownBound);
             this.doc.addEventListener('keydown', this.onKeyDownHandlerBound);
             // listen to picked out items and select appropriate bricks
-            this.pickOutServiceSubscription = this.pickOutService.subscribe(function (e) {
+            this.pickOutServiceSubscription = this.pickOutService.subscribe((/**
+             * @param {?} e
+             * @return {?}
+             */
+            function (e) {
                 if (e instanceof StartPickOut) {
                     _this.isMouseSelection = true;
                     _this.wallModel.api.ui.disableMediaInteraction();
@@ -4898,9 +5261,13 @@
                 if (e instanceof EndPickOut) {
                     _this.wallModel.api.ui.enableMediaInteraction();
                 }
-            });
+            }));
             // listen for draggable operation and move bricks accordingly
-            this.towServiceSubscription = this.towService.subscribe(function (e) {
+            this.towServiceSubscription = this.towService.subscribe((/**
+             * @param {?} e
+             * @return {?}
+             */
+            function (e) {
                 if (e instanceof StartWorkingEvent) {
                     if (_this.wallModel.api.core.getBrickSnapshot(e.slaveId)) {
                         _this.isEnableDropZoneHighlight = true;
@@ -4946,10 +5313,18 @@
                 if (e instanceof WorkInProgressEvent) {
                     if (_this.isEnableDropZoneHighlight) {
                         /** @type {?} */
-                        var spots = _this.radar.filterSpots(function (spot) { return spot.data.isBeacon; });
+                        var spots = _this.radar.filterSpots((/**
+                         * @param {?} spot
+                         * @return {?}
+                         */
+                        function (spot) { return spot.data.isBeacon; }));
                         /** @type {?} */
                         var nearestSpot_1;
-                        spots.forEach(function (spot) {
+                        spots.forEach((/**
+                         * @param {?} spot
+                         * @return {?}
+                         */
+                        function (spot) {
                             spot.updateInfo();
                             if (!nearestSpot_1) {
                                 nearestSpot_1 = spot;
@@ -4963,7 +5338,7 @@
                                     nearestSpot_1 = spot;
                                 }
                             }
-                        });
+                        }));
                         if (nearestSpot_1) {
                             /** @type {?} */
                             var nearestSpotMinimalDistance = nearestSpot_1.getMinimalDistanceToPoint(e.mousePosition.clientX, e.mousePosition.clientY);
@@ -5002,7 +5377,7 @@
                         }
                     }
                 }
-            });
+            }));
         };
         /**
          * @param {?} e
@@ -5189,19 +5564,19 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /** @type {?} */
     var DIVIDER_BRICK_TAG = 'divider';
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var DividerBrickComponent = /** @class */ (function () {
         function DividerBrickComponent() {
@@ -5218,7 +5593,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var DividerBrickModule = /** @class */ (function () {
         function DividerBrickModule(brickRegistry) {
@@ -5246,12 +5621,12 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var TextRepresentation = /** @class */ (function () {
         function TextRepresentation(brickSnapshot) {
@@ -5271,7 +5646,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var DeepLeftNodeChild = /** @class */ (function () {
         function DeepLeftNodeChild(root) {
@@ -5287,7 +5662,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var DeepRightNodeChild = /** @class */ (function () {
         function DeepRightNodeChild(root) {
@@ -5303,7 +5678,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var FirstSubStringNode = /** @class */ (function () {
         function FirstSubStringNode(root, subStringHTML) {
@@ -5365,7 +5740,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var CaretStartEndPosition = /** @class */ (function () {
         function CaretStartEndPosition(el) {
@@ -5420,7 +5795,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var CursorLeftCoordinate = /** @class */ (function () {
         function CursorLeftCoordinate(leftText, rightText, targetNode) {
@@ -5469,9 +5844,13 @@
             var div = document.createElement('DIV');
             /** @type {?} */
             var style = getComputedStyle(node);
-            [].forEach.call(style, function (prop) {
+            [].forEach.call(style, (/**
+             * @param {?} prop
+             * @return {?}
+             */
+            function (prop) {
                 div.style[prop] = style[prop];
-            });
+            }));
             return div;
         };
         return CursorLeftCoordinate;
@@ -5479,7 +5858,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var CursorPositionInLine = /** @class */ (function () {
         function CursorPositionInLine(leftText, rightText, targetNode) {
@@ -5527,9 +5906,13 @@
             var div = document.createElement('DIV');
             /** @type {?} */
             var style = getComputedStyle(node);
-            [].forEach.call(style, function (prop) {
+            [].forEach.call(style, (/**
+             * @param {?} prop
+             * @return {?}
+             */
+            function (prop) {
                 div.style[prop] = style[prop];
-            });
+            }));
             return div;
         };
         return CursorPositionInLine;
@@ -5537,7 +5920,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var PlaceCaretToPosition = /** @class */ (function () {
         function PlaceCaretToPosition(el, position) {
@@ -5564,7 +5947,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /**
      * Returns string which does not contains empty nodes inside
@@ -5599,7 +5982,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /** @type {?} */
     var FOCUS_INITIATOR = 'text-supporting-brick';
@@ -5630,7 +6013,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var BottomKeyHandler = /** @class */ (function () {
         function BottomKeyHandler(baseTextBrickComponent) {
@@ -5665,7 +6048,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var EnterKeyHandler = /** @class */ (function () {
         function EnterKeyHandler(baseTextBrickComponent) {
@@ -5781,16 +6164,19 @@
             var addedBrick = this.baseTextBrickComponent.wallModel.api.core
                 .addBrickAfterBrickId(this.baseTextBrickComponent.id, 'text', newTextState);
             // wait one tick for component rendering
-            setTimeout(function () {
+            setTimeout((/**
+             * @return {?}
+             */
+            function () {
                 _this.baseTextBrickComponent.wallUiApi.focusOnBrickId(addedBrick.id);
-            });
+            }));
         };
         return EnterKeyHandler;
     }());
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var LeftKeyHandler = /** @class */ (function () {
         function LeftKeyHandler(baseTextBrickComponent) {
@@ -5821,7 +6207,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var RightKeyHandler = /** @class */ (function () {
         function RightKeyHandler(baseTextBrickComponent) {
@@ -5851,7 +6237,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var TopKeyHandler = /** @class */ (function () {
         function TopKeyHandler(baseTextBrickComponent) {
@@ -5887,7 +6273,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /** @enum {string} */
     var LineType = {
@@ -5928,10 +6314,13 @@
             this.scope.tabs = this.state.tabs || 0;
             this.onPasteBound = this.onPaste.bind(this);
             this.editor.nativeElement.addEventListener('paste', this.onPasteBound);
-            this.textChangeSubscription = this.textChange.subscribe(function () {
+            this.textChangeSubscription = this.textChange.subscribe((/**
+             * @return {?}
+             */
+            function () {
                 _this.setTextState(_this.scope.text);
                 _this.saveCurrentState();
-            });
+            }));
             this.wallUiApi = this.wallModel.api.ui;
         };
         /**
@@ -5972,14 +6361,26 @@
             /** @type {?} */
             var textArr = e.clipboardData.getData('text/plain')
                 .split('\n')
-                .map(function (str) { return str.trim(); })
-                .filter(function (str) { return str.length; });
+                .map((/**
+             * @param {?} str
+             * @return {?}
+             */
+            function (str) { return str.trim(); }))
+                .filter((/**
+             * @param {?} str
+             * @return {?}
+             */
+            function (str) { return str.length; }));
             if (textArr.length === 1) {
                 document.execCommand('insertHTML', false, textArr[0]);
             }
             else if (textArr.length > 1) {
                 // todo: add interface for UI api
-                textArr.reverse().forEach(function (text) { return _this.wallModel.api.core.addBrickAfterBrickId(_this.id, 'text', { text: text }); });
+                textArr.reverse().forEach((/**
+                 * @param {?} text
+                 * @return {?}
+                 */
+                function (text) { return _this.wallModel.api.core.addBrickAfterBrickId(_this.id, 'text', { text: text }); }));
             }
         };
         /**
@@ -6225,7 +6626,10 @@
                     text: this.cleanUpText(previousBrickSnapshot.state.text) + this.scope.text
                 });
                 // wait for component re-rendering
-                setTimeout(function () {
+                setTimeout((/**
+                 * @return {?}
+                 */
+                function () {
                     /** @type {?} */
                     var focusContext = {
                         initiator: FOCUS_INITIATOR,
@@ -6238,7 +6642,7 @@
                     // remove only after focus will be established
                     // that prevents flickering on mobile
                     _this.wallUiApi.removeBrick(_this.id);
-                });
+                }));
             }
         };
         /**
@@ -6262,9 +6666,12 @@
                 this.setTextState(this.scope.text + concatenationText_1);
                 this.saveCurrentState();
                 this.wallModel.api.core.removeBrick(nextTextBrickId);
-                setTimeout(function () {
+                setTimeout((/**
+                 * @return {?}
+                 */
+                function () {
                     _this.placeCaretBaseOnConcatenatedText(concatenationText_1);
-                }, 10);
+                }), 10);
             }
         };
         /**
@@ -6604,7 +7011,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var HeaderBrickComponent = /** @class */ (function (_super) {
         __extends(HeaderBrickComponent, _super);
@@ -6625,7 +7032,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var ContenteditableDirective = /** @class */ (function () {
         function ContenteditableDirective(elementRef, renderer) {
@@ -6798,7 +7205,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var ContenteditableModule = /** @class */ (function () {
         function ContenteditableModule() {
@@ -6815,7 +7222,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var HeaderBrickModule = /** @class */ (function () {
         function HeaderBrickModule(brickRegistry) {
@@ -6850,19 +7257,19 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /** @type {?} */
     var WALL_FILE_UPLOADER = new core.InjectionToken('IWallFileUploader');
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var InputContextComponent = /** @class */ (function () {
         function InputContextComponent(ngxStickyModalRef) {
@@ -6876,9 +7283,12 @@
          */
         function () {
             var _this = this;
-            setTimeout(function () {
+            setTimeout((/**
+             * @return {?}
+             */
+            function () {
                 _this.srcInput.nativeElement.focus();
-            }, 10);
+            }), 10);
         };
         /**
          * @return {?}
@@ -6945,7 +7355,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var ImgBrickComponent = /** @class */ (function () {
         function ImgBrickComponent(renderer, componentFactoryResolver, ngxStickyModalService, wallFileUploader, el) {
@@ -7017,9 +7427,12 @@
         function () {
             var _this = this;
             if (!this.scope.src) {
-                setTimeout(function () {
+                setTimeout((/**
+                 * @return {?}
+                 */
+                function () {
                     _this.showPanel();
-                }, 0);
+                }), 0);
             }
         };
         // resize callbacks
@@ -7068,7 +7481,10 @@
         function (imageSrc, metadata) {
             var _this = this;
             return this.isImage(imageSrc)
-                .then(function () {
+                .then((/**
+             * @return {?}
+             */
+            function () {
                 _this.scope.src = imageSrc;
                 _this.isSrcBase64 = false;
                 if (metadata) {
@@ -7076,10 +7492,13 @@
                 }
                 _this.save();
                 return _this.setUpImageWidth();
-            })
-                .catch(function () {
+            }))
+                .catch((/**
+             * @return {?}
+             */
+            function () {
                 alert('Please enter valid url');
-            });
+            }));
         };
         /**
          * @param {?} imgFile
@@ -7091,11 +7510,18 @@
          */
         function (imgFile) {
             var _this = this;
-            return (new ImgEncoder(imgFile)).getBase64Representation().then(function (imgBase64) {
-                return _this.applyImageSrc(imgBase64).then(function () {
+            return (new ImgEncoder(imgFile)).getBase64Representation().then((/**
+             * @param {?} imgBase64
+             * @return {?}
+             */
+            function (imgBase64) {
+                return _this.applyImageSrc(imgBase64).then((/**
+                 * @return {?}
+                 */
+                function () {
                     return _this.processBase64ImgSrc();
-                });
-            });
+                }));
+            }));
         };
         /**
          * @return {?}
@@ -7105,12 +7531,19 @@
          */
         function () {
             var _this = this;
-            return this.uploadImage().then(function (uploadInfo) {
+            return this.uploadImage().then((/**
+             * @param {?} uploadInfo
+             * @return {?}
+             */
+            function (uploadInfo) {
                 return _this.applyImageSrc(uploadInfo.downloadURL, {
                     path: uploadInfo.path
                 });
-            }, function () {
-            });
+            }), (/**
+             * @return {?}
+             */
+            function () {
+            }));
         };
         /**
          * @return {?}
@@ -7137,7 +7570,11 @@
                     },
                     componentFactoryResolver: this.componentFactoryResolver
                 });
-                this.imageSrcPlaceholderRef.result.then(function (result) {
+                this.imageSrcPlaceholderRef.result.then((/**
+                 * @param {?} result
+                 * @return {?}
+                 */
+                function (result) {
                     _this.imageSrcPlaceholderRef = null;
                     if (result.src) {
                         _this.applyImageSrc(result.src);
@@ -7145,9 +7582,12 @@
                     else {
                         _this.applyImageFile(result.file);
                     }
-                }, function () {
+                }), (/**
+                 * @return {?}
+                 */
+                function () {
                     _this.imageSrcPlaceholderRef = null;
-                });
+                }));
             }
         };
         /**
@@ -7195,10 +7635,13 @@
          */
         function () {
             var _this = this;
-            return this.loadImage(this.scope.src).then(function () {
+            return this.loadImage(this.scope.src).then((/**
+             * @return {?}
+             */
+            function () {
                 _this.scope.width = _this.image.nativeElement.width;
                 _this.save();
-            });
+            }));
         };
         /**
          * @private
@@ -7235,17 +7678,28 @@
          * @return {?}
          */
         function (src) {
-            return new Promise(function (resolve, reject) {
+            return new Promise((/**
+             * @param {?} resolve
+             * @param {?} reject
+             * @return {?}
+             */
+            function (resolve, reject) {
                 /** @type {?} */
                 var img = new Image();
-                img.onload = function () {
+                img.onload = (/**
+                 * @return {?}
+                 */
+                function () {
                     resolve();
-                };
-                img.onerror = function () {
+                });
+                img.onerror = (/**
+                 * @return {?}
+                 */
+                function () {
                     reject();
-                };
+                });
                 img.src = src;
-            });
+            }));
         };
         ImgBrickComponent.decorators = [
             { type: core.Component, args: [{
@@ -7273,12 +7727,12 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var ImgModel = /** @class */ (function () {
         function ImgModel(wallFileUploader) {
@@ -7312,7 +7766,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var ImgBrickTextRepresentation = /** @class */ (function () {
         function ImgBrickTextRepresentation(brickSnapshot) {
@@ -7332,7 +7786,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var ResizableHandlerComponent = /** @class */ (function () {
         function ResizableHandlerComponent() {
@@ -7364,7 +7818,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /** @type {?} */
     var LEFT_HANDLER_CLASS = 'left-handler';
@@ -7373,7 +7827,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /**
      * \@description
@@ -7403,13 +7857,25 @@
             var leftHandler = this.createHandler(LEFT_HANDLER_CLASS);
             /** @type {?} */
             var rightHandler = this.createHandler(RIGHT_HANDLER_CLASS);
-            leftHandler.instance.mouseDownEvent.subscribe(function (e) {
+            leftHandler.instance.mouseDownEvent.subscribe((/**
+             * @param {?} e
+             * @return {?}
+             */
+            function (e) {
                 _this.mouseDownHandler(e, true);
-            });
-            rightHandler.instance.mouseDownEvent.subscribe(function (e) {
+            }));
+            rightHandler.instance.mouseDownEvent.subscribe((/**
+             * @param {?} e
+             * @return {?}
+             */
+            function (e) {
                 _this.mouseDownHandler(e, false);
-            });
-            this.doc.addEventListener('mousemove', function (event) {
+            }));
+            this.doc.addEventListener('mousemove', (/**
+             * @param {?} event
+             * @return {?}
+             */
+            function (event) {
                 if (_this.resizeData) {
                     _this.resizeData.xCurrent = event.clientX;
                     if (_this.resizeData.isLeftDirection) {
@@ -7422,13 +7888,16 @@
                         _this.wResizable.resize(_this.resizeData);
                     }
                 }
-            });
-            this.doc.addEventListener('mouseup', function () {
+            }));
+            this.doc.addEventListener('mouseup', (/**
+             * @return {?}
+             */
+            function () {
                 if (_this.wResizable.resizeEnd) {
                     _this.wResizable.resizeEnd(_this.resizeData);
                 }
                 _this.resizeData = null;
-            });
+            }));
         };
         /**
          * @private
@@ -7492,7 +7961,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var ResizableModule = /** @class */ (function () {
         function ResizableModule() {
@@ -7510,7 +7979,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var ImgBrickModule = /** @class */ (function () {
         function ImgBrickModule(brickRegistry, imgModel) {
@@ -7521,17 +7990,25 @@
                 tag: 'image',
                 component: ImgBrickComponent,
                 textRepresentation: ImgBrickTextRepresentation,
-                destructor: function (brickSnapshot) {
+                destructor: (/**
+                 * @param {?} brickSnapshot
+                 * @return {?}
+                 */
+                function (brickSnapshot) {
                     return _this.imgModel.remove(brickSnapshot);
-                },
-                getBrickResourcePaths: function (brickSnapshot) {
+                }),
+                getBrickResourcePaths: (/**
+                 * @param {?} brickSnapshot
+                 * @return {?}
+                 */
+                function (brickSnapshot) {
                     /** @type {?} */
                     var imageState = brickSnapshot.state;
                     if (imageState.metadata && imageState.metadata.path) {
                         return [imageState.metadata.path];
                     }
                     return [];
-                },
+                }),
                 name: 'Image',
                 description: 'Embed with a link'
             });
@@ -7566,12 +8043,12 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var QuoteBrickComponent = /** @class */ (function (_super) {
         __extends(QuoteBrickComponent, _super);
@@ -7592,7 +8069,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var QuoteBrickModule = /** @class */ (function () {
         function QuoteBrickModule(brickRegistry) {
@@ -7626,12 +8103,12 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var InputContextComponent$1 = /** @class */ (function () {
         function InputContextComponent(ngxStickyModalRef) {
@@ -7645,9 +8122,12 @@
          */
         function () {
             var _this = this;
-            setTimeout(function () {
+            setTimeout((/**
+             * @return {?}
+             */
+            function () {
                 _this.srcInput.nativeElement.focus();
-            }, 10);
+            }), 10);
         };
         /**
          * @return {?}
@@ -7690,7 +8170,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var VideoBrickComponent = /** @class */ (function () {
         function VideoBrickComponent(renderer2, el, componentFactoryResolver, ngxStickyModalService) {
@@ -7721,9 +8201,12 @@
                 this.scope.src = this.state.src;
                 if (this.scope.src) {
                     this.uiState = this.uiStates.video;
-                    setTimeout(function () {
+                    setTimeout((/**
+                     * @return {?}
+                     */
+                    function () {
                         _this.renderer2.setAttribute(_this.iframe.nativeElement, 'src', _this.scope.src);
-                    }, 10);
+                    }), 10);
                 }
             }
         };
@@ -7741,9 +8224,12 @@
                 this.scope.src = newState.src;
                 if (this.scope.src) {
                     this.uiState = this.uiStates.video;
-                    setTimeout(function () {
+                    setTimeout((/**
+                     * @return {?}
+                     */
+                    function () {
                         _this.renderer2.setAttribute(_this.iframe.nativeElement, 'src', _this.scope.src);
-                    }, 10);
+                    }), 10);
                 }
             }
         };
@@ -7756,9 +8242,12 @@
         function () {
             var _this = this;
             if (this.uiState === this.uiStates.initial && !this.videoSrcPlaceholderRef) {
-                setTimeout(function () {
+                setTimeout((/**
+                 * @return {?}
+                 */
+                function () {
                     _this.showVideoPanel();
-                }, 0);
+                }), 0);
             }
         };
         /**
@@ -7808,12 +8297,19 @@
                 },
                 componentFactoryResolver: this.componentFactoryResolver
             });
-            this.videoSrcPlaceholderRef.result.then(function (result) {
+            this.videoSrcPlaceholderRef.result.then((/**
+             * @param {?} result
+             * @return {?}
+             */
+            function (result) {
                 _this.videoSrcPlaceholderRef = null;
                 _this.applySrc(result.src);
-            }, function () {
+            }), (/**
+             * @return {?}
+             */
+            function () {
                 _this.videoSrcPlaceholderRef = null;
-            });
+            }));
         };
         /**
          * @private
@@ -7851,7 +8347,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var VideoBrickTextRepresentationClass = /** @class */ (function () {
         function VideoBrickTextRepresentationClass(brickSnapshot) {
@@ -7871,7 +8367,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var VideoBrickModule = /** @class */ (function () {
         function VideoBrickModule(brickRegistry) {
@@ -7908,12 +8404,12 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var InputContextComponent$2 = /** @class */ (function () {
         function InputContextComponent(ngxStickyModalRef) {
@@ -7927,9 +8423,12 @@
          */
         function () {
             var _this = this;
-            setTimeout(function () {
+            setTimeout((/**
+             * @return {?}
+             */
+            function () {
                 _this.srcInput.nativeElement.focus();
-            }, 10);
+            }), 10);
         };
         /**
          * @return {?}
@@ -7972,7 +8471,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var WebBookmarkBrickComponent = /** @class */ (function () {
         function WebBookmarkBrickComponent(el, componentFactoryResolver, ngxStickyModalService) {
@@ -8033,14 +8532,21 @@
             if (src.length) {
                 if (this.isValidUrl(src)) {
                     this.loading = true;
-                    this.getWebPageMetaInfo(src).then(function (webPageMetaInfo) {
+                    this.getWebPageMetaInfo(src).then((/**
+                     * @param {?} webPageMetaInfo
+                     * @return {?}
+                     */
+                    function (webPageMetaInfo) {
                         Object.assign(_this.scope, webPageMetaInfo);
                         _this.scope.src = src;
                         _this.save();
                         _this.loading = false;
-                    }, function () {
+                    }), (/**
+                     * @return {?}
+                     */
+                    function () {
                         _this.loading = false;
-                    });
+                    }));
                 }
                 else {
                     alert('Url is invalid');
@@ -8071,10 +8577,17 @@
                         overlayY: 'top'
                     },
                     componentFactoryResolver: this.componentFactoryResolver
-                }).result.then(function (result) {
+                }).result.then((/**
+                 * @param {?} result
+                 * @return {?}
+                 */
+                function (result) {
                     _this.applySrc(result.src);
-                }, function () {
-                });
+                }), (/**
+                 * @return {?}
+                 */
+                function () {
+                }));
             }
         };
         /**
@@ -8086,9 +8599,12 @@
         function () {
             var _this = this;
             if (!this.scope.src) {
-                setTimeout(function () {
+                setTimeout((/**
+                 * @return {?}
+                 */
+                function () {
                     _this.showPanel();
-                }, 0);
+                }), 0);
             }
         };
         /**
@@ -8113,8 +8629,16 @@
          * @return {?}
          */
         function (url) {
-            return fetch("https://api.microlink.io/?url=" + url).then(function (page) {
-                return page.json().then(function (pageMetadata) {
+            return fetch("https://api.microlink.io/?url=" + url).then((/**
+             * @param {?} page
+             * @return {?}
+             */
+            function (page) {
+                return page.json().then((/**
+                 * @param {?} pageMetadata
+                 * @return {?}
+                 */
+                function (pageMetadata) {
                     var _a = pageMetadata.data, image = _a.image, description = _a.description, logo = _a.logo, title = _a.title, author = _a.author;
                     return {
                         image: image,
@@ -8123,8 +8647,8 @@
                         title: title,
                         author: author
                     };
-                });
-            });
+                }));
+            }));
         };
         /**
          * @private
@@ -8169,7 +8693,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var WebBookmarkBrickModule = /** @class */ (function () {
         function WebBookmarkBrickModule(brickRegistry) {
@@ -8216,12 +8740,12 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /** @type {?} */
     var SUPPORTED_MODES = [
@@ -8243,7 +8767,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var ModeListComponent = /** @class */ (function () {
         function ModeListComponent(config, ngxStickyModalRef) {
@@ -8277,7 +8801,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var CodeBrickComponent = /** @class */ (function () {
         function CodeBrickComponent(ngxStickyModalService, componentFactoryResolver) {
@@ -8308,10 +8832,13 @@
                 dragDrop: false,
                 scrollbarStyle: null
             });
-            this.codeMirrorInstance.on('change', function () {
+            this.codeMirrorInstance.on('change', (/**
+             * @return {?}
+             */
+            function () {
                 _this.scope.code = _this.codeMirrorInstance.getValue();
                 _this.saveState();
-            });
+            }));
             this.processNewState();
         };
         /**
@@ -8340,7 +8867,11 @@
             if (this.scope.mode !== this.codeMirrorInstance.getMode().name) {
                 this.codeMirrorInstance.setOption('mode', this.scope.mode);
             }
-            this.ui.displayModeName = SUPPORTED_MODES.find(function (mode) { return mode.value === _this.scope.mode; }).name;
+            this.ui.displayModeName = SUPPORTED_MODES.find((/**
+             * @param {?} mode
+             * @return {?}
+             */
+            function (mode) { return mode.value === _this.scope.mode; })).name;
         };
         /**
          * @return {?}
@@ -8362,9 +8893,13 @@
             /** @type {?} */
             var elementBoundingRect = this.mode.nativeElement.getBoundingClientRect();
             /** @type {?} */
-            var modes = SUPPORTED_MODES.map(function (mode) {
+            var modes = SUPPORTED_MODES.map((/**
+             * @param {?} mode
+             * @return {?}
+             */
+            function (mode) {
                 return __assign({}, mode, { selected: mode.value === _this.scope.mode });
-            });
+            }));
             this.ngxStickyModalService.open({
                 component: ModeListComponent,
                 data: { modes: modes },
@@ -8376,12 +8911,19 @@
                     }
                 },
                 componentFactoryResolver: this.componentFactoryResolver
-            }).result.then(function (mode) {
+            }).result.then((/**
+             * @param {?} mode
+             * @return {?}
+             */
+            function (mode) {
                 Object.assign(_this.scope, __assign({}, _this.state, { mode: mode.value }));
                 _this.processNewState();
-            }, function () {
+            }), (/**
+             * @return {?}
+             */
+            function () {
                 // nothing
-            });
+            }));
         };
         CodeBrickComponent.decorators = [
             { type: core.Component, args: [{
@@ -8407,7 +8949,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var CodeBrickModule = /** @class */ (function () {
         function CodeBrickModule(brickRegistry) {
@@ -8448,19 +8990,19 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /** @type {?} */
     var TEXT_BRICK_TAG = 'text';
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var BricksListComponent = /** @class */ (function () {
         function BricksListComponent(brickRegistry, config) {
@@ -8479,18 +9021,31 @@
          */
         function () {
             var _this = this;
-            this.subscriptions.push(this.config.text$.subscribe(function (filterText) {
+            this.subscriptions.push(this.config.text$.subscribe((/**
+             * @param {?} filterText
+             * @return {?}
+             */
+            function (filterText) {
                 _this.updateBricksList(filterText.slice(1));
-            }));
-            this.subscriptions.push(this.config.up$.subscribe(function () {
+            })));
+            this.subscriptions.push(this.config.up$.subscribe((/**
+             * @return {?}
+             */
+            function () {
                 _this.onNavigationUpDownHandler(true);
-            }));
-            this.subscriptions.push(this.config.down$.subscribe(function () {
+            })));
+            this.subscriptions.push(this.config.down$.subscribe((/**
+             * @return {?}
+             */
+            function () {
                 _this.onNavigationUpDownHandler(false);
-            }));
-            this.subscriptions.push(this.config.enter$.subscribe(function () {
+            })));
+            this.subscriptions.push(this.config.enter$.subscribe((/**
+             * @return {?}
+             */
+            function () {
                 _this.notifySelectedTag();
-            }));
+            })));
         };
         /**
          * @param {?} brickDescription
@@ -8524,9 +9079,13 @@
          * @return {?}
          */
         function () {
-            this.subscriptions.forEach(function (subscription) {
+            this.subscriptions.forEach((/**
+             * @param {?} subscription
+             * @return {?}
+             */
+            function (subscription) {
                 subscription.unsubscribe();
-            });
+            }));
         };
         /**
          * @private
@@ -8552,14 +9111,23 @@
         function (filterText) {
             /** @type {?} */
             var brickDescriptors = this.brickRegistry.getAll()
-                .filter(function (brickDescriptor) {
+                .filter((/**
+             * @param {?} brickDescriptor
+             * @return {?}
+             */
+            function (brickDescriptor) {
                 if (brickDescriptor.tag === TEXT_BRICK_TAG) {
                     return false;
                 }
                 else {
                     return brickDescriptor.tag.includes(filterText);
                 }
-            }).sort(function (a, b) {
+            })).sort((/**
+             * @param {?} a
+             * @param {?} b
+             * @return {?}
+             */
+            function (a, b) {
                 if (a.tag.startsWith(filterText)) {
                     return -1;
                 }
@@ -8569,7 +9137,7 @@
                 else {
                     return 0;
                 }
-            });
+            }));
             if (brickDescriptors.length) {
                 this.selectedTag$.next(brickDescriptors[0].tag);
             }
@@ -8595,9 +9163,13 @@
             var currentBrickList = this.bricksList$.getValue();
             if (currentSelectedTag && currentBrickList.length > 1) {
                 /** @type {?} */
-                var currentSelectedBrickIndex = currentBrickList.findIndex(function (brickDescriptor) {
+                var currentSelectedBrickIndex = currentBrickList.findIndex((/**
+                 * @param {?} brickDescriptor
+                 * @return {?}
+                 */
+                function (brickDescriptor) {
                     return brickDescriptor.tag === currentSelectedTag;
-                });
+                }));
                 /** @type {?} */
                 var nextSelectedBrick = void 0;
                 if (isUp) {
@@ -8617,9 +9189,12 @@
                 }
                 this.selectedTag$.next(nextSelectedBrick.tag);
                 // wait until component re-renders
-                setTimeout(function () {
+                setTimeout((/**
+                 * @return {?}
+                 */
+                function () {
                     document.getElementsByClassName('w-bricks-list__selected')[0].scrollIntoView();
-                });
+                }));
             }
         };
         BricksListComponent.decorators = [
@@ -8639,7 +9214,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var NodeTreeSplit = /** @class */ (function () {
         function NodeTreeSplit(root, targetElement, // text node
@@ -8751,7 +9326,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var TreeNodeTraverse = /** @class */ (function () {
         function TreeNodeTraverse(root) {
@@ -8799,9 +9374,13 @@
         function () {
             /** @type {?} */
             var nodes = [];
-            this.traversePreOrder(function (node) {
+            this.traversePreOrder((/**
+             * @param {?} node
+             * @return {?}
+             */
+            function (node) {
                 nodes.push(node);
-            });
+            }));
             return nodes;
         };
         /**
@@ -8813,9 +9392,13 @@
         function () {
             /** @type {?} */
             var nodes = [];
-            this.traversePostOrder(function (node) {
+            this.traversePostOrder((/**
+             * @param {?} node
+             * @return {?}
+             */
+            function (node) {
                 nodes.push(node);
-            });
+            }));
             return nodes;
         };
         /**
@@ -8827,9 +9410,13 @@
         function () {
             /** @type {?} */
             var nodes = [];
-            this.traversePostPreOrder(function (node) {
+            this.traversePostPreOrder((/**
+             * @param {?} node
+             * @return {?}
+             */
+            function (node) {
                 nodes.push(node);
-            });
+            }));
             return nodes;
         };
         /**
@@ -8846,12 +9433,16 @@
          */
         function (node, fn) {
             var _this = this;
-            Array.from(node.childNodes).forEach(function (childNode) {
+            Array.from(node.childNodes).forEach((/**
+             * @param {?} childNode
+             * @return {?}
+             */
+            function (childNode) {
                 if (childNode.childNodes && childNode.childNodes.length) {
                     _this._traversePostOrder(childNode, fn);
                 }
                 fn(childNode);
-            });
+            }));
         };
         /**
          * @private
@@ -8867,12 +9458,16 @@
          */
         function (node, fn) {
             var _this = this;
-            Array.from(node.childNodes).forEach(function (childNode) {
+            Array.from(node.childNodes).forEach((/**
+             * @param {?} childNode
+             * @return {?}
+             */
+            function (childNode) {
                 fn(childNode);
                 if (childNode.childNodes && childNode.childNodes.length) {
                     _this._traversePreOrder(childNode, fn);
                 }
-            });
+            }));
         };
         /**
          * @private
@@ -8888,20 +9483,24 @@
          */
         function (node, fn) {
             var _this = this;
-            Array.from(node.childNodes).forEach(function (childNode) {
+            Array.from(node.childNodes).forEach((/**
+             * @param {?} childNode
+             * @return {?}
+             */
+            function (childNode) {
                 fn(childNode);
                 if (childNode.childNodes && childNode.childNodes.length) {
                     _this._traversePostPreOrder(childNode, fn);
                 }
                 fn(childNode);
-            });
+            }));
         };
         return TreeNodeTraverse;
     }());
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var TextContextMenuComponent = /** @class */ (function () {
         function TextContextMenuComponent(config) {
@@ -8948,12 +9547,15 @@
             this.switchLinkFormVisibility();
             if (this.ui.showLinkForm) {
                 this.config.api.saveSelection();
-                setTimeout(function () {
+                setTimeout((/**
+                 * @return {?}
+                 */
+                function () {
                     if (_this.config.api.isLinkSelected()) {
                         _this.linkEl.nativeElement.value = _this.config.api.getSelectedLinkHref();
                     }
                     _this.linkEl.nativeElement.focus();
-                });
+                }));
             }
             else {
                 this.config.api.restoreSelection();
@@ -9013,7 +9615,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var TextBrickComponent = /** @class */ (function (_super) {
         __extends(TextBrickComponent, _super);
@@ -9041,7 +9643,11 @@
                 restoreSelection: _this.restoreSelection.bind(_this),
                 unlink: _this.unlink.bind(_this)
             };
-            _this.selectedTag$.subscribe(function (newTag) {
+            _this.selectedTag$.subscribe((/**
+             * @param {?} newTag
+             * @return {?}
+             */
+            function (newTag) {
                 if (newTag) {
                     _this.hideBricksList();
                     _this.wallModel.api.core.turnBrickInto(_this.id, newTag);
@@ -9049,14 +9655,24 @@
                         _this.wallModel.api.core.addBrickAfterBrickId(_this.id, 'text');
                     }
                 }
-            });
+            }));
             _this.subscriptions.push(
             // show sub-menu for selected text
             rxjs.fromEvent(_this.el.nativeElement, 'mouseup')
-                .pipe(operators.filter(function () { return Boolean(_this.scope.text.length); }), operators.debounceTime(500), operators.filter(function () { return _this.el.nativeElement.contains(window.getSelection().anchorNode); }))
-                .subscribe(function (e) {
+                .pipe(operators.filter((/**
+             * @return {?}
+             */
+            function () { return Boolean(_this.scope.text.length); })), operators.debounceTime(500), operators.filter((/**
+             * @return {?}
+             */
+            function () { return _this.el.nativeElement.contains(window.getSelection().anchorNode); })))
+                .subscribe((/**
+             * @param {?} e
+             * @return {?}
+             */
+            function (e) {
                 _this.onTextSelection();
-            }));
+            })));
             return _this;
         }
         /**
@@ -9076,9 +9692,13 @@
          */
         function () {
             _super.prototype.ngOnDestroy.call(this);
-            this.subscriptions.forEach(function (subscription) {
+            this.subscriptions.forEach((/**
+             * @param {?} subscription
+             * @return {?}
+             */
+            function (subscription) {
                 subscription.unsubscribe();
-            });
+            }));
         };
         /**
          * @return {?}
@@ -9179,9 +9799,12 @@
             var _this = this;
             if (this.brickSelectionModalRef) {
                 this.enter$.next();
-                setTimeout(function () {
+                setTimeout((/**
+                 * @return {?}
+                 */
+                function () {
                     _this.hideBricksList();
-                }, 10);
+                }), 10);
             }
             else {
                 if (this.isTag()) {
@@ -9267,9 +9890,12 @@
                     },
                     componentFactoryResolver: this.componentFactoryResolver
                 });
-                setTimeout(function () {
+                setTimeout((/**
+                 * @return {?}
+                 */
+                function () {
                     _this.editor.nativeElement.focus();
-                });
+                }));
             }
         };
         /**
@@ -9286,11 +9912,15 @@
             var imageDataTransferItem = this.extractImageDataTransferItem(e.clipboardData.items);
             if (imageDataTransferItem) {
                 e.preventDefault();
-                (new ImgEncoder(imageDataTransferItem.getAsFile())).getBase64Representation().then(function (imgBase64) {
+                (new ImgEncoder(imageDataTransferItem.getAsFile())).getBase64Representation().then((/**
+                 * @param {?} imgBase64
+                 * @return {?}
+                 */
+                function (imgBase64) {
                     _this.wallModel.api.core.turnBrickInto(_this.id, 'image', {
                         src: imgBase64
                     });
-                });
+                }));
             }
             else {
                 _super.prototype.onPaste.call(this, e);
@@ -9496,14 +10126,23 @@
                 },
                 componentFactoryResolver: this.componentFactoryResolver
             });
-            this.contextMenuModalRef.result.then(function () {
+            this.contextMenuModalRef.result.then((/**
+             * @return {?}
+             */
+            function () {
                 _this.hideContextMenuModal();
-            }, function () {
+            }), (/**
+             * @return {?}
+             */
+            function () {
                 _this.hideContextMenuModal();
-            });
-            setTimeout(function () {
+            }));
+            setTimeout((/**
+             * @return {?}
+             */
+            function () {
                 _this.editor.nativeElement.focus();
-            });
+            }));
         };
         // todo: might be as util method
         // todo: might be as util method
@@ -9644,11 +10283,15 @@
             /** @type {?} */
             var orderedNodesBetweenNodes = orderedNodes.slice(nodeAIndex, nodeBIndex);
             /** @type {?} */
-            var linkNodes = orderedNodesBetweenNodes.filter(function (node) {
+            var linkNodes = orderedNodesBetweenNodes.filter((/**
+             * @param {?} node
+             * @return {?}
+             */
+            function (node) {
                 if (_this.isHTMLElement(node)) {
                     return node.tagName === 'A';
                 }
-            });
+            }));
             return (/** @type {?} */ (linkNodes[0]));
         };
         /**
@@ -9687,7 +10330,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var TextBrickModule = /** @class */ (function () {
         function TextBrickModule(brickRegistry) {
@@ -9742,22 +10385,22 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var LocationToTopLeftPointEvent = /** @class */ (function () {
         function LocationToTopLeftPointEvent(spots) {
@@ -9768,7 +10411,7 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var LocationToLeftCenterPointEvent = /** @class */ (function () {
         function LocationToLeftCenterPointEvent(spots) {
