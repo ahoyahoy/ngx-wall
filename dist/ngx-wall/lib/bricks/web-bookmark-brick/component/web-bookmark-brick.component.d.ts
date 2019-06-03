@@ -1,5 +1,5 @@
 import { ComponentFactoryResolver, ElementRef, EventEmitter, OnInit } from '@angular/core';
-import { StickyModalService } from 'ngx-sticky-modal';
+import { StickyModalRef, StickyModalService } from 'ngx-sticky-modal';
 import { IWebBookmarkBrickState } from '../web-bookmark-brick-state.interface';
 export declare class WebBookmarkBrickComponent implements OnInit {
     private el;
@@ -10,6 +10,7 @@ export declare class WebBookmarkBrickComponent implements OnInit {
     stateChanges: EventEmitter<IWebBookmarkBrickState>;
     scope: IWebBookmarkBrickState;
     loading: boolean;
+    modalRef: StickyModalRef;
     constructor(el: ElementRef, componentFactoryResolver: ComponentFactoryResolver, ngxStickyModalService: StickyModalService);
     ngOnInit(): void;
     onWallStateChange(newState: IWebBookmarkBrickState): void;

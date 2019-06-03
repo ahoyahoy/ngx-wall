@@ -38,4 +38,8 @@ export class InputContextComponent implements OnInit {
 
         this.applyImageSrc();
     }
+
+    close() {
+        this.ngxStickyModalRef.dismiss();
+    }
 }

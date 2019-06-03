@@ -34,7 +34,7 @@ export declare class ImgBrickComponent implements OnInit, IOnWallFocus {
     applyImageSrc(imageSrc: string, metadata?: ImgBrickStateMetadata): Promise<any>;
     applyImageFile(imgFile: File): Promise<void>;
     processBase64ImgSrc(): Promise<void>;
-    showPanel(): void;
+    showPanel(): Promise<void>;
     isBase64(str: string): boolean;
     private uploadImage;
     private setUpImageWidth;

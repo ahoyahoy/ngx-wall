@@ -1,6 +1,6 @@
 import { CommonModule, DOCUMENT } from '@angular/common';
 import { Injectable, Component, ComponentFactoryResolver, ApplicationRef, Injector, NgModule, Inject, Input, Output, ViewChild, EventEmitter, NgZone, ChangeDetectorRef, ViewContainerRef, Directive, Renderer2, ElementRef, HostListener, ChangeDetectionStrategy, InjectionToken } from '@angular/core';
-import { __assign, __read, __extends } from 'tslib';
+import { __assign, __read, __extends, __awaiter, __generator } from 'tslib';
 import { Subject, fromEvent, BehaviorSubject } from 'rxjs';
 import { MatIconModule, MatButtonModule, MatInputModule, MatFormFieldModule, MatListModule } from '@angular/material';
 import { throttleTime, filter, debounceTime } from 'rxjs/operators';
@@ -7285,10 +7285,19 @@ var InputContextComponent = /** @class */ (function () {
         e.preventDefault();
         this.applyImageSrc();
     };
+    /**
+     * @return {?}
+     */
+    InputContextComponent.prototype.close = /**
+     * @return {?}
+     */
+    function () {
+        this.ngxStickyModalRef.dismiss();
+    };
     InputContextComponent.decorators = [
         { type: Component, args: [{
-                    template: "<div class=\"w-context-panel w-brick-input mat-elevation-z4\">\n    <div class=\"w-brick-input__body\">\n        <form (submit)=\"onSubmit($event)\">\n            <mat-form-field>\n                <input #src matInput placeholder=\"Paste the image link\">\n            </mat-form-field>\n\n            <button mat-flat-button color=\"primary\" (click)=\"applyImageSrc()\" type=\"button\">\n                Add image\n            </button>\n        </form>\n\n        <p class=\"w-brick-input__description mb-2\">\n            Add link or upload image\n        </p>\n\n        <input accept=\"image/*\" (change)=\"onFileChange($event)\" type=\"file\">\n    </div>\n</div>\n",
-                    styles: ["button,mat-form-field{width:100%}"]
+                    template: "<div class=\"w-context-panel w-brick-input mat-elevation-z4\">\n    <div class=\"w-brick-input__body\">\n        <a class=\"w-context-panel-close\" (click)=\"close()\">x</a>\n\n        <form (submit)=\"onSubmit($event)\">\n            <mat-form-field>\n                <input #src matInput placeholder=\"Paste the image link\">\n            </mat-form-field>\n\n            <button mat-flat-button color=\"primary\" (click)=\"applyImageSrc()\" type=\"button\">\n                Add image\n            </button>\n        </form>\n\n        <p class=\"w-brick-input__description mb-2\">\n            Add link or upload image\n        </p>\n\n        <input accept=\"image/*\" (change)=\"onFileChange($event)\" type=\"file\">\n    </div>\n</div>\n",
+                    styles: ["button,mat-form-field{width:100%}:host .w-context-panel{position:relative}:host .w-context-panel-close{position:absolute;top:10px;right:10px;color:#333;text-decoration:none;cursor:pointer}"]
                 }] }
     ];
     /** @nocollapse */
@@ -7300,6 +7309,39 @@ var InputContextComponent = /** @class */ (function () {
     };
     return InputContextComponent;
 }());
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * @param {?} el
+ * @param {?} resolver
+ * @param {?} component
+ * @return {?}
+ */
+function getModalConfig(el, resolver, component) {
+    /** @type {?} */
+    var elementBoundingRect = el.nativeElement.getBoundingClientRect();
+    /** @type {?} */
+    var elementHeight = el.nativeElement.offsetHeight;
+    console.log('Getting modal config for:', el);
+    console.log(el.nativeElement);
+    console.log('BoundingRect:', elementBoundingRect);
+    console.log('Height:', elementHeight);
+    return {
+        component: component,
+        positionStrategy: {
+            name: StickyPositionStrategy.coordinate,
+            options: {
+                clientX: elementBoundingRect.x,
+                clientY: elementBoundingRect.y + elementHeight + window.scrollY
+            }
+        },
+        componentFactoryResolver: resolver,
+        closeOnEscape: true
+    };
+}
 
 /**
  * @fileoverview added by tsickle
@@ -7500,43 +7542,35 @@ var ImgBrickComponent = /** @class */ (function () {
      * @return {?}
      */
     function () {
-        var _this = this;
-        if (!this.imageSrcPlaceholderRef) {
-            this.imageSrcPlaceholderRef = this.ngxStickyModalService.open({
-                component: InputContextComponent,
-                positionStrategy: {
-                    name: StickyPositionStrategy.flexibleConnected,
-                    options: {
-                        relativeTo: this.el.nativeElement
-                    }
-                },
-                position: {
-                    originX: 'center',
-                    originY: 'bottom',
-                    overlayX: 'center',
-                    overlayY: 'top'
-                },
-                componentFactoryResolver: this.componentFactoryResolver
+        return __awaiter(this, void 0, void 0, function () {
+            var modalConfig;
+            var _this = this;
+            return __generator(this, function (_a) {
+                if (!this.imageSrcPlaceholderRef) {
+                    modalConfig = getModalConfig(this.el, this.componentFactoryResolver, InputContextComponent);
+                    this.imageSrcPlaceholderRef = this.ngxStickyModalService.open(modalConfig);
+                    this.imageSrcPlaceholderRef.result.then((/**
+                     * @param {?} result
+                     * @return {?}
+                     */
+                    function (result) {
+                        _this.imageSrcPlaceholderRef = null;
+                        if (result.src) {
+                            _this.applyImageSrc(result.src);
+                        }
+                        else {
+                            _this.applyImageFile(result.file);
+                        }
+                    }), (/**
+                     * @return {?}
+                     */
+                    function () {
+                        _this.imageSrcPlaceholderRef = null;
+                    }));
+                }
+                return [2 /*return*/];
             });
-            this.imageSrcPlaceholderRef.result.then((/**
-             * @param {?} result
-             * @return {?}
-             */
-            function (result) {
-                _this.imageSrcPlaceholderRef = null;
-                if (result.src) {
-                    _this.applyImageSrc(result.src);
-                }
-                else {
-                    _this.applyImageFile(result.file);
-                }
-            }), (/**
-             * @return {?}
-             */
-            function () {
-                _this.imageSrcPlaceholderRef = null;
-            }));
-        }
+        });
     };
     /**
      * @param {?} str
@@ -8100,10 +8134,19 @@ var InputContextComponent$1 = /** @class */ (function () {
         e.preventDefault();
         this.applySrc();
     };
+    /**
+     * @return {?}
+     */
+    InputContextComponent.prototype.close = /**
+     * @return {?}
+     */
+    function () {
+        this.ngxStickyModalRef.dismiss();
+    };
     InputContextComponent.decorators = [
         { type: Component, args: [{
-                    template: "<div class=\"w-context-panel w-brick-input mat-elevation-z4\">\n    <div class=\"w-brick-input__header\"></div>\n\n    <div class=\"w-brick-input__body\">\n        <form (submit)=\"onSubmit($event)\">\n            <mat-form-field>\n                <input #src matInput placeholder=\"Paste the youtube video link\">\n            </mat-form-field>\n\n            <button mat-flat-button color=\"primary\" (click)=\"applySrc()\" type=\"button\">\n                Add video\n            </button>\n        </form>\n\n        <p class=\"w-brick-input__description\">\n            Youtube video\n        </p>\n    </div>\n\n    <div class=\"w-brick-input__footer\"></div>\n</div>\n",
-                    styles: ["button,mat-form-field{width:100%}"]
+                    template: "<div class=\"w-context-panel w-brick-input mat-elevation-z4\">\n    <div class=\"w-brick-input__header\"></div>\n\n    <div class=\"w-brick-input__body\">\n        <a class=\"w-context-panel-close\" (click)=\"close()\">x</a>\n\n        <form (submit)=\"onSubmit($event)\">\n            <mat-form-field>\n                <input #src matInput placeholder=\"Paste the youtube video link\">\n            </mat-form-field>\n\n            <button mat-flat-button color=\"primary\" (click)=\"applySrc()\" type=\"button\">\n                Add video\n            </button>\n        </form>\n\n        <p class=\"w-brick-input__description\">\n            Youtube video\n        </p>\n    </div>\n\n    <div class=\"w-brick-input__footer\"></div>\n</div>\n",
+                    styles: ["button,mat-form-field{width:100%}:host .w-context-panel{position:relative}:host .w-context-panel-close{position:absolute;top:10px;right:10px;color:#333;text-decoration:none;cursor:pointer}"]
                 }] }
     ];
     /** @nocollapse */
@@ -8229,22 +8272,9 @@ var VideoBrickComponent = /** @class */ (function () {
      */
     function () {
         var _this = this;
-        this.videoSrcPlaceholderRef = this.ngxStickyModalService.open({
-            component: InputContextComponent$1,
-            positionStrategy: {
-                name: StickyPositionStrategy.flexibleConnected,
-                options: {
-                    relativeTo: this.el.nativeElement
-                }
-            },
-            position: {
-                originX: 'center',
-                originY: 'bottom',
-                overlayX: 'center',
-                overlayY: 'top'
-            },
-            componentFactoryResolver: this.componentFactoryResolver
-        });
+        /** @type {?} */
+        var modalConfig = getModalConfig(this.el, this.componentFactoryResolver, InputContextComponent$1);
+        this.videoSrcPlaceholderRef = this.ngxStickyModalService.open(modalConfig);
         this.videoSrcPlaceholderRef.result.then((/**
          * @param {?} result
          * @return {?}
@@ -8401,10 +8431,19 @@ var InputContextComponent$2 = /** @class */ (function () {
         e.preventDefault();
         this.applySrc();
     };
+    /**
+     * @return {?}
+     */
+    InputContextComponent.prototype.close = /**
+     * @return {?}
+     */
+    function () {
+        this.ngxStickyModalRef.dismiss();
+    };
     InputContextComponent.decorators = [
         { type: Component, args: [{
-                    template: "<div class=\"w-context-panel w-brick-input mat-elevation-z4\">\n    <div class=\"w-brick-input__body\">\n        <form (submit)=\"onSubmit($event)\">\n            <mat-form-field>\n                <input #src matInput placeholder=\"Paste in https://...\">\n            </mat-form-field>\n\n            <button mat-flat-button color=\"primary\" (click)=\"applySrc()\" type=\"button\">\n                Create Bookmark\n            </button>\n        </form>\n\n        <p class=\"w-brick-input__description\">\n            Create a visual bookmark from a link...\n        </p>\n    </div>\n</div>\n",
-                    styles: ["button,mat-form-field{width:100%}"]
+                    template: "<div class=\"w-context-panel w-brick-input mat-elevation-z4\">\n    <div class=\"w-brick-input__body\">\n        <a class=\"w-context-panel-close\" (click)=\"close()\">x</a>\n\n        <form (submit)=\"onSubmit($event)\">\n            <mat-form-field>\n                <input #src matInput placeholder=\"Paste in https://...\">\n            </mat-form-field>\n\n            <button mat-flat-button color=\"primary\" (click)=\"applySrc()\" type=\"button\">\n                Create Bookmark\n            </button>\n        </form>\n\n        <p class=\"w-brick-input__description\">\n            Create a visual bookmark from a link...\n        </p>\n    </div>\n</div>\n",
+                    styles: ["button,mat-form-field{width:100%}:host .w-context-panel{position:relative}:host .w-context-panel-close{position:absolute;top:10px;right:10px;color:#333;text-decoration:none;cursor:pointer}"]
                 }] }
     ];
     /** @nocollapse */
@@ -8510,31 +8549,21 @@ var WebBookmarkBrickComponent = /** @class */ (function () {
     function () {
         var _this = this;
         if (!this.loading) {
-            this.ngxStickyModalService.open({
-                component: InputContextComponent$2,
-                positionStrategy: {
-                    name: StickyPositionStrategy.flexibleConnected,
-                    options: {
-                        relativeTo: this.el.nativeElement
-                    }
-                },
-                position: {
-                    originX: 'center',
-                    originY: 'bottom',
-                    overlayX: 'center',
-                    overlayY: 'top'
-                },
-                componentFactoryResolver: this.componentFactoryResolver
-            }).result.then((/**
+            /** @type {?} */
+            var modalConfig = getModalConfig(this.el, this.componentFactoryResolver, InputContextComponent$2);
+            this.modalRef = this.ngxStickyModalService.open(modalConfig);
+            this.modalRef.result.then((/**
              * @param {?} result
              * @return {?}
              */
             function (result) {
+                _this.modalRef = null;
                 _this.applySrc(result.src);
             }), (/**
              * @return {?}
              */
             function () {
+                _this.modalRef = null;
             }));
         }
     };
@@ -9809,7 +9838,6 @@ var TextBrickComponent = /** @class */ (function (_super) {
      * @return {?}
      */
     function () {
-        var _this = this;
         _super.prototype.onTextChange.call(this);
         if (this.brickSelectionModalRef) {
             if (!this.scope.text.length) {
@@ -9817,34 +9845,34 @@ var TextBrickComponent = /** @class */ (function (_super) {
             }
         }
         else if (this.scope.text[0] === '/' && this.scope.text.length === 1) {
-            this.editor.nativeElement.blur();
-            /** @type {?} */
-            var elementBoundingRect = this.el.nativeElement.getBoundingClientRect();
-            this.brickSelectionModalRef = this.ngxStickyModalService.open({
-                component: BricksListComponent,
-                data: {
-                    text$: this.textChange,
-                    up$: this.up$,
-                    down$: this.down$,
-                    enter$: this.enter$,
-                    selectedTag$: this.selectedTag$
-                },
-                positionStrategy: {
-                    name: StickyPositionStrategy.coordinate,
-                    options: {
-                        clientX: elementBoundingRect.x,
-                        clientY: elementBoundingRect.y + 35
-                    }
-                },
-                componentFactoryResolver: this.componentFactoryResolver
-            });
-            setTimeout((/**
-             * @return {?}
-             */
-            function () {
-                _this.editor.nativeElement.focus();
-            }));
+            this.openBricksListModal();
         }
+    };
+    /**
+     * @return {?}
+     */
+    TextBrickComponent.prototype.openBricksListModal = /**
+     * @return {?}
+     */
+    function () {
+        var _this = this;
+        this.editor.nativeElement.blur();
+        /** @type {?} */
+        var modalConfig = getModalConfig(this.el, this.componentFactoryResolver, BricksListComponent);
+        modalConfig.data = {
+            text$: this.textChange,
+            up$: this.up$,
+            down$: this.down$,
+            enter$: this.enter$,
+            selectedTag$: this.selectedTag$
+        };
+        this.brickSelectionModalRef = this.ngxStickyModalService.open(modalConfig);
+        setTimeout((/**
+         * @return {?}
+         */
+        function () {
+            _this.editor.nativeElement.focus();
+        }));
     };
     /**
      * @param {?} e
@@ -10258,7 +10286,7 @@ var TextBrickComponent = /** @class */ (function (_super) {
     TextBrickComponent.decorators = [
         { type: Component, args: [{
                     selector: 'text-brick',
-                    template: "<p #editor\n   attr.placeholder=\"{{placeholder}}\"\n   (input)=\"onTextChange()\"\n   [(ngModel)]=\"scope.text\"\n   (keydown)=\"onKeyPress($event)\"\n   (click)=\"onClick($event)\"\n   class=\"text-brick__editor\"\n   [ngClass]=\"'text-brick-tabs-' + scope.tabs\"\n   (blur)=\"onBlur()\"\n   (focus)=\"onFocus()\"\n   contenteditable\n   [propValueAccessor]=\"'innerHTML'\">\n</p>\n",
+                    template: "<p #editor\n   attr.placeholder=\"{{placeholder}}\"\n   (input)=\"onTextChange()\"\n   [(ngModel)]=\"scope.text\"\n   (keydown)=\"onKeyPress($event)\"\n   (click)=\"onClick($event)\"\n   class=\"text-brick__editor\"\n   [ngClass]=\"'text-brick-tabs-' + scope.tabs\"\n   (blur)=\"onBlur()\"\n   (focus)=\"onFocus()\"\n   contenteditable\n   [propValueAccessor]=\"'innerHTML'\">\n</p>\n<!--<mat-icon *ngIf=\"!brickSelectionModalRef\" (click)=\"openBricksListModal()\">add_box</mat-icon>-->\n",
                     styles: [":host{display:block}:host .text-brick__editor{word-break:break-all;padding:3px 2px;line-height:1.4;margin:0;box-sizing:content-box}:host .text-brick__editor:focus{outline:0}:host [contenteditable]:empty:before{content:attr(placeholder)}:host .text-brick-tabs-1{margin-left:1.5rem}:host .text-brick-tabs-2{margin-left:3rem}:host .text-brick-tabs-3{margin-left:4.5rem}"]
                 }] }
     ];
@@ -10303,7 +10331,8 @@ var TextBrickModule = /** @class */ (function () {
                         MatButtonModule,
                         MatInputModule,
                         MatFormFieldModule,
-                        MatListModule
+                        MatListModule,
+                        MatIconModule
                     ],
                     exports: [
                         TextBrickComponent,

@@ -7,4 +7,5 @@ export declare class InputContextComponent implements OnInit {
     ngOnInit(): void;
     applySrc(): void;
     onSubmit(e: any): void;
+    close(): void;
 }

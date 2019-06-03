@@ -5,6 +5,7 @@ import { MatIconModule, MatButtonModule, MatInputModule, MatFormFieldModule, Mat
 import { throttleTime, filter, debounceTime } from 'rxjs/operators';
 import { NG_VALUE_ACCESSOR, FormsModule } from '@angular/forms';
 import { StickyModalRef, StickyPositionStrategy, StickyModalService, StickyModalModule, STICKY_MODAL_DATA } from 'ngx-sticky-modal';
+import { __awaiter } from 'tslib';
 import CodeMirror from 'codemirror';
 import 'codemirror/mode/javascript/javascript';
 import 'codemirror/mode/shell/shell';
@@ -5985,11 +5986,17 @@ class InputContextComponent {
         e.preventDefault();
         this.applyImageSrc();
     }
+    /**
+     * @return {?}
+     */
+    close() {
+        this.ngxStickyModalRef.dismiss();
+    }
 }
 InputContextComponent.decorators = [
     { type: Component, args: [{
-                template: "<div class=\"w-context-panel w-brick-input mat-elevation-z4\">\n    <div class=\"w-brick-input__body\">\n        <form (submit)=\"onSubmit($event)\">\n            <mat-form-field>\n                <input #src matInput placeholder=\"Paste the image link\">\n            </mat-form-field>\n\n            <button mat-flat-button color=\"primary\" (click)=\"applyImageSrc()\" type=\"button\">\n                Add image\n            </button>\n        </form>\n\n        <p class=\"w-brick-input__description mb-2\">\n            Add link or upload image\n        </p>\n\n        <input accept=\"image/*\" (change)=\"onFileChange($event)\" type=\"file\">\n    </div>\n</div>\n",
-                styles: ["button,mat-form-field{width:100%}"]
+                template: "<div class=\"w-context-panel w-brick-input mat-elevation-z4\">\n    <div class=\"w-brick-input__body\">\n        <a class=\"w-context-panel-close\" (click)=\"close()\">x</a>\n\n        <form (submit)=\"onSubmit($event)\">\n            <mat-form-field>\n                <input #src matInput placeholder=\"Paste the image link\">\n            </mat-form-field>\n\n            <button mat-flat-button color=\"primary\" (click)=\"applyImageSrc()\" type=\"button\">\n                Add image\n            </button>\n        </form>\n\n        <p class=\"w-brick-input__description mb-2\">\n            Add link or upload image\n        </p>\n\n        <input accept=\"image/*\" (change)=\"onFileChange($event)\" type=\"file\">\n    </div>\n</div>\n",
+                styles: ["button,mat-form-field{width:100%}:host .w-context-panel{position:relative}:host .w-context-panel-close{position:absolute;top:10px;right:10px;color:#333;text-decoration:none;cursor:pointer}"]
             }] }
 ];
 /** @nocollapse */
@@ -5999,6 +6006,39 @@ InputContextComponent.ctorParameters = () => [
 InputContextComponent.propDecorators = {
     srcInput: [{ type: ViewChild, args: ['src',] }]
 };
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * @param {?} el
+ * @param {?} resolver
+ * @param {?} component
+ * @return {?}
+ */
+function getModalConfig(el, resolver, component) {
+    /** @type {?} */
+    const elementBoundingRect = el.nativeElement.getBoundingClientRect();
+    /** @type {?} */
+    const elementHeight = el.nativeElement.offsetHeight;
+    console.log('Getting modal config for:', el);
+    console.log(el.nativeElement);
+    console.log('BoundingRect:', elementBoundingRect);
+    console.log('Height:', elementHeight);
+    return {
+        component: component,
+        positionStrategy: {
+            name: StickyPositionStrategy.coordinate,
+            options: {
+                clientX: elementBoundingRect.x,
+                clientY: elementBoundingRect.y + elementHeight + window.scrollY
+            }
+        },
+        componentFactoryResolver: resolver,
+        closeOnEscape: true
+    };
+}
 
 /**
  * @fileoverview added by tsickle
@@ -6161,42 +6201,31 @@ class ImgBrickComponent {
      * @return {?}
      */
     showPanel() {
-        if (!this.imageSrcPlaceholderRef) {
-            this.imageSrcPlaceholderRef = this.ngxStickyModalService.open({
-                component: InputContextComponent,
-                positionStrategy: {
-                    name: StickyPositionStrategy.flexibleConnected,
-                    options: {
-                        relativeTo: this.el.nativeElement
+        return __awaiter(this, void 0, void 0, function* () {
+            if (!this.imageSrcPlaceholderRef) {
+                /** @type {?} */
+                const modalConfig = getModalConfig(this.el, this.componentFactoryResolver, InputContextComponent);
+                this.imageSrcPlaceholderRef = this.ngxStickyModalService.open(modalConfig);
+                this.imageSrcPlaceholderRef.result.then((/**
+                 * @param {?} result
+                 * @return {?}
+                 */
+                (result) => {
+                    this.imageSrcPlaceholderRef = null;
+                    if (result.src) {
+                        this.applyImageSrc(result.src);
                     }
-                },
-                position: {
-                    originX: 'center',
-                    originY: 'bottom',
-                    overlayX: 'center',
-                    overlayY: 'top'
-                },
-                componentFactoryResolver: this.componentFactoryResolver
-            });
-            this.imageSrcPlaceholderRef.result.then((/**
-             * @param {?} result
-             * @return {?}
-             */
-            (result) => {
-                this.imageSrcPlaceholderRef = null;
-                if (result.src) {
-                    this.applyImageSrc(result.src);
-                }
-                else {
-                    this.applyImageFile(result.file);
-                }
-            }), (/**
-             * @return {?}
-             */
-            () => {
-                this.imageSrcPlaceholderRef = null;
-            }));
-        }
+                    else {
+                        this.applyImageFile(result.file);
+                    }
+                }), (/**
+                 * @return {?}
+                 */
+                () => {
+                    this.imageSrcPlaceholderRef = null;
+                }));
+            }
+        });
     }
     /**
      * @param {?} str
@@ -6704,11 +6733,17 @@ class InputContextComponent$1 {
         e.preventDefault();
         this.applySrc();
     }
+    /**
+     * @return {?}
+     */
+    close() {
+        this.ngxStickyModalRef.dismiss();
+    }
 }
 InputContextComponent$1.decorators = [
     { type: Component, args: [{
-                template: "<div class=\"w-context-panel w-brick-input mat-elevation-z4\">\n    <div class=\"w-brick-input__header\"></div>\n\n    <div class=\"w-brick-input__body\">\n        <form (submit)=\"onSubmit($event)\">\n            <mat-form-field>\n                <input #src matInput placeholder=\"Paste the youtube video link\">\n            </mat-form-field>\n\n            <button mat-flat-button color=\"primary\" (click)=\"applySrc()\" type=\"button\">\n                Add video\n            </button>\n        </form>\n\n        <p class=\"w-brick-input__description\">\n            Youtube video\n        </p>\n    </div>\n\n    <div class=\"w-brick-input__footer\"></div>\n</div>\n",
-                styles: ["button,mat-form-field{width:100%}"]
+                template: "<div class=\"w-context-panel w-brick-input mat-elevation-z4\">\n    <div class=\"w-brick-input__header\"></div>\n\n    <div class=\"w-brick-input__body\">\n        <a class=\"w-context-panel-close\" (click)=\"close()\">x</a>\n\n        <form (submit)=\"onSubmit($event)\">\n            <mat-form-field>\n                <input #src matInput placeholder=\"Paste the youtube video link\">\n            </mat-form-field>\n\n            <button mat-flat-button color=\"primary\" (click)=\"applySrc()\" type=\"button\">\n                Add video\n            </button>\n        </form>\n\n        <p class=\"w-brick-input__description\">\n            Youtube video\n        </p>\n    </div>\n\n    <div class=\"w-brick-input__footer\"></div>\n</div>\n",
+                styles: ["button,mat-form-field{width:100%}:host .w-context-panel{position:relative}:host .w-context-panel-close{position:absolute;top:10px;right:10px;color:#333;text-decoration:none;cursor:pointer}"]
             }] }
 ];
 /** @nocollapse */
@@ -6817,22 +6852,9 @@ class VideoBrickComponent {
      * @return {?}
      */
     showVideoPanel() {
-        this.videoSrcPlaceholderRef = this.ngxStickyModalService.open({
-            component: InputContextComponent$1,
-            positionStrategy: {
-                name: StickyPositionStrategy.flexibleConnected,
-                options: {
-                    relativeTo: this.el.nativeElement
-                }
-            },
-            position: {
-                originX: 'center',
-                originY: 'bottom',
-                overlayX: 'center',
-                overlayY: 'top'
-            },
-            componentFactoryResolver: this.componentFactoryResolver
-        });
+        /** @type {?} */
+        const modalConfig = getModalConfig(this.el, this.componentFactoryResolver, InputContextComponent$1);
+        this.videoSrcPlaceholderRef = this.ngxStickyModalService.open(modalConfig);
         this.videoSrcPlaceholderRef.result.then((/**
          * @param {?} result
          * @return {?}
@@ -6977,11 +6999,17 @@ class InputContextComponent$2 {
         e.preventDefault();
         this.applySrc();
     }
+    /**
+     * @return {?}
+     */
+    close() {
+        this.ngxStickyModalRef.dismiss();
+    }
 }
 InputContextComponent$2.decorators = [
     { type: Component, args: [{
-                template: "<div class=\"w-context-panel w-brick-input mat-elevation-z4\">\n    <div class=\"w-brick-input__body\">\n        <form (submit)=\"onSubmit($event)\">\n            <mat-form-field>\n                <input #src matInput placeholder=\"Paste in https://...\">\n            </mat-form-field>\n\n            <button mat-flat-button color=\"primary\" (click)=\"applySrc()\" type=\"button\">\n                Create Bookmark\n            </button>\n        </form>\n\n        <p class=\"w-brick-input__description\">\n            Create a visual bookmark from a link...\n        </p>\n    </div>\n</div>\n",
-                styles: ["button,mat-form-field{width:100%}"]
+                template: "<div class=\"w-context-panel w-brick-input mat-elevation-z4\">\n    <div class=\"w-brick-input__body\">\n        <a class=\"w-context-panel-close\" (click)=\"close()\">x</a>\n\n        <form (submit)=\"onSubmit($event)\">\n            <mat-form-field>\n                <input #src matInput placeholder=\"Paste in https://...\">\n            </mat-form-field>\n\n            <button mat-flat-button color=\"primary\" (click)=\"applySrc()\" type=\"button\">\n                Create Bookmark\n            </button>\n        </form>\n\n        <p class=\"w-brick-input__description\">\n            Create a visual bookmark from a link...\n        </p>\n    </div>\n</div>\n",
+                styles: ["button,mat-form-field{width:100%}:host .w-context-panel{position:relative}:host .w-context-panel-close{position:absolute;top:10px;right:10px;color:#333;text-decoration:none;cursor:pointer}"]
             }] }
 ];
 /** @nocollapse */
@@ -7074,31 +7102,21 @@ class WebBookmarkBrickComponent {
      */
     showPanel() {
         if (!this.loading) {
-            this.ngxStickyModalService.open({
-                component: InputContextComponent$2,
-                positionStrategy: {
-                    name: StickyPositionStrategy.flexibleConnected,
-                    options: {
-                        relativeTo: this.el.nativeElement
-                    }
-                },
-                position: {
-                    originX: 'center',
-                    originY: 'bottom',
-                    overlayX: 'center',
-                    overlayY: 'top'
-                },
-                componentFactoryResolver: this.componentFactoryResolver
-            }).result.then((/**
+            /** @type {?} */
+            const modalConfig = getModalConfig(this.el, this.componentFactoryResolver, InputContextComponent$2);
+            this.modalRef = this.ngxStickyModalService.open(modalConfig);
+            this.modalRef.result.then((/**
              * @param {?} result
              * @return {?}
              */
-            (result) => {
+            result => {
+                this.modalRef = null;
                 this.applySrc(result.src);
             }), (/**
              * @return {?}
              */
             () => {
+                this.modalRef = null;
             }));
         }
     }
@@ -8210,34 +8228,30 @@ class TextBrickComponent extends BaseTextBrickComponent {
             }
         }
         else if (this.scope.text[0] === '/' && this.scope.text.length === 1) {
-            this.editor.nativeElement.blur();
-            /** @type {?} */
-            const elementBoundingRect = this.el.nativeElement.getBoundingClientRect();
-            this.brickSelectionModalRef = this.ngxStickyModalService.open({
-                component: BricksListComponent,
-                data: {
-                    text$: this.textChange,
-                    up$: this.up$,
-                    down$: this.down$,
-                    enter$: this.enter$,
-                    selectedTag$: this.selectedTag$
-                },
-                positionStrategy: {
-                    name: StickyPositionStrategy.coordinate,
-                    options: {
-                        clientX: elementBoundingRect.x,
-                        clientY: elementBoundingRect.y + 35
-                    }
-                },
-                componentFactoryResolver: this.componentFactoryResolver
-            });
-            setTimeout((/**
-             * @return {?}
-             */
-            () => {
-                this.editor.nativeElement.focus();
-            }));
+            this.openBricksListModal();
         }
+    }
+    /**
+     * @return {?}
+     */
+    openBricksListModal() {
+        this.editor.nativeElement.blur();
+        /** @type {?} */
+        const modalConfig = getModalConfig(this.el, this.componentFactoryResolver, BricksListComponent);
+        modalConfig.data = {
+            text$: this.textChange,
+            up$: this.up$,
+            down$: this.down$,
+            enter$: this.enter$,
+            selectedTag$: this.selectedTag$
+        };
+        this.brickSelectionModalRef = this.ngxStickyModalService.open(modalConfig);
+        setTimeout((/**
+         * @return {?}
+         */
+        () => {
+            this.editor.nativeElement.focus();
+        }));
     }
     /**
      * @param {?} e
@@ -8555,7 +8569,7 @@ class TextBrickComponent extends BaseTextBrickComponent {
 TextBrickComponent.decorators = [
     { type: Component, args: [{
                 selector: 'text-brick',
-                template: "<p #editor\n   attr.placeholder=\"{{placeholder}}\"\n   (input)=\"onTextChange()\"\n   [(ngModel)]=\"scope.text\"\n   (keydown)=\"onKeyPress($event)\"\n   (click)=\"onClick($event)\"\n   class=\"text-brick__editor\"\n   [ngClass]=\"'text-brick-tabs-' + scope.tabs\"\n   (blur)=\"onBlur()\"\n   (focus)=\"onFocus()\"\n   contenteditable\n   [propValueAccessor]=\"'innerHTML'\">\n</p>\n",
+                template: "<p #editor\n   attr.placeholder=\"{{placeholder}}\"\n   (input)=\"onTextChange()\"\n   [(ngModel)]=\"scope.text\"\n   (keydown)=\"onKeyPress($event)\"\n   (click)=\"onClick($event)\"\n   class=\"text-brick__editor\"\n   [ngClass]=\"'text-brick-tabs-' + scope.tabs\"\n   (blur)=\"onBlur()\"\n   (focus)=\"onFocus()\"\n   contenteditable\n   [propValueAccessor]=\"'innerHTML'\">\n</p>\n<!--<mat-icon *ngIf=\"!brickSelectionModalRef\" (click)=\"openBricksListModal()\">add_box</mat-icon>-->\n",
                 styles: [":host{display:block}:host .text-brick__editor{word-break:break-all;padding:3px 2px;line-height:1.4;margin:0;box-sizing:content-box}:host .text-brick__editor:focus{outline:0}:host [contenteditable]:empty:before{content:attr(placeholder)}:host .text-brick-tabs-1{margin-left:1.5rem}:host .text-brick-tabs-2{margin-left:3rem}:host .text-brick-tabs-3{margin-left:4.5rem}"]
             }] }
 ];
@@ -8602,7 +8616,8 @@ TextBrickModule.decorators = [
                     MatButtonModule,
                     MatInputModule,
                     MatFormFieldModule,
-                    MatListModule
+                    MatListModule,
+                    MatIconModule
                 ],
                 exports: [
                     TextBrickComponent,

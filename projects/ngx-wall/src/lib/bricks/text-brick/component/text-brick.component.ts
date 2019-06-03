@@ -11,6 +11,7 @@ import {ITextBrickApi} from '../text-brick-api.interface';
 import {TextContextMenuComponent} from '../text-context-menu/text-context-menu.component';
 import {IWallModel} from '../../../wall/model/interfaces/wall-model.interface';
 import {DIVIDER_BRICK_TAG} from '../../divider-brick/divider-brick.constant';
+import {getModalConfig} from '../../base-brick/base-brick.component';
 
 @Component({
     selector: 'text-brick',
@@ -190,33 +191,26 @@ export class TextBrickComponent extends BaseTextBrickComponent implements OnInit
                 this.hideBricksList();
             }
         } else if (this.scope.text[0] === '/' && this.scope.text.length === 1) {
-            this.editor.nativeElement.blur();
-
-            const elementBoundingRect = this.el.nativeElement.getBoundingClientRect();
-
-            this.brickSelectionModalRef = this.ngxStickyModalService.open({
-                component: BricksListComponent,
-                data: {
-                    text$: this.textChange,
-                    up$: this.up$,
-                    down$: this.down$,
-                    enter$: this.enter$,
-                    selectedTag$: this.selectedTag$
-                },
-                positionStrategy: {
-                    name: StickyPositionStrategy.coordinate,
-                    options: {
-                        clientX: elementBoundingRect.x,
-                        clientY: elementBoundingRect.y + 35
-                    }
-                },
-                componentFactoryResolver: this.componentFactoryResolver
-            });
-
-            setTimeout(() => {
-                this.editor.nativeElement.focus();
-            });
+            this.openBricksListModal();
         }
+    }
+
+    openBricksListModal() {
+        this.editor.nativeElement.blur();
+
+        const modalConfig = getModalConfig(this.el, this.componentFactoryResolver, BricksListComponent);
+        modalConfig.data = {
+            text$: this.textChange,
+            up$: this.up$,
+            down$: this.down$,
+            enter$: this.enter$,
+            selectedTag$: this.selectedTag$
+        };
+        this.brickSelectionModalRef = this.ngxStickyModalService.open(modalConfig);
+
+        setTimeout(() => {
+            this.editor.nativeElement.focus();
+        });
     }
 
     onPaste(e: ClipboardEvent) {

@@ -3,6 +3,7 @@ import {StickyModalRef, StickyModalService, StickyPositionStrategy} from 'ngx-st
 import {IOnWallFocus} from '../../../wall/wall';
 import {IVideoBrickState} from '../video-brick-state.interface';
 import {InputContextComponent} from '../input-context/input-context.component';
+import {getModalConfig} from '../../base-brick/base-brick.component';
 
 @Component({
     selector: 'video-brick',
@@ -93,26 +94,11 @@ export class VideoBrickComponent implements OnInit, IOnWallFocus {
     }
 
     showVideoPanel() {
-        this.videoSrcPlaceholderRef = this.ngxStickyModalService.open({
-            component: InputContextComponent,
-            positionStrategy: {
-                name: StickyPositionStrategy.flexibleConnected,
-                options: {
-                    relativeTo: this.el.nativeElement
-                }
-            },
-            position: {
-                originX: 'center',
-                originY: 'bottom',
-                overlayX: 'center',
-                overlayY: 'top'
-            },
-            componentFactoryResolver: this.componentFactoryResolver
-        });
+        const modalConfig = getModalConfig(this.el, this.componentFactoryResolver, InputContextComponent);
+        this.videoSrcPlaceholderRef = this.ngxStickyModalService.open(modalConfig);
 
         this.videoSrcPlaceholderRef.result.then((result) => {
             this.videoSrcPlaceholderRef = null;
-
             this.applySrc(result.src);
         }, () => {
             this.videoSrcPlaceholderRef = null;

@@ -1,3 +1,18 @@
 button, mat-form-field {
     width: 100%;
 }
+
+:host {
+    .w-context-panel {
+        position: relative;
+    }
+
+    .w-context-panel-close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        color: #333;
+        text-decoration: none;
+        cursor: pointer;
+    }
+}

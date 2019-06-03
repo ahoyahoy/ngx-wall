@@ -20,6 +20,7 @@ import {ImgEncoder} from '../../../modules/utils/img-encoder.service';
 import {ImgBrickState, ImgBrickStateMetadata} from '../img-brick-state.interface';
 import {InputContextComponent} from '../input-context/input-context.component';
 import {IOnWallFocus} from '../../../wall/components/wall/interfaces/wall-component/on-wall-focus.interface';
+import {getModalConfig} from '../../base-brick/base-brick.component';
 
 @Component({
     selector: 'img-brick',
@@ -57,6 +58,7 @@ export class ImgBrickComponent implements OnInit, IOnWallFocus {
                 private ngxStickyModalService: StickyModalService,
                 @Inject(WALL_FILE_UPLOADER) private wallFileUploader: IWallFileUploader,
                 private el: ElementRef) {
+
     }
 
     ngOnInit() {
@@ -144,25 +146,10 @@ export class ImgBrickComponent implements OnInit, IOnWallFocus {
         });
     }
 
-    showPanel() {
+    async showPanel() {
         if (!this.imageSrcPlaceholderRef) {
-            this.imageSrcPlaceholderRef = this.ngxStickyModalService.open({
-                component: InputContextComponent,
-                positionStrategy: {
-                    name: StickyPositionStrategy.flexibleConnected,
-                    options: {
-                        relativeTo: this.el.nativeElement
-                    }
-                },
-                position: {
-                    originX: 'center',
-                    originY: 'bottom',
-                    overlayX: 'center',
-                    overlayY: 'top'
-                },
-                componentFactoryResolver: this.componentFactoryResolver
-            });
-
+            const modalConfig = getModalConfig(this.el, this.componentFactoryResolver, InputContextComponent);
+            this.imageSrcPlaceholderRef = this.ngxStickyModalService.open(modalConfig);
             this.imageSrcPlaceholderRef.result.then((result) => {
                 this.imageSrcPlaceholderRef = null;
 

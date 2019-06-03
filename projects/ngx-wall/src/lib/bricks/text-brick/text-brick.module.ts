@@ -6,7 +6,7 @@ import {TextRepresentation} from '../base-text-brick/base-text-representation.cl
 import {BricksListComponent} from './bricks-list/bricks-list.component';
 import {TextBrickComponent} from './component/text-brick.component';
 import {TextContextMenuComponent} from './text-context-menu/text-context-menu.component';
-import {MatButtonModule, MatFormFieldModule, MatInputModule, MatListModule} from '@angular/material';
+import {MatButtonModule, MatFormFieldModule, MatIconModule, MatInputModule, MatListModule} from '@angular/material';
 import {HelperComponentsModule} from '../../modules/helper-components/helper-components.module';
 import {ContenteditableModule} from '../../modules/contenteditable/contenteditable.module';
 import {BrickRegistry} from '../../wall/registry/brick-registry.service';
@@ -21,7 +21,8 @@ import {BrickRegistry} from '../../wall/registry/brick-registry.service';
         MatButtonModule,
         MatInputModule,
         MatFormFieldModule,
-        MatListModule
+        MatListModule,
+        MatIconModule
     ],
     exports: [
         TextBrickComponent,

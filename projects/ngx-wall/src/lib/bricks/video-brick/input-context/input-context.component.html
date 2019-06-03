@@ -2,6 +2,8 @@
     <div class="w-brick-input__header"></div>
 
     <div class="w-brick-input__body">
+        <a class="w-context-panel-close" (click)="close()">x</a>
+
         <form (submit)="onSubmit($event)">
             <mat-form-field>
                 <input #src matInput placeholder="Paste the youtube video link">

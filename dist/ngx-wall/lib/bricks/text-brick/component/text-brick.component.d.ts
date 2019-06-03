@@ -40,6 +40,7 @@ export declare class TextBrickComponent extends BaseTextBrickComponent implement
     };
     escapeKeyPressed(e: KeyboardEvent): void;
     onTextChange(): void;
+    openBricksListModal(): void;
     onPaste(e: ClipboardEvent): void;
     onTextSelection(): void;
     bold(): void;

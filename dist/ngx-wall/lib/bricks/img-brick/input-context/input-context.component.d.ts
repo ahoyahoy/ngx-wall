@@ -9,4 +9,5 @@ export declare class InputContextComponent implements OnInit {
     onFileChange(event: any): void;
     notify(data: any): void;
     onSubmit(e: any): void;
+    close(): void;
 }

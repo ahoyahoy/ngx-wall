@@ -1,7 +1,9 @@
 import {Component, ComponentFactoryResolver, ElementRef, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {StickyModalService, StickyPositionStrategy} from 'ngx-sticky-modal';
+import {StickyModalRef, StickyModalService, StickyPositionStrategy} from 'ngx-sticky-modal';
 import {IWebBookmarkBrickState} from '../web-bookmark-brick-state.interface';
 import {InputContextComponent} from '../input-context/input-context.component';
+import {getModalConfig} from '../../base-brick/base-brick.component';
+import {BricksListComponent} from '../../text-brick/bricks-list/bricks-list.component';
 
 @Component({
     selector: 'web-bookmark-brick',
@@ -32,6 +34,7 @@ export class WebBookmarkBrickComponent implements OnInit {
     };
 
     loading = false;
+    modalRef: StickyModalRef;
 
     constructor(private el: ElementRef,
                 private componentFactoryResolver: ComponentFactoryResolver,
@@ -72,24 +75,13 @@ export class WebBookmarkBrickComponent implements OnInit {
 
     showPanel() {
         if (!this.loading) {
-            this.ngxStickyModalService.open({
-                component: InputContextComponent,
-                positionStrategy: {
-                    name: StickyPositionStrategy.flexibleConnected,
-                    options: {
-                        relativeTo: this.el.nativeElement
-                    }
-                },
-                position: {
-                    originX: 'center',
-                    originY: 'bottom',
-                    overlayX: 'center',
-                    overlayY: 'top'
-                },
-                componentFactoryResolver: this.componentFactoryResolver
-            }).result.then((result) => {
+            const modalConfig = getModalConfig(this.el, this.componentFactoryResolver, InputContextComponent);
+            this.modalRef = this.ngxStickyModalService.open(modalConfig);
+            this.modalRef.result.then(result => {
+                this.modalRef = null;
                 this.applySrc(result.src);
             }, () => {
+                this.modalRef = null;
             });
         }
     }

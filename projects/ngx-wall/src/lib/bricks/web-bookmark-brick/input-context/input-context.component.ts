@@ -28,4 +28,8 @@ export class InputContextComponent implements OnInit {
 
         this.applySrc();
     }
+
+    close() {
+        this.ngxStickyModalRef.dismiss();
+    }
 }
